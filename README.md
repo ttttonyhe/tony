@@ -38,13 +38,13 @@ git clone git@github.com:HelipengTony/tony.git
 
 ### 后台设置界面
 设置项下方以批注使用方法
-[Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
+![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
 
 
 <br/>
 
 ### 向我投食
-[Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
+![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
 
