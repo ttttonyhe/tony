@@ -6,6 +6,11 @@ An Elegant WordPress Theme Based on Vue.js
 
 <br/>
 
+### 首页截图
+![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
+
+<br/>
+
 ### 环境要求
 + WordPress 4.4+
 
