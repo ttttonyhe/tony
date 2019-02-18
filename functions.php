@@ -168,7 +168,6 @@ function change_graphic_lib($array) {
   return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
 }
 
-include (TEMPLATEPATH . '/code/code.php' );
 
 
 
@@ -258,7 +257,8 @@ function get_post_meta_for_api($post){
     $post_meta['link'] = get_post_meta($post['id'],'link',true);
     $post_meta['img'] = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
     $post_meta['title'] = get_the_title($post['id']);
-    $post_meta['tag_name'] = get_the_tags($post['id'])[0]->name;
+    $tagsss = get_the_tags($post['id']);
+    $post_meta['tag_name'] = $tagsss[0]->name;
     return $post_meta;
 }
 /* rest-api */

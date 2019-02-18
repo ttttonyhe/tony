@@ -7,40 +7,40 @@ if(is_admin()){
             'id'    => 'one',//标签的ID
             'type'  => 'panelstart' //顶部标签的类型
         ),
-        
+    array(
+		'name' => '列表文章单页数量',
+		'id' => 'king_per_page',
+		'type' => 'number',
+		'op_des' => '文章列表无限加载前展示多少篇文章')
+	,
 	array(
 		'name' => '站点Head关键词',
 		'id' => 'king_gjc',
 		'type' => 'text',
-		'std' => 'xxx,xxx,xxx,xxx',
 		'op_des' => '此博客的关键词，以英文半角逗号分隔，将添加在博客head部分'
 		),
 	array(
 		'name' => '站点描述',
 		'id' => 'king_ms',
 		'type' => 'textarea',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '此博客的描述，将添加在博客head部分与首页顶部'
 		),
 	array(
 		'name' => '站点ICO图标',
 		'id' => 'king_ico',
 		'type' => 'text',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '此博客的favicon图标链接地址'
 		),
 	array(
 		'name' => '站点Logo图标',
 		'id' => 'king_logo',
 		'type' => 'text',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '此博客的Logo图标链接地址'
 		),
 	array(
 		'name' => '站长统计代码',
 		'id' => 'king_zztj',
 		'type' => 'textarea',
-		'std' => '<script>xxxxxxxxx</script>',
 		'op_des' => '包含script标签的站长统计代码，将添加在博客head部分')
 	,
 	array(
@@ -58,42 +58,36 @@ if(is_admin()){
 		'name' => '首页排除分类',
 		'id' => 'king_index_exclude',
 		'type' => 'text',
-		'std' => '1,2,3',
 		'op_des' => '在站点首页不显示的分类ID，以英文半角逗号分隔'
 		),
 	array(
 		'name' => '顶栏排除分类',
 		'id' => 'king_index_cate_exclude',
 		'type' => 'text',
-		'std' => '1,2,3',
 		'op_des' => '在站点顶栏不显示的分类ID，以英文半角逗号分隔'
 		),
 	array(
 		'name' => '展示分类标签的分类',
 		'id' => 'king_cate_cate',
 		'type' => 'number',
-		'std' => 'xxx',
 		'op_des' => '该分类将在文章列表展示分类名与第一个标签')
 	,
 	array(
 		'name' => '无标签时占位内容',
 		'id' => 'king_cate_cate_ph',
 		'type' => 'text',
-		'std' => 'xxx',
 		'op_des' => '展示分类标签的分类不存在第一个标签时的占位内容')
 	,
 	array(
 		'name' => '友情链接分类',
 		'id' => 'king_fre_cate',
 		'type' => 'number',
-		'std' => 'xxx',
 		'op_des' => '友情链接分类将展示不同样式的文章列表')
 	,
 	array(
 		'name' => '作品集分类',
 		'id' => 'king_wor_cate',
 		'type' => 'number',
-		'std' => 'xxx',
 		'op_des' => '作品集分类将展示与友情链接相同样式的文章列表与不同的描述')
 	,
 	array(
@@ -112,21 +106,18 @@ if(is_admin()){
 		'name' => '「关于我」页面链接',
 		'id' => 'king_abt_url',
 		'type' => 'text',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '展示在导航栏上的关于我链接'
 		),
 	array(
 		'name' => '导航栏第二页面链接',
 		'id' => 'king_nav_pu',
 		'type' => 'text',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '展示在导航栏上的第二页面链接'
 		),
 	array(
 		'name' => '导航栏第二页面名称',
 		'id' => 'king_nav_pn',
 		'type' => 'text',
-		'std' => 'xxxxxxxxxxxx',
 		'op_des' => '展示在导航栏上的第二页面名称'
 		),
     
@@ -407,7 +398,7 @@ if(is_admin()){
         jQuery(document).ready(function($) {
             var $menuAppearance = $("#menu-appearance");
             $menuAppearance.pointer({
-                content: '<h3>Hi！</h3><p>感谢使用King主题修改版</p>',
+                content: '<h3>最重要的一步</h3><p>感谢使用本主题<br/>请先进行必要的设置以保证访客体验</p>',
                 position: {
                     edge: "left",
                     align: "center"

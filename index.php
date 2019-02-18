@@ -1,9 +1,12 @@
-<?php get_header(); ?>
+<?php 
+    get_header(); 
+    if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page');
+?>
 
 <div id="header_info" class="index-top">
     <nav class="header-nav reveal">
         <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="TonyHe"><?php echo get_bloginfo('name'); ?></a>
-        <p class="lead" style="margin-top: 0px;margin-left:5px"><?php echo get_option('king_ms'); ?></p>
+        <p class="lead" style="margin-top: 0px;margin-left:5px"><?php if(get_option('king_ms')) echo get_option('king_ms'); else echo '未设置描述'; ?></p>
     </nav>
     <div class="index-cates">
         <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description">{{ cate.name }}</a>
@@ -28,7 +31,7 @@
     
     <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts"> 
         <div class="list-show-div">
-            <em v-if="post.post_categories[0].term_id === <?php echo get_option('king_cate_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php echo get_option('king_cate_cate_ph') ?>') }}</em>
+            <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
             <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id">全文速览</button>
         </div>
         <a :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
@@ -82,7 +85,7 @@ window.onload = function(){ //避免爆代码
             },
             mounted () {
                 //获取分类
-                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/categories?exclude<?php echo '='.get_option('king_index_cate_exclude'); ?>')
+                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/categories<?php if(get_option('king_index_cate_exclude')) echo '?exclude='.get_option('king_index_cate_exclude'); ?>')
                  .then(response => {
                      this.cates = response.data;
                  })
@@ -100,7 +103,7 @@ window.onload = function(){ //避免爆代码
                  });
                 
                 //获取文章列表
-                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=10&page='+paged+'&categories_exclude<?php echo '='.get_option('king_index_exclude'); ?>')
+                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=<?php echo $p; ?>&page='+paged+'<?php if(get_option('king_index_exclude')) echo '&categories_exclude='.get_option('king_index_exclude'); ?>')
                  .then(response => {
                      this.posts = response.data
                  })
@@ -127,14 +130,14 @@ window.onload = function(){ //避免爆代码
             methods: { //定义方法
                 new_page : function(){ //加载下一页文章列表
                     $('#view-text').html('-&nbsp;加载中&nbsp;-');
-                    axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=10&page='+paged+'&categories_exclude<?php echo '='.get_option('king_index_exclude'); ?>')
+                    axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=<?php echo $p; ?>&page='+paged+'<?php if(get_option('king_index_exclude')) echo '&categories_exclude='.get_option('king_index_exclude'); ?>')
                  .then(response => {
                      if(response.data.length !== 0){ //判断是否最后一页
                          $('#view-text').html('-&nbsp;文章列表&nbsp;-');
                          this.posts.push.apply(this.posts,response.data); //拼接在上一页之后
                          click = 0;
                          paged++;
-                     }else{
+                     }else if(response.data.length == 0){
                          $('#view-text').html('-&nbsp;全部文章&nbsp;-');
                          $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                      }

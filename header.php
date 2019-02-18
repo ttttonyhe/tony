@@ -8,7 +8,7 @@
         <meta name="description" content="<?php echo get_option('king_ms');?>">
         <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.bootcss.com/popper.js/1.14.7/esm/popper.min.js"></script>
+        <script src="https://static.ouorz.com/popper.min.js"></script>
         <link type="text/css" rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
         <link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/caomei-cion.css">
         <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
         <?php } ?>
         <div class="header-div2">
             <a href="<?php echo site_url() ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">首页</button></a>
-            <?php if(!empty(get_option('king_nav_pu'))){ ?>
+            <?php if(get_option('king_nav_pu') !== ''){ ?>
                 <a href="<?php echo get_option('king_nav_pu'); ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;"><?php echo get_option('king_nav_pn'); ?></button></a>
             <?php } ?>
             <button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding-right: 5px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i>关于我 </a></button>
