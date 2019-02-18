@@ -17,6 +17,7 @@ An Elegant WordPress Theme Based on Vue.js
 + WordPress 4.4+
 + Vue.js 2.x
 + WP REST API
++ 非默认固定链接格式(推荐使用/%post_id%)
 
 <br/>
 

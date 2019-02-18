@@ -398,7 +398,7 @@ if(is_admin()){
         jQuery(document).ready(function($) {
             var $menuAppearance = $("#menu-appearance");
             $menuAppearance.pointer({
-                content: '<h3>最重要的一步</h3><p>感谢使用本主题<br/>请先进行必要的设置以保证访客体验</p>',
+                content: '<h3>最重要的一步</h3><p>感谢使用本主题，请先进行必要的设置以保证访客体验<br/>你必须使用非默认固定链接结构才可以正常使用本主题(推荐/%post_id%.html)</p>',
                 position: {
                     edge: "left",
                     align: "center"
