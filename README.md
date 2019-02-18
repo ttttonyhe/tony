@@ -2,7 +2,7 @@
 An Elegant WordPress Theme Based on Vue.js
 <br/>
 
-[中文介绍](https://www.ouorz.com) | [ENGLISH](https://www.ouorz.com)
+[中文介绍](https://github.com/HelipengTony/tony/blob/master/README.md) | [ENGLISH](https://github.com/HelipengTony/tony/blob/master/README.md)
 
 <br/>
 
