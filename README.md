@@ -7,12 +7,16 @@ An Elegant WordPress Theme Based on Vue.js
 <br/>
 
 ### 首页截图
+<br/>
+
 ![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
 
 <br/>
 
 ### 环境要求
 + WordPress 4.4+
++ Vue.js 2.x
++ WP REST API
 
 <br/>
 
@@ -43,7 +47,9 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### 后台设置界面
-设置项下方以批注使用方法
+设置项下方已批注使用方法
+<br/>
+
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
 
 
@@ -51,6 +57,8 @@ git clone git@github.com:HelipengTony/tony.git
 
 ### 向我投食
 贡献者名字将会列于 [贡献者列表](https://www.snapaper.com/donate)
+<br/>
+
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
