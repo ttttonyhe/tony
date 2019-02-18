@@ -8,6 +8,7 @@ An Elegant WordPress Theme Based on Vue.js
 ### 环境要求
 + WordPress 4.4+
 
+<br/>
 
 ### 安装指南
 ```
@@ -16,6 +17,8 @@ git clone git@github.com:HelipengTony/tony.git
 + WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题
 + WordPress Themes 文件夹新建文件夹，并上传所有文件
 
+
+<br/>
 
 ### 主题简介
 + 手机端自适应
@@ -31,14 +34,19 @@ git clone git@github.com:HelipengTony/tony.git
 + 单栏页面模板
 
 
+<br/>
+
 ### 后台设置界面
 设置项下方以批注使用方法
 [Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
 
 
+<br/>
+
 ### 向我投食
 [Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
+<br/>
 
 有问题请发 issue
 <br/>
