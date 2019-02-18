@@ -1,6 +1,7 @@
 # Tony
 An Elegant WordPress Theme Based on Vue.js
 <br/>
+
 [中文介绍](https://www.ouorz.com) | [ENGLISH](https://www.ouorz.com)
 
 <br/>
@@ -44,10 +45,12 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### 向我投食
+贡献者名字将会列于 [贡献者列表](https://www.snapaper.com/donate)
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
 
 有问题请发 issue
 <br/>
-但更新修复不会很及时
+但更新修复不会很及时，抱歉！
+
