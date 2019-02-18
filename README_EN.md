@@ -2,11 +2,9 @@
 An Elegant WordPress Theme Based on Vue.js
 <br/>
 
-<<<<<<< HEAD
-[中文介绍](https://github.com/HelipengTony/tony/blob/master/README.md) | [ENGLISH](https://github.com/HelipengTony/tony/blob/master/README.md)
-=======
+
 [中文介绍](https://github.com/HelipengTony/tony/blob/master/README.md) | [ENGLISH](https://github.com/HelipengTony/tony/blob/master/README_EN.md)
->>>>>>> dd561d1b45f8d3ab4674c440d0f6f4446f4e1b35
+
 
 <br/>
 
