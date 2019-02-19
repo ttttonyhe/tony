@@ -1,22 +1,16 @@
 /*
-Theme Name: AnTony
+Theme Name: Tony
+Theme URI: https://www.ouorz.com
 Author: TonyHe
 Author URI: https://www.ouorz.com
-Description: An Elegant WordPress Theme Based on Vue.js
-Version: 2.0
-License: GNU General Public License v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: one-column, custom-header, custom-menu
-Text-domain: ouorz
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+Description: 基于Vue.js的优雅单栏博客主题
+Version: 1.0
 */
  html {
     font-family:"Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     line-height:1.15;
     -ms-text-size-adjust:100%;
-    -webkit-text-size-adjust:100%
+    -webkit-text-size-adjust:100%;
     background-color: rgb(246, 247, 248) !important;
     background: rgb(246, 247, 248) !important;
 }
