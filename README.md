@@ -26,6 +26,7 @@ git clone git@github.com:HelipengTony/tony.git
 ```
 + WordPress Dashboard「Themes」 -> Upload -> Active
 + WordPress Themes folder -> New Folder -> Upload All Files
++ You may join our QQ group : 454846972
 
 
 <br/>

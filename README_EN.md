@@ -27,6 +27,7 @@ git clone git@github.com:HelipengTony/tony.git
 ```
 + WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题
 + WordPress Themes 文件夹新建文件夹，并上传所有文件
++ 反馈交♂流 QQ 群：454846972
 
 
 <br/>
