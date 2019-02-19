@@ -1,6 +1,8 @@
-<html lang="zh">
+<!DOCTYPE HTML>
+<html <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta charset="utf-8">
         <title><?php site_page_title(); ?></title>
 	    <meta http-equiv="x-dns-prefetch-control" content="on" />
         <link rel="dns-prefetch" href="https://cdn.bootcss.com" />
@@ -9,8 +11,8 @@
         <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://static.ouorz.com/popper.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-        <link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/caomei-cion.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() );  ?>/css/caomei-cion.css">
         <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
         <link href="https://cdn.bootcss.com/uikit/3.0.3/css/uikit.min.css" rel="stylesheet">

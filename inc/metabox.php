@@ -55,8 +55,8 @@ class DamiMetaTab{
 
     function add_script_and_styles() {
 		if( is_admin() ){
-        wp_enqueue_style('metabox_fields_css', get_bloginfo('template_directory') .  '/inc/metabox_fields.css');
-        wp_enqueue_script('metabox_fields_js', get_bloginfo('template_directory') . '/inc/metabox_fields.js');
+        wp_enqueue_style('metabox_fields_css',  esc_url( get_template_directory_uri() ).  '/inc/metabox_fields.css');
+        wp_enqueue_script('metabox_fields_js',  esc_url( get_template_directory_uri() ). '/inc/metabox_fields.js');
         }
     }
 
