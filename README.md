@@ -9,6 +9,8 @@ An Elegant WordPress Theme Based on Vue.js
 <br/>
 
 ### Thumbnail(Index)
+<br/>
+
 ![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
 
 <br/>
@@ -50,7 +52,10 @@ git clone git@github.com:HelipengTony/tony.git
 
 ### Dashboard Options
 Descriptions are below the options
+<br/>
 Includes Auto Updates Checking Feature (v2.0)
+<br/>
+
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
 
 
@@ -58,6 +63,8 @@ Includes Auto Updates Checking Feature (v2.0)
 
 ### Donate to me
 Your name will be on the list [Donation](https://www.snapaper.com/donate)
+<br/>
+
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
