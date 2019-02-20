@@ -50,6 +50,7 @@ git clone git@github.com:HelipengTony/tony.git
 
 ### 后台设置界面
 设置项下方已批注使用方法
+包含了自动检测更新功能(v2.0)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)

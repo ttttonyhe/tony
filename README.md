@@ -43,14 +43,14 @@ git clone git@github.com:HelipengTony/tony.git
 + Insert Posts in Posts
 + Multistyle Post Lists
 + Custom Page Template
-
-- And more…
++ And more…
 
 
 <br/>
 
 ### Dashboard Options
 Descriptions are below the options
+Includes Auto Updates Checking Feature (v2.0)
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
 
 
