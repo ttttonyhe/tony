@@ -439,10 +439,11 @@ if(is_admin()){
     add_action( 'admin_enqueue_scripts', 'theme_check_update' );
     
     function theme_update_notice() {
+        $tony = wp_get_theme();
         ?>
         <script>
         jQuery(document).ready(function($) {
-        var v = <?php echo (int)get_bloginfo('version'); ?>;
+        var v = <?php echo (int)$tony->get( 'Version' ); ?>;
         $.ajax({
                 url:'https://www.ouorz.com/check_update.html?v='+v,
                 type:"POST",

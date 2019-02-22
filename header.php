@@ -11,7 +11,7 @@
         <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://static.ouorz.com/popper.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>">
+        <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css">
         <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() );  ?>/css/caomei-cion.css">
         <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
