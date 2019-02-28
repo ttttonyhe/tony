@@ -54,7 +54,7 @@ git clone git@github.com:HelipengTony/tony.git
 ### Dashboard Options
 Descriptions are below the options
 <br/>
-Includes Auto Updates Checking Feature (v2.0)
+Includes Auto Updates Checking Feature (v2.0+)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
