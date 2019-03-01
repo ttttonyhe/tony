@@ -44,6 +44,8 @@ git clone git@github.com:HelipengTony/tony.git
 + 后台可在文章中插入其他文章
 + 多样式文章列表
 + 单栏页面模板
++ 略缩图列表
++ 返回顶部按钮
 
 
 <br/>

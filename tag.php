@@ -39,27 +39,47 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
 
                     <ul class="article-list" style="opacity:0">
     
-    <li v-if="loading" uk-scrollspy="cls:uk-animation-slide-left-small" class="article-list-item reveal index-post-list uk-scrollspy-inview"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
+    <li v-if="loading" class="article-list-item reveal index-post-list uk-scrollspy-inview"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
     </li>
     <!-- 占位DIV -->
     
     <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts" :style="post.post_categories[0].term_id | link_style"> 
-    
+        <template v-if="post.post_img.url == false">
         <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '21213'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
         <div v-if="post.post_categories[0].term_id === <?php echo $f; ?> || post.post_categories[0].term_id === <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
         <div class="link-list-right">
             <a v-if="post.post_categories[0].term_id === <?php echo $f; ?> || post.post_categories[0].term_id === <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank"><h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5></a>
             <a v-else :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
-            <p v-html="post.post_excerpt"></p>
+            <p v-html="post.post_excerpt.nine"></p>
         <div class="article-list-footer"> 
-            <span class="article-list-date" style="color: #ada8a8;">{{ post.post_date }}</span>
+            <span class="article-list-date" style="color: #ada8a8;">{{ post.post_categories[0].term_id | link_page }}{{ post.post_date }}</span>
             <span class="article-list-divider" v-if="post.post_categories[0].term_id !== <?php echo $f; ?> && post.post_categories[0].term_id !== <?php echo $w; ?>">-</span>
             <span class="article-list-minutes" v-if="post.post_categories[0].term_id !== <?php echo $f; ?> && post.post_categories[0].term_id !== <?php echo $w; ?>">{{ post.post_metas.views }}&nbsp;Views</span>
         </div>
         </div>
+        </template>
+        
+        <template v-else-if="post.post_categories[0].term_id !== <?php echo $f; ?> || post.post_categories[0].term_id !== <?php echo $w; ?>">
+            <div class="article-list-img-else">
+    <div class="article-list-img" :style="'background-image:url(' + post.post_img.url +')'"></div>
+    <div class="article-list-img-right">
+        <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
+        <a :href="post.link" style="text-decoration: none;">
+            <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
+        </a>
+        <p v-html="post.post_excerpt.four" :id="post.id"></p>
+        <div class="article-list-footer"> 
+            <span class="article-list-date">{{ post.post_date }}</span>
+            <span class="article-list-divider">-</span>
+            <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
+            <span v-else class="article-list-minutes">0&nbsp;Views</span>
+        </div>
+     </div>
+</div>
+        </template>
     </li>
 
-    <li uk-scrollspy="cls:uk-animation-slide-left-small" class="article-list-item reveal index-post-list uk-scrollspy-inview bottom"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
+    <li class="article-list-item reveal index-post-list uk-scrollspy-inview bottom"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
     </li>
     <!-- 加载占位DIV -->
     
@@ -150,6 +170,9 @@ window.onload = function(){ //避免爆代码
                      }else{
                          $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                      }
+                 }).catch(e => {
+                     $('#view-text').html('-&nbsp;所有文章&nbsp;-');
+                     $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                  })
             }
                 },

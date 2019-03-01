@@ -21,6 +21,7 @@
         <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
         <script>Vue.config.devtools = true</script>
         <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/jquery.goup.js"></script>
         <!-- <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js"></script> -->
         <?php echo stripslashes(get_option('king_zztj')); ?>
 
@@ -31,7 +32,7 @@
                 <?php if(is_single()){ ?>
                 <div class="header-div1">
         	<a href="<?php echo site_url() ?>" style="display: inline-block;"><img src="<?php echo get_option('king_logo') ?>"></a>
-<a href="h<?php echo site_url() ?>/feed" style="display: inline-block;margin-top: 12px;margin-left: 15px;"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">RSS订阅</button></a>
+<a href="<?php echo site_url() ?>/feed" style="display: inline-block;margin-top: 12px;margin-left: 15px;"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">RSS订阅</button></a>
         </div>
                 <?php }else{ ?>
         <div class="header-div1-1">

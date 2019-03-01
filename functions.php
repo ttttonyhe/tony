@@ -225,6 +225,14 @@ function wp_rest_insert_tag_links(){
             'schema' => null,
         )
     );
+    register_rest_field( 'post', 
+        'post_img', 
+        array(
+            'get_callback' => 'get_post_img_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
 }
 
 function wp_rest_get_categories_links($post){
@@ -242,12 +250,17 @@ foreach ($categories as $term) {
 
 }
 function wp_rest_get_plain_excerpt($post){
-    $excerpts = wp_trim_words(get_the_excerpt($post['id']), 90);
+    $excerpts = array();
+    $excerpts['nine'] = wp_trim_words(get_the_excerpt($post['id']), 90);
+    $excerpts['four'] = wp_trim_words(get_the_excerpt($post['id']), 45);
     return $excerpts;
 }
 
 function wp_rest_get_normal_date($post){
-    $date = get_the_date( 'd-m-y',$post['id']);
+    if(get_option('king_date_format')) 
+    $format = get_option('king_date_format');
+    else $format = 'd-m-y';
+    $date = get_the_date( $format,$post['id']);
     return $date;
 }
 
@@ -260,6 +273,12 @@ function get_post_meta_for_api($post){
     $tagsss = get_the_tags($post['id']);
     $post_meta['tag_name'] = $tagsss[0]->name;
     return $post_meta;
+}
+
+function get_post_img_for_api($post){
+    $post_img = array();
+    $post_img['url'] = get_the_post_thumbnail_url($post['id']);
+    return $post_img;
 }
 /* rest-api */
 
@@ -277,6 +296,7 @@ function admin_show_category() {
     }
     echo "</ul>";
 }
+
 
 //设置站点title
 function site_page_title(){

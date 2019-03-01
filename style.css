@@ -4,7 +4,7 @@ Theme URI: https://www.ouorz.com
 Author: TonyHe
 Author URI: https://www.ouorz.com
 Description: An Elegant WordPress Theme Based on Vue.js
-Version: 2.0
+Version: 3.0
 */
  html {
     font-family:"Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -1041,17 +1041,16 @@ article-content img{
     right:0
 }
 .comment-body .reply .comment-reply-link {
-    color: #fff;
+    color: #0084FF;
     font-family: exoregular;
     display: inline-block;
     line-height: 1.3;
     border-radius: 15px;
-    padding: 3px 20px;
-    background-color: #8b3534;
+    padding: 5px 20px;
+    background-color: rgba(0, 132, 255, 0.1);
     font-size: 12px;
     margin-top: 18px;
     margin-right: 10px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
     transition: all .2s;
     text-decoration: none;
 }
@@ -1132,9 +1131,8 @@ article-content img{
     transition: all .2s;
 }
 #submit:hover {
-    border-color:#bc403e;
-    color:#bc403e;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    border-color: #0084FF;
+    color: #0084FF;
 }
 .says {
     display:none
@@ -1581,6 +1579,16 @@ table{
     .center-info{
         display: none !important;
     }
+    .article-list-img-else{
+        display: block !important;
+    }
+    .article-list-img{
+        height: 100px;
+        margin-bottom: 30px !important;
+    }
+    .article-list-img-right{
+        margin: 1% !important;
+    }
 }
 
 .link-list-img{
@@ -1657,6 +1665,42 @@ table{
 
 .center-info{
     transition: all 0.2s ease 0s;width: 50%;transform: translateX(50%);z-index: 2;text-align: center;position: fixed;top: 16px;letter-spacing: 2px;
+}
+
+.article-list-img{
+    flex-basis: 30%;
+    padding: 0px;
+    margin: 0px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.article-list-img-right{
+    flex-basis: 65%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.goup-container{
+    position: fixed !important;
+    width: 45px !important;
+    height: 45px !important;
+    background: rgb(255, 255, 255) !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    border-radius: 6px !important;
+    box-shadow: rgba(26, 26, 26, 0.1) 0px 1px 3px !important;
+}
+
+.article-list-img-else{
+    display: flex;
+    width: 100%;
 }
 
 /* End of The Tony Vershion */

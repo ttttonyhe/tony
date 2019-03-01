@@ -46,6 +46,8 @@ git clone git@github.com:HelipengTony/tony.git
 + Insert Posts in Posts
 + Multistyle Post Lists
 + Custom Page Template
++ Post Thumbnail
++ Back to top button
 + And more…
 
 

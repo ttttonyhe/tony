@@ -54,6 +54,14 @@ if(is_admin()){
             'type'  => 'panelstart' //顶部标签的类型
         ),
         
+    array(
+		'name' => '文章列表时间格式',
+		'id' => 'king_date_format',
+		'type' => 'select',
+		'op_des' => '在文章列表中展示的日期格式，如MM-DD-YY',
+		'options' => array('Y-m-d','m/d/Y','d/m/Y','Y年n月j日')
+		),
+		
 	array(
 		'name' => '首页排除分类',
 		'id' => 'king_index_exclude',
@@ -163,7 +171,7 @@ if(is_admin()){
      
     <div class="wrap" style="width: 47%;margin: 10vh auto;">
         <h1 style="font-weight: 600;font-size: 2.5rem;">主题设置</h1>
-        <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">本主题基于免费主题 King 修改,前端使用了 Vue.js,请务必开启Wordpress Rest Api功能<br/>本主题已开源,尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/ouorz" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/ouorz_theme</a></p>
+        <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">本主题基于免费主题 King 修改, 使用 Vue.js 重构<br/>请务必开启 WordPress REST API 功能并设置 非默认 固定链接<br/>本主题已开源,尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/ouorz" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/ouorz_theme</a><br/>积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
         <div style="background: #f7f8f9;padding: 5px 20px;box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;border-radius: 4px;margin: 20px 0;">
             <?php admin_show_category(); ?>
         </div>

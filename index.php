@@ -5,7 +5,7 @@
 
 <div id="header_info" class="index-top">
     <nav class="header-nav reveal">
-        <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="TonyHe"><?php echo get_bloginfo('name'); ?></a>
+        <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="<?php echo get_bloginfo('name'); ?>"><?php echo get_bloginfo('name'); ?></a>
         <p class="lead" style="margin-top: 0px;margin-left:5px"><?php if(get_option('king_ms')) echo get_option('king_ms'); else echo '未设置描述'; ?></p>
     </nav>
     <div class="index-cates">
@@ -25,27 +25,50 @@
 <ul class="article-list" style="opacity:0">
     
     <!-- 占位DIV -->
-    <li uk-scrollspy="cls:uk-animation-slide-left-small" class="article-list-item reveal index-post-list uk-scrollspy-inview" v-if="loading"><em class="article-list-type1" style="padding: 5.5px 44px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
+    <li class="article-list-item reveal index-post-list uk-scrollspy-inview" v-if="loading"><em class="article-list-type1" style="padding: 5.5px 44px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
     </li>
     <!-- 占位DIV -->
     
-    <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts"> 
+    
+    <li class="article-list-item reveal index-post-list" v-for="post in posts">
+        
+        <template v-if="post.post_img.url == false">
         <div class="list-show-div">
             <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
             <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id">全文速览</button>
         </div>
         <a :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
-        <p v-html="post.post_excerpt" :id="post.id"></p>
+        <p v-html="post.post_excerpt.nine" :id="post.id"></p>
         <div class="article-list-footer"> 
             <span class="article-list-date">{{ post.post_date }}</span>
             <span class="article-list-divider">-</span>
             <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
             <span v-else class="article-list-minutes">0&nbsp;Views</span>
         </div>
+        </template>
+        
+        <template v-else>
+            <div class="article-list-img-else">
+    <div class="article-list-img" :style="'background-image:url(' + post.post_img.url +')'"></div>
+    <div class="article-list-img-right">
+        <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
+        <a :href="post.link" style="text-decoration: none;">
+            <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
+        </a>
+        <p v-html="post.post_excerpt.four" :id="post.id"></p>
+        <div class="article-list-footer"> 
+            <span class="article-list-date">{{ post.post_date }}</span>
+            <span class="article-list-divider">-</span>
+            <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
+            <span v-else class="article-list-minutes">0&nbsp;Views</span>
+        </div>
+     </div>
+</div>
+        </template>
     </li>
     
     <!-- 加载占位DIV -->
-    <li uk-scrollspy="cls:uk-animation-slide-left-small" class="article-list-item reveal index-post-list uk-scrollspy-inview bottom"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
+    <li class="article-list-item reveal index-post-list uk-scrollspy-inview bottom"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
     </li>
     <!-- 加载占位DIV -->
     
@@ -141,6 +164,9 @@ window.onload = function(){ //避免爆代码
                          $('#view-text').html('-&nbsp;全部文章&nbsp;-');
                          $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                      }
+                 }).catch(e => {
+                     $('#view-text').html('-&nbsp;所有文章&nbsp;-');
+                     $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                  })
             },
                 preview : function(post){ //预览文章内容
@@ -153,7 +179,7 @@ window.onload = function(){ //避免爆代码
                      if(response.data.length !== 0){ //判断是否最后一页
                          $('#btn'+post).html('收起速览'); //更改按钮
                          $('#'+post).attr('class','preview-p').html(response.data.content.rendered); //更改内容
-                         pre_post_con = response.data.post_excerpt; //保存摘录
+                         pre_post_con = response.data.post_excerpt.nine; //保存摘录
                      }else{
                          $('#'+post).html('Nothing Here');
                      }
