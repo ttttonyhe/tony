@@ -29,6 +29,10 @@ git clone git@github.com:HelipengTony/tony.git
 + WordPress Themes 文件夹新建文件夹，并上传所有文件
 + 反馈交♂流 QQ 群：454846972
 
+<br/>
+
+### 日志与发布
+[https://github.com/HelipengTony/tony/releases](https://github.com/HelipengTony/tony/releases)
 
 <br/>
 

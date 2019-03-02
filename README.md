@@ -50,6 +50,10 @@ git clone git@github.com:HelipengTony/tony.git
 + Back to top button
 + And more…
 
+<br/>
+
+### Change Logs and Release
+[https://github.com/HelipengTony/tony/releases](https://github.com/HelipengTony/tony/releases)
 
 <br/>
 
