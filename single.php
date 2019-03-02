@@ -1,23 +1,3 @@
-<script>
-/*
-    function closeinfo(){
-    var lastread=document.getElementById('lastread');
-    lastread.style.display="none";
-    }
-    */
-</script>
-<!--
-<div class="card lastread-card" id="lastread" style="<?php // if(!isset($_COOKIE[lastreadtitle]) || !isset($_COOKIE[lastreadlink]) || $_COOKIE[lastreadlink]=='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']){ echo "display:none;"; } ?> box-shadow: 0 1px 3px rgba(249,249,249,0.08), 0 0 0 1px rgba(26,53,71,.04), 0 1px 1px rgba(26,53,71,.06);border:none;z-index: 111;">
-  <div class="card-body" style="padding: 1.05rem;">
-    <h5 class="card-title">上次读到:</h5>
-    <h6 class="card-subtitle mb-2 text-muted"><?php // echo $_COOKIE['lastreadtitle']; ?></h6>
-    <a onclick="closeinfo();" class="card-link lastread-card-a1">关闭提示</a>
-<a href="<?php // echo $_COOKIE['lastreadlink']; ?>" class="card-link lastread-card-a2">继续阅读</a>
-    
-  </div>
-</div> -->
-
-
 <?php get_header(); ?>
 <?php setPostViews($post->ID); ?>  
 
