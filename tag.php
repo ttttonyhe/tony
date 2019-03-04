@@ -13,12 +13,12 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
         <a class="top1 header-logo" style="text-decoration:none;" href="<?php echo site_url() ?>">XXXXX</a>
         <p class="top2 lead" style="margin-top: 0px;display:block">XXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
         
-        <div class="btn-group" style="float: right;margin-top: -80px;">
+        <div class="btn-group" style="float: right;margin-top: -65px;">
             <button type="button" class="btn btn-primary"><a href="<?php echo site_url() ?>" style="text-decoration:none;color:white"><i class="czs-hand-slide" style="margin-right:5px" ></i>回到首页</a></button>
         </div>
     </nav>
     <div class="index-cates">
-        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="de in des" v-if="de.count !== 0"> <a :href="de.link" :title="de.description">{{ de.name }}</a>
+        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="de in des" v-if="de.count !== 0"> <a :href="de.link" :title="de.description" v-html="de.name"></a>
         </li>
         <li class="cat-item cat-item-4" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_des"></li>
     </div>

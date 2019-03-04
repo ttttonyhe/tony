@@ -9,14 +9,14 @@
         <p class="lead" style="margin-top: 0px;margin-left:5px"><?php if(get_option('king_ms')) echo get_option('king_ms'); else echo '未设置描述'; ?></p>
     </nav>
     <div class="index-cates">
-        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description">{{ cate.name }}</a>
+        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description" v-html="cate.name"></a>
         </li>
         <li class="cat-item cat-item-4" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_cates"></li>
     </div>
     <div>
         <ul class="post_tags">
             <li class="cat-real" v-for="tag in tages" style="display:none">
-                <a :href="tag.link">#{{ tag.name }}</a>
+                <a :href="tag.link" v-html="'#'+tag.name"></a>
             </li>
             <li style="background: rgb(236, 237, 238);height: 25px;width: 100%;" v-if="loading_tages"></li>
         </ul>
