@@ -46,11 +46,11 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
     
     <li class="article-list-item reveal index-post-list" v-for="post in posts" :style="post.post_categories[0].term_id | link_style"> 
     
-    <template v-if="post.post_img.url == false">
-        <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '21213'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
-        <div v-if="post.post_categories[0].term_id === <?php echo $f; ?> || post.post_categories[0].term_id === <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
+    <template v-if="post.post_img.url == false || post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>">
+        <em v-if="post.post_categories[0].term_id == <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '21213'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
+        <div v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
         <div class="link-list-right">
-            <a v-if="post.post_categories[0].term_id === <?php echo $f; ?> || post.post_categories[0].term_id === <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank"><h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5></a>
+            <a v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank"><h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5></a>
             <a v-else :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
             <p v-html="post.post_excerpt.nine"></p>
         <div class="article-list-footer"> 
@@ -61,7 +61,7 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
         </div>
         </template>
         
-        <template v-else-if="post.post_categories[0].term_id !== <?php echo $f; ?> || post.post_categories[0].term_id !== <?php echo $w; ?>">
+        <template v-else>
             <div class="article-list-img-else">
     <div class="article-list-img" :style="'background-image:url(' + post.post_img.url +')'"></div>
     <div class="article-list-img-right">
