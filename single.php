@@ -1,4 +1,12 @@
 <?php get_header(); ?>
+<?php if(get_option('king_single_index')){ ?>
+<div class="index-div">
+    <div style="padding:0px 25px">
+        <h4 style="font-weight: 600;margin: 0px;"><i class="czs-choose-list-l"></i> 文章引索</h4>
+    </div>
+    <ul id="article-index" class="index-ul"><li></li><li style="margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3; "><li style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3;     width: 70%; "><li  style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3; "><li style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     width: 50%;     background: #f1f2f3; "></ul>
+</div>
+<?php } ?>
 <?php setPostViews($post->ID); ?>  
 
                     <article class="article reveal uk-animation-slide-left-small" id="lightgallery">
@@ -73,6 +81,42 @@ window.onload = function(){ //避免爆代码
                      $('.article-content').html(this.posts.content.rendered).attr('style','');
                      $('.single-h2').html(this.posts.post_metas.title).attr('style','');
                      $('.article-list-footer').html('<span class="article-list-date">'+this.posts.post_date+'</span><span class="article-list-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="article-list-minutes">'+this.posts.post_metas.views+'&nbsp;Views</span>').attr('style','');
+                    
+                    /* 文章目录 */
+                     
+                     $('#article-index').html('');
+                     var count_ti = count_in = count_ar = count_sc = count_hr = count_e = 1;
+                     var offset = new Array;
+                     $('.article-content <?php if(get_option('king_single_index')) echo get_option('king_single_index'); else echo 'h3'; ?>').each(function() { //each获取h3内容
+                         $('#article-index').html($('#article-index').html() + '<li id="ti' + (count_ti++) + '"><a onclick="$(\'body\').animate({ scrollTop: $(\'#in'+(count_hr++)+'\').offset().top - 100 }, 500);"><i class="czs-circle-l"></i>&nbsp;&nbsp;' + $(this).eq(0).html() + '</a></li>');
+                         $(this).eq(0).attr('id', 'in' + (count_in++)); //h3添加id
+                         offset[0] = 0;
+                         offset[count_ar++] = $(this).eq(0).offset().top; //h3位置存入数组
+                         count_e++
+                     });
+                     
+                     if(count_e !== 1){ //若存在h3标签
+
+                     $(window).scroll(function() { //滑动窗口时
+                         var scroH = $(this).scrollTop() + 130;
+                         var navH = offset[count_sc]; //从1开始获取当前h3位置
+                         var navH_prev = offset[count_sc - 1]; //获取上一个h3位置(以备回滑)
+                         if (scroH >= navH) { //滑过当前h3位置
+                             $('#ti' + (count_sc - 1)).attr('class', '');
+                             $('#ti' + count_sc).attr('class', 'active');
+                             count_sc++; //调至下一个h3位置
+                         }
+                         if (scroH <= navH_prev) { //滑回上一个h3位置,调至上一个h3位置
+                             $('#ti' + (count_sc - 2)).attr('class', 'active');
+                             count_sc--;
+                             $('#ti' + count_sc).attr('class', '');
+                         }
+                     });
+                     
+                     }else{
+                         $('.index-div').css('display','none')
+                     }
+                     /* 文章目录 */
                      
                 })
             }

@@ -61,13 +61,22 @@ if(is_admin()){
 		'op_des' => '在文章列表中展示的日期格式，如MM-DD-YY',
 		'options' => array('Y-m-d','m/d/Y','d/m/Y','Y年n月j日')
 		),
-		
+    
+    array(
+		'name' => '文章目录引索',
+		'id' => 'king_single_index',
+		'type' => 'select',
+		'op_des' => '在文章左方展示的目录标题所对应的html标签，如h3',
+		'options' => array('h1','h2','h3','h4')
+		),
+         
 	array(
 		'name' => '首页排除分类',
 		'id' => 'king_index_exclude',
 		'type' => 'text',
 		'op_des' => '在站点首页不显示的分类ID，以英文半角逗号分隔'
 		),
+         
 	array(
 		'name' => '顶栏排除分类',
 		'id' => 'king_index_cate_exclude',
