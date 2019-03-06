@@ -75,7 +75,7 @@ window.onload = function(){ //避免爆代码
                  .catch(e => {
                      this.errored = false
                  })
-                 .finally(() => {
+                 .then(() => {
                      this.loading = false;
                      $('.real').css('display','block');
                      $('.article-content').html(this.posts.content.rendered).attr('style','');

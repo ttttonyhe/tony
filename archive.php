@@ -134,7 +134,7 @@ window.onload = function(){ //避免爆代码
                      axios.get('<?php echo site_url() ?>/wp-json/wp/v2/categories<?php if(get_option('king_index_cate_exclude')) echo '?exclude='.get_option('king_index_cate_exclude'); ?>')
                      .then(response => {
                          this.des = response.data;
-                     }).finally(() => {
+                     }).then(() => {
                         this.loading_des = false;
                      });
                 
@@ -146,7 +146,7 @@ window.onload = function(){ //避免爆代码
                  .catch(e => {
                      this.errored = false
                  })
-                 .finally(() => {
+                 .then(() => {
                      this.loading = false;
                      paged++; //加载完1页后累加页数
                     //加载完文章列表后监听滑动事件

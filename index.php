@@ -112,14 +112,14 @@ window.onload = function(){ //避免爆代码
                  .then(response => {
                      this.cates = response.data;
                  })
-                 .finally(() => {
+                 .then(() => {
                      this.loading_cates = false;
                      
                      //获取标签
                      axios.get('<?php echo site_url() ?>/wp-json/wp/v2/tags?order=desc&per_page=15')
                      .then(response => {
                          this.tages = response.data;
-                     }).finally(() => {
+                     }).then(() => {
                         this.loading_tages = false;
                      });
                      
@@ -133,7 +133,7 @@ window.onload = function(){ //避免爆代码
                  .catch(e => {
                      this.errored = false
                  })
-                 .finally(() => {
+                 .then(() => {
                      this.loading = false;
                      paged++; //加载完1页后累加页数
                     //加载完文章列表后监听滑动事件
