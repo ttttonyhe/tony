@@ -1589,6 +1589,9 @@ table{
     .article-list-img-right{
         margin: 1% !important;
     }
+    .index-div{
+        display: none;
+    }
 }
 
 .link-list-img{
