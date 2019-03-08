@@ -1757,4 +1757,17 @@ table{
 .post-password-form input{
     border: 2px solid #eee;border-radius: 4px;padding: 3px 10px;
 }
+
+.loading-line{
+	animation: twinkle .5s infinite;
+}
+
+@keyframes twinkle {
+            from {
+                opacity: .5;
+            }
+            to {
+                opacity: 1;
+            }
+}
 /* End of The Tony Vershion */
