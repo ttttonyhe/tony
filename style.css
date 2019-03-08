@@ -1750,4 +1750,11 @@ table{
     padding: 20px 0px;
 }
 
+.post-password-form{
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 7px 0px;padding: 37px 30px 20px 30px;border-radius: 0 0 8px 8px;border-top: 3px solid rgb(0, 132, 255);
+}
+
+.post-password-form input{
+    border: 2px solid #eee;border-radius: 4px;padding: 3px 10px;
+}
 /* End of The Tony Vershion */

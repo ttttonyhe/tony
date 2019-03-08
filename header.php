@@ -19,7 +19,6 @@
         <link href="https://cdn.bootcss.com/uikit/3.0.3/css/uikit-rtl.min.css" rel="stylesheet">
         <script src="https://cdn.bootcss.com/uikit/3.0.3/js/uikit.min.js"></script>
         <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
-        <script>Vue.config.devtools = true</script>
         <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/jquery.goup.js"></script>
         <!-- <script src="https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js"></script> -->
