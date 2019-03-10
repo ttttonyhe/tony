@@ -48,6 +48,8 @@ git clone git@github.com:HelipengTony/tony.git
 + Custom Page Template
 + Post Thumbnail
 + Back to top button
++ Better posts searching feature
++ Automatic post index
 + And more…
 
 <br/>

@@ -315,5 +315,13 @@ function site_page_title(){
 	}
 }
 
+//默认头像
+add_filter( 'avatar_defaults', 'newgravatar' );  
+ 
+function newgravatar($avatar_defaults) {  
+    $myavatar = 'https://i.loli.net/2019/03/10/5c84adf73a7a2.jpg';  
+    $avatar_defaults[$myavatar] = "Tony主题默认头像";
+    return $avatar_defaults;  
+}
 
 ?>

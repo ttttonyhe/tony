@@ -106,7 +106,7 @@ window.onload = function(){ //避免爆代码
                      var count_ti = count_in = count_ar = count_sc = count_hr = count_e = 1;
                      var offset = new Array;
                      $('.article-content <?php if(get_option('king_single_index')) echo get_option('king_single_index'); else echo 'h3'; ?>').each(function() { //each获取h3内容
-                         $('#article-index').html($('#article-index').html() + '<li id="ti' + (count_ti++) + '"><a onclick="$(\'body\').animate({ scrollTop: $(\'#in'+(count_hr++)+'\').offset().top - 100 }, 500);"><i class="czs-circle-l"></i>&nbsp;&nbsp;' + $(this).eq(0).html() + '</a></li>');
+                         $('#article-index').html($('#article-index').html() + '<li id="ti' + (count_ti++) + '"><a onclick="$(\'body\').animate({ scrollTop: $(\'#in'+(count_hr++)+'\').offset().top - 100 }, 500);"><i class="czs-circle-l"></i>&nbsp;&nbsp;' + $(this).eq(0).text() + '</a></li>');
                          $(this).eq(0).attr('id', 'in' + (count_in++)); //h3添加id
                          offset[0] = 0;
                          offset[count_ar++] = $(this).eq(0).offset().top; //h3位置存入数组
