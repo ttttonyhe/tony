@@ -37,7 +37,7 @@
                 <?php }else{ ?>
         <div class="header-div1-1">
         	<a href="<?php echo site_url() ?>"><img src="<?php echo get_option('king_logo'); ?>"></a>
-        	<a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">博客搜索</button></a>
+        	<a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">全局搜索</button></a>
         </div>
         <?php } ?>
         <div class="header-div2">
@@ -45,7 +45,7 @@
             <?php if(get_option('king_nav_pu') !== ''){ ?>
                 <a href="<?php echo get_option('king_nav_pu'); ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;"><?php echo get_option('king_nav_pn'); ?></button></a>
             <?php } ?>
-            <button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding: 5px 15px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i>关于我 </a></button>
+            <button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding: 5px 15px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i>关于 </a></button>
             </div>
     </header>
     
