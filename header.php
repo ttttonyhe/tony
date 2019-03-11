@@ -149,6 +149,7 @@ $("#jv-loadingbar").fadeOut(1000,function(){$("#jv-loadingbar").css("width","0")
                 <li class="search-line" style="padding: 30px;background: #f1f2f3;border: none;"></li> 
                 <li class="search-line" style="padding: 30px;background: #f1f2f3;border: none;"></li>
             </ul>
+        </ul>
     </div>
 </div>
 </div>
