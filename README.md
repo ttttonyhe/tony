@@ -50,6 +50,7 @@ git clone git@github.com:HelipengTony/tony.git
 + Back to top button
 + Better posts searching feature
 + Automatic post index
++ Darkmode Theme
 + And more…
 
 <br/>
