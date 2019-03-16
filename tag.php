@@ -67,7 +67,7 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
         </template>
     </li>
 
-    <li class="article-list-item reveal index-post-list uk-scrollspy-inview bottom loading-line"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
+    <li :class="'article-list-item reveal index-post-list uk-scrollspy-inview bottom '+loading_css"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em>  <a style="text-decoration: none;"><h5 style="background: rgb(236, 237, 238);">&nbsp;</h5></a><p style="background: rgb(246, 247, 248);width: 90%;">&nbsp;</p><p style="background: rgb(246, 247, 248);width: 60%;">&nbsp;</p>
     </li>
     <!-- 加载占位DIV -->
     
@@ -110,7 +110,8 @@ window.onload = function(){ //避免爆代码
                     des: null,
                     loading: true, //v-if判断显示占位符
                     loading_des: true,
-                    errored: true
+                    errored: true,
+                    loading_css : 'loading-line'
                 }
             },
             mounted () {
@@ -151,14 +152,18 @@ window.onload = function(){ //避免爆代码
                 new_page : function(){ //加载下一页文章列表
                     axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=<?php echo $p; ?>&page='+paged+'&tags='+incate)
                  .then(response => {
-                     if(response.data.length !== 0){ //判断是否最后一页
+                     if(!!response.data.length && response.data.length !== 0){ //判断是否最后一页
+                         $('#view-text').html('-&nbsp;文章列表&nbsp;-');
                          this.posts.push.apply(this.posts,response.data); //拼接在上一页之后
                          click = 0;
                          paged++;
                      }else{
+                         this.loading_css = '';
+                         $('#view-text').html('-&nbsp;全部文章&nbsp;-');
                          $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                      }
                  }).catch(e => {
+                     this.loading_css = '';
                      $('#view-text').html('-&nbsp;所有文章&nbsp;-');
                      $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                  })

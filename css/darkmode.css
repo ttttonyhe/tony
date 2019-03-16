@@ -1864,4 +1864,140 @@ table{
     opacity: 0;
     z-index: -1;
 }
+
+.tony-header-scoll{
+    background:transparent !important;
+    box-shadow:none !important;
+}
+
+.center-info{
+    display:none !important;
+}
+
+html{
+    background: #1c1f2b !important;
+    color: #bdcadb !important;
+}
+
+body{
+    background: #1c1f2b !important;
+    color: #bdcadb !important;
+}
+
+.header-logo{
+    color: #bdcadb !important;
+}
+
+.lead{
+    color: rgb(102, 110, 142) !important;
+}
+
+.index-cates li{
+    background: rgb(69, 75, 98) !important;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.1) !important;
+}
+
+.index-cates li a{
+    color: #eee !important;
+}
+
+.post_tags li a{
+    background-color: rgba(189, 202, 219, 0.32941176470588235) !important;
+    color: #eee !important;
+}
+
+.index-post-list{
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;
+    background: rgb(131, 143, 166) !important;
+}
+
+.article-list-type1{
+    color: #fff !important;
+    background: rgba(0, 132, 255, 0.5) !important;
+}
+
+.list-show-btn{
+    color: #555 !important;
+    background: rgba(246, 247, 248, 0.74) !important;
+}
+
+.article-list-item h5{
+    color: #fff !important;
+}
+
+.article-list-item p{
+    color:#f1f2f3 !important;
+}
+
+.article-list-footer span, .article-list-footer a{
+    color: #eee !important;
+}
+
+.article-list-img{
+    opacity: 0.7 !important;
+}
+
+.search-bg{
+    background: #555 !important;
+}
+
+.search-div1 h3{
+    color: #fff !important;
+}
+
+.search-div1 input{
+    background: #eee !important;
+}
+
+.search-div2 li{
+    background: #eee !important;
+    border: none !important;
+}
+
+.post-password-form{
+    background: #f1f2f3 !important;
+    color: #333 !important;
+}
+
+.single-h2{
+    color: #fff !important;
+}
+
+.article{
+    background: rgb(131, 143, 166) !important;
+}
+
+.article-content{
+    color: #fff !important;
+}
+
+.comment-metadata a{
+    color:#eee !important;
+}
+
+.comment .fn{
+    color:#fff !important;
+}
+
+.comment-body .reply .comment-reply-link{
+    background-color: rgba(0, 132, 255, 0.65) !important;
+    color: #fff !important;
+}
+
+.index-ul li{
+    color: #fff !important;
+}
+
+.index-div h4{
+    color: #fff !important;
+}
+
+.index-div{
+    background: rgb(131, 142, 166) !important;
+}
+
+.index-ul .active{
+    background: rgba(238, 238, 238, 0.6901960784313725) !important;
+}
+
 /* End of The Tony Vershion */

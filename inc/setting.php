@@ -460,7 +460,7 @@ if(is_admin()){
         ?>
         <script>
         jQuery(document).ready(function($) {
-        var v = <?php echo (int)$tony->get( 'Version' ); ?>;
+        var v = <?php echo $tony->get( 'Version' ); ?>;
         $.ajax({
                 url:'https://www.ouorz.com/check_update.html?v='+v,
                 type:"POST",

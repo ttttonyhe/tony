@@ -11,7 +11,11 @@
         <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://static.ouorz.com/popper.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css">
+        <?php if(isset($_COOKIE['tony_view'])){ ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/darkmode.css">
+        <?php }else{ ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.css">
+        <?php } ?>
         <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() );  ?>/css/caomei-cion.css">
         <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
@@ -21,6 +25,7 @@
         <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
         <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/jquery.goup.js"></script>
+        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/header.js"></script>
         <?php echo stripslashes(get_option('king_zztj')); ?>
 
     </head>
@@ -31,7 +36,7 @@
                 <div class="header-div1">
         	<a href="<?php echo site_url() ?>" style="display: inline-block;"><img src="<?php echo get_option('king_logo') ?>"></a>
 <a href="<?php echo site_url() ?>/feed" style="display: inline-block;margin-top: 12px;margin-left: 15px;"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">RSS订阅</button></a>
-<a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">博客搜索</button></a>
+<a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">全局搜索</button></a>
 </div>
                 <?php }else{ ?>
         <div class="header-div1-1">
@@ -44,74 +49,30 @@
             <?php if(get_option('king_nav_pu') !== ''){ ?>
                 <a href="<?php echo get_option('king_nav_pu'); ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;"><?php echo get_option('king_nav_pn'); ?></button></a>
             <?php } ?>
-            <button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding: 5px 15px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i>关于 </a></button>
+            <div class="btn-group" role="group"><button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding-right: 5px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i>关于我</a></button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only"></span>
+  </button>
+  <div class="dropdown-menu" style="letter-spacing:0px !important">
+    <?php if(!isset($_COOKIE['tony_view'])){ ?>
+        <a class="dropdown-item" onclick="setCookie('tony_view','1')">夜间主题</a>
+    <?php }else{ ?>
+        <a class="dropdown-item" onclick="delCookie('tony_view')">日间主题</a>
+    <?php } ?>
+  </div>
+</div>
             </div>
     </header>
     
     
     <div id="view-div" class="center-info" style="display:none"><p style="font-weight: 600;font-size: 1.2rem;color: #555;" id="view-text">-&nbsp;<?php if(!is_single() && !is_page()) echo '文章列表'; else echo '博客内容'; ?>&nbsp;-</p></div>
     
-    <script>
-    $(window).scroll(function() {
-        var to_top_header = $(document).scrollTop();
-        if (to_top_header <= 0) {
-            $('#header-div').attr('class','tony-header-fixed');
-            $('#view-div').css('display','none');
-            
-            $('#header-div').hover(function(){
-            $('#header-div').attr('class','tony-header-scoll');
-            },function(){
-            $('#header-div').attr('class','tony-header-fixed');
-            })
-            
-        }else{
-            $('#header-div').attr('class','tony-header-scoll');
-            $('#view-div').css('display','block');
-            
-            $('#header-div').hover(function(){
-            $('#header-div').attr('class','tony-header-scoll');
-            },function(){
-            $('#header-div').attr('class','tony-header-scoll');
-            })
-        }
-      });
-      
-      var open_search = function(){
-          $('#search_form').attr('class','search_form_play');
-          $('.search-bg-b').attr('style','display:block');
-          $('#search-div').attr('style','display:block');
-      }
-      var close_search = function(){
-          $('#search_form').attr('class','search_form_dis');
-          $('.search-bg-b').attr('style','display:none');
-          $('#search-div').attr('style','display:none');
-      }
-      
-    </script>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             
         <div id="jv-loadingbar"></div>
         <script type="text/javascript">
 $("#jv-loadingbar").show();
 $("#jv-loadingbar").animate({width:"20%"},100);
-</script>
-<script type="text/javascript">
 $("#jv-loadingbar").animate({width:"100%"},100,function(){
 $("#jv-loadingbar").fadeOut(1000,function(){$("#jv-loadingbar").css("width","0");});
 });
@@ -122,7 +83,7 @@ $("#jv-loadingbar").fadeOut(1000,function(){$("#jv-loadingbar").css("width","0")
 <div class="search-bg" id="search-div">
     <div class="search-div1">
         <h3>搜索内容<button type="button" class="btn btn-primary" style="font-weight: 600;padding: 4px 14px;font-size: .9rem;margin-top: 6px;margin-left: 10px;float: right;" onclick="close_search();">关闭</button></h3>
-        <p>从博客全部内容中搜索所需</p>
+        <p>从本站全部内容中搜索所需</p>
         <input class="uk-input" type="text" placeholder="请输入搜索内容并回车Enter..." v-on:keyup.enter="search_query" v-model.trim="search_key">
     </div>
     <div class="search-div2">
