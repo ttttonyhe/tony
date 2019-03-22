@@ -38,7 +38,7 @@
             <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id">全文速览</button>
         </div>
         <a :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
-        <p v-html="post.post_excerpt.nine" :id="post.id"></p>
+        <p class="article-list-content" v-html="post.post_excerpt.nine" :id="post.id"></p>
         <div class="article-list-footer"> 
             <span class="article-list-date">{{ post.post_date }}</span>
             <span class="article-list-divider">-</span>
@@ -81,12 +81,11 @@
 <script>
 window.onload = function(){ //避免爆代码
         
-        var pre_post = 0;
-        var pre_post_con = '';
-        var pre_status = 1;
         var now = 20;
         var click = 0; //初始化加载次数
         var paged = 1; //获取当前页数
+        var pre_post_id = null;
+        var pre_post_con = '';
         
         /* 展现内容(避免爆代码) */
         $('.article-list').css('opacity','1');
@@ -172,30 +171,30 @@ window.onload = function(){ //避免爆代码
                      $('.bottom h5').html('暂无更多文章了 O__O "…').css({'background':'#fff','color':'#999'});
                  })
             },
-                preview : function(post){ //预览文章内容
-                    if(post !== pre_post && pre_status){ //点开当前预览
-                        pre_post = post;
-                        pre_status = 0; //屏蔽其余预览按钮
-                    $('#'+post).html('<div uk-spinner></div><h7 class="loading-text">加载中...</h7>');
-                    axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts/'+post)
-                 .then(response => {
-                     if(response.data.length !== 0){ //判断是否最后一页
-                         $('#btn'+post).html('收起速览'); //更改按钮
-                         $('#'+post).attr('class','preview-p').html(response.data.content.rendered); //更改内容
-                         pre_post_con = response.data.post_excerpt.nine; //保存摘录
-                     }else{
-                         $('#'+post).html('Nothing Here');
-                     }
-                 });
-                }else if(post !== pre_post && pre_status == 0){ //点击了其余预览按钮,报错
-                    UIkit.modal.dialog('<h3 style="margin: 0px;font-weight: 600;">错误</h3><p style="margin: 5px 0;">请先收起当前预览</p>');
-                }else{ //点击收起按钮
-                    $('#btn'+post).html('全文速览');
-                    $('#'+post).html(pre_post_con).attr('class','');
+                preview : function(postId){ //预览文章内容
+                  var previewingPost = $('.article-list-item .preview-p');
+                  if (!!previewingPost.length) { // 若有其它预览已打开,则自动收起
+                    var previewingPostItemEl = previewingPost.parent('.article-list-item');
+                    previewingPostItemEl.find('.list-show-btn').html('全文速览');
+                    previewingPostItemEl.find('.article-list-content').html(pre_post_con).removeClass('preview-p');
                     pre_post_con = '';
-                    pre_post = 0;
-                    pre_status = 1; //开放其他预览按钮
-                }
+                    if (postId === pre_post_id) { // 若点击当前已打开文章的按钮
+                      return;
+                    }
+                  }
+                   
+                  $('#'+postId).html('<div uk-spinner></div><h7 class="loading-text">加载中...</h7>');
+                  axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts/'+postId)
+                    .then(response => {
+                     if(response.data.length !== 0){ //判断是否最后一页
+                         $('#btn'+postId).html('收起速览'); //更改按钮
+                         $('#'+postId).addClass('preview-p').html(response.data.content.rendered); //更改内容
+                         pre_post_con = response.data.post_excerpt.nine; //保存摘录
+                         pre_post_id = postId
+                     }else{
+                         $('#'+postId).html('Nothing Here');
+                     }
+                   });
                 }
             }
         });
