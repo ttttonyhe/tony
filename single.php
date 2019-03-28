@@ -9,7 +9,7 @@
 <?php } ?>
 <?php setPostViews($post->ID); ?>  
 
-                    <article class="article reveal uk-animation-slide-left-small" id="lightgallery">
+                    <article class="article reveal" id="lightgallery">
                         <div id="load">
                         <header class="article-header">
                             <span class="badge badge-pill badge-danger single-badge"><a href="<?php echo site_url() ?>" style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>博客文章</a></span>
