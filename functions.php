@@ -324,4 +324,14 @@ function newgravatar($avatar_defaults) {
     return $avatar_defaults;  
 }
 
+function get_tony_ms(){
+    if(get_option('king_ms') && !get_option('king_title_ms')){
+        echo get_option('king_ms');
+    }elseif(get_option('king_title_ms')){
+        echo get_option('king_title_ms'); 
+    }else{
+        echo '未设置描述';
+    }
+}
+
 ?>

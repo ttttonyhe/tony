@@ -27,7 +27,8 @@
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/jquery.goup.js"></script>
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/header.js"></script>
         <?php echo stripslashes(get_option('king_zztj')); ?>
-
+        <link href="https://static.ouorz.com/highlight.min.css" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/highlighter.js/1.0.0/highlighter.min.js"></script>
     </head>
         <body id="body">
             
@@ -104,7 +105,7 @@ $("#jv-loadingbar").fadeOut(1000,function(){$("#jv-loadingbar").css("width","0")
             </template>
         </ul>
         <ul v-if="loading_ph">
-            <ul class="uk-animation-slide-bottom-small">
+            <ul>
                 <li class="search-line" style="padding: 30px;background: #f1f2f3;border: none;"></li>
                 <li class="search-line" style="padding: 30px;background: #f1f2f3;border: none;"></li> 
                 <li class="search-line" style="padding: 30px;background: #f1f2f3;border: none;"></li>

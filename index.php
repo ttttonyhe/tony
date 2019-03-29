@@ -6,7 +6,7 @@
 <div id="header_info" class="index-top">
     <nav class="header-nav reveal">
         <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="<?php echo get_bloginfo('name'); ?>"><?php echo get_bloginfo('name'); ?></a>
-        <p class="lead" style="margin-top: 0px;margin-left:5px"><?php if(get_option('king_ms')) echo get_option('king_ms'); else echo '未设置描述'; ?></p>
+        <p class="lead" style="margin-top: 0px;margin-left:5px"><?php get_tony_ms(); ?></p>
     </nav>
     <div class="index-cates">
         <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description" v-html="cate.name"></a>
@@ -35,7 +35,7 @@
         <template v-if="post.post_img.url == false">
         <div class="list-show-div">
             <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
-            <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id">全文速览</button>
+            <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id" v-if="post.excerpt.rendered !== ''">全文速览</button>
         </div>
         <a :href="post.link" style="text-decoration: none;"><h5 v-html="post.title.rendered"></h5></a>
         <p class="article-list-content" v-html="post.post_excerpt.nine" :id="post.id"></p>
@@ -190,7 +190,10 @@ window.onload = function(){ //避免爆代码
                          $('#btn'+postId).html('收起速览'); //更改按钮
                          $('#'+postId).addClass('preview-p').html(response.data.content.rendered); //更改内容
                          pre_post_con = response.data.post_excerpt.nine; //保存摘录
-                         pre_post_id = postId
+                         pre_post_id = postId;
+                         document.querySelectorAll('pre code').forEach((block) => {
+                            hljs.highlightBlock(block);
+                         });
                      }else{
                          $('#'+postId).html('Nothing Here');
                      }

@@ -772,6 +772,7 @@ img {
 .article-content {
     display:block;
     font-weight: 300;
+    padding: 0px 10px;
 }
 .article-content blockquote {
     display: block;

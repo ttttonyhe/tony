@@ -13,7 +13,7 @@
                         <div id="load">
                         <header class="article-header">
                             <span class="badge badge-pill badge-danger single-badge"><a href="<?php echo site_url() ?>" style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>博客文章</a></span>
-                            <span class="badge badge-pill badge-danger single-badge" style="margin-left: 10px;"><a :href="cate_url" style="text-decoration: none;color: #888;letter-spacing: .5px;" v-html="cate">分类目录</a></span>
+                            <span class="badge badge-pill badge-danger single-badge" style="margin-left: 10px;"><a :href="cate_url" style="text-decoration: none;color: #888;letter-spacing: .5px;" v-html="cate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
                             
                             <h2 class="single-h2" style="height: 50px;width: 100%;background: rgba(238, 238, 238, 0.81);color:rgba(238, 238, 238, 0.81)"></h2>
                             <div class="article-list-footer" style="height: 25px;background: rgb(246, 247, 248);width: 80%;margin-top: 15px;color:rgb(246, 247, 248)">
@@ -60,8 +60,8 @@
 
 <script>
 window.onload = function(){ //避免爆代码
-        
-        
+
+ 
         var post_info = new Vue({ //axios获取顶部信息
             el : '#load',
             data() {
@@ -106,11 +106,18 @@ window.onload = function(){ //避免爆代码
                      var count_ti = count_in = count_ar = count_sc = count_hr = count_e = 1;
                      var offset = new Array;
                      $('.article-content <?php if(get_option('king_single_index')) echo get_option('king_single_index'); else echo 'h3'; ?>').each(function() { //each获取h3内容
-                         $('#article-index').html($('#article-index').html() + '<li id="ti' + (count_ti++) + '"><a onclick="$(\'html,body\').animate({scrollTop: ($(\'#in'+(count_hr++)+'\').offset().top - 100)}, 500)"><i class="czs-circle-l"></i>&nbsp;&nbsp;' + $(this).eq(0).text() + '</a></li>');
+                         $('#article-index').html($('#article-index').html() + '<li id="ti' + (count_ti++) + '"><a><i class="czs-circle-l"></i>&nbsp;&nbsp;' + $(this).eq(0).text() + '</a></li>');
                          $(this).eq(0).attr('id', 'in' + (count_in++)); //h3添加id
                          offset[0] = 0;
                          offset[count_ar++] = $(this).eq(0).offset().top; //h3位置存入数组
                          count_e++
+                     });
+                     
+                     //跳转对应位置事件
+                     $('#article-index li').click(function(){
+                         $('html,body').animate({
+                             scrollTop: ($('#in'+$(this).eq(0).attr('id').replace('ti','')).offset().top - 100)
+                         }, 500);
                      });
                      
                      if(count_e !== 1){ //若存在h3标签
@@ -136,6 +143,10 @@ window.onload = function(){ //避免爆代码
                      }
                      /* 文章目录 */
                      
+                     //代码高亮
+                     document.querySelectorAll('pre code').forEach((block) => {
+                        hljs.highlightBlock(block);
+                    });
                 })
             }
         });

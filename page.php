@@ -5,7 +5,7 @@ Template Name: 单栏页面
 get_header(); ?>
 <?php setPostViews($post->ID); ?>  
 
-                    <article class="article reveal uk-animation-slide-left-small">
+                    <article class="article reveal">
                         <div id="load">
                         <header class="article-header">
                             <span class="badge badge-pill badge-danger single-badge"><a href="https://www.ouorz.com" style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>博客页面</a></span>
