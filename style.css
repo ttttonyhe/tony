@@ -772,7 +772,6 @@ img {
 .article-content {
     display:block;
     font-weight: 300;
-    padding: 0px 10px;
 }
 .article-content blockquote {
     display: block;
@@ -940,6 +939,9 @@ article-content img{
     }
     .header-links li:last-child {
         margin-right:0
+    }
+    .article-content {
+        padding: 0 10px !important;
     }
 }
 
