@@ -73,6 +73,12 @@ function lb_time_since( $older_date, $comment_date = false ) {
 	return $output;
 }
 
+//后台提示信息
+function remove_footer_admin () {
+    echo 'Theme <b style="letter-spacing:1px;">Tony</b> | Designed with <img draggable="false" class="emoji" alt="love" src="https://s.w.org/images/core/emoji/11/svg/2764.svg"> by <a href="https://www.ouorz.com" target="_blank">TonyHe</a> | 当前 <a href="https://github.com/HelipengTony/tony/releases" target="_blank">'.wp_get_theme()->get( 'Version' ).'</a> 版本</p>';
+}
+add_filter('admin_footer_text', 'remove_footer_admin');
+
 // 评论添加@ by someone
 function comment_add_at( $comment_text, $comment = '') {
   if( $comment->comment_parent > 0) {
@@ -324,6 +330,7 @@ function newgravatar($avatar_defaults) {
     return $avatar_defaults;  
 }
 
+//标题描述
 function get_tony_ms(){
     if(get_option('king_ms') && !get_option('king_title_ms')){
         echo get_option('king_ms');
@@ -333,5 +340,4 @@ function get_tony_ms(){
         echo '未设置描述';
     }
 }
-
 ?>
