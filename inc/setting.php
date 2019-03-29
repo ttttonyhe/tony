@@ -186,7 +186,7 @@ if(is_admin()){
      
     <div class="wrap" style="width: 47%;margin: 10vh auto;">
         <h1 style="font-weight: 600;font-size: 2.5rem;">主题设置</h1>
-        <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必开启 WordPress REST API 功能并设置 非默认 固定链接<br/>原体基于 King 主题，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/ouorz" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/ouorz_theme</a><br/>积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
+        <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必配置 <a href="https://www.wpdaxue.com/wordpress-rewriterule.html" target="_blank">WordPress 伪静态</a> 并设置 非默认 固定链接<br/>原体基于 King 主题，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/tony" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/tony</a><br/>积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
         <div style="background: #f7f8f9;padding: 5px 20px;box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;border-radius: 4px;margin: 20px 0;">
             <?php admin_show_category(); ?>
         </div>
