@@ -18,6 +18,7 @@ An Elegant WordPress Theme Based on Vue.js
 + Vue.js 2.x
 + WP REST API
 + 非默认固定链接格式(推荐使用/%post_id%)
++ WordPress 伪静态
 
 <br/>
 
@@ -51,7 +52,7 @@ git clone git@github.com:HelipengTony/tony.git
 + 略缩图列表
 + 返回顶部按钮
 + 博客文章搜索
-+ 文章目录
++ 多标题级别文章目录
 + 夜间主题模式
 
 
