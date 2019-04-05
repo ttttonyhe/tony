@@ -14,6 +14,11 @@ Version: 4.3
     background-color: rgb(246, 247, 248) !important;
     background: rgb(246, 247, 248) !important;
 }
+html {
+    -ms-overflow-style:none; 
+    overflow:-moz-scrollbars-none; 
+}
+html::-webkit-scrollbar{width:0px}
 body {
     margin:0;
     background-color: rgb(246, 247, 248) !important;

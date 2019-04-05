@@ -104,7 +104,7 @@ if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page')
                     
                     
 <script>
-window.onload = function(){ //避免爆代码
+$(document).ready(function(){ //避免爆代码
         
         var click = 0; //初始化加载次数
         var paged = 1; //获取当前页数
@@ -207,7 +207,7 @@ window.onload = function(){ //避免爆代码
         });
         
         
-}
+})
 </script>            
                     
                     

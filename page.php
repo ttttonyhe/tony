@@ -52,7 +52,7 @@ get_header(); ?>
 
 
 <script>
-window.onload = function(){ //避免爆代码
+$(document).ready(function(){ //避免爆代码
         
         
         var post_info = new Vue({ //axios获取顶部信息
@@ -86,7 +86,7 @@ window.onload = function(){ //避免爆代码
         });
         
         
-}
+})
 </script>
 
 

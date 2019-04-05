@@ -79,7 +79,7 @@
 
 
 <script>
-window.onload = function(){ //避免爆代码
+$(document).ready(function(){ //避免爆代码
         
         var now = 20;
         var click = 0; //初始化加载次数
@@ -203,6 +203,6 @@ window.onload = function(){ //避免爆代码
         });
         
         
-}
+})
 </script>
 <?php get_footer(); ?>
