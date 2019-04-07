@@ -11,6 +11,7 @@
         <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://static.ouorz.com/popper.min.js"></script>
+        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/instantclick-1.2.2.js" type="module"></script>
         <?php if(isset($_COOKIE['tony_view'])){ ?>
             <link type="text/css" rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/darkmode.css">
         <?php }else{ ?>
@@ -24,7 +25,7 @@
         <script src="https://cdn.bootcss.com/uikit/3.0.3/js/uikit.min.js"></script>
         <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
         <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
-        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/jquery.goup.js"></script>
+        <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.goup.js"></script>
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/header.js"></script>
         <?php echo stripslashes(get_option('king_zztj')); ?>
         <link href="https://static.ouorz.com/highlight.min.css" rel="stylesheet">
