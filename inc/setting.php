@@ -130,7 +130,13 @@ if(is_admin()){
 		'id' => 'king_abt_url',
 		'type' => 'text',
 		'op_des' => '展示在导航栏上的关于我链接'
-		),
+        ),
+    array(
+            'name' => '「关于我」文本',
+            'id' => 'king_about_text',
+            'type' => 'text',
+            'op_des' => '展示在导航栏上的替换「关于我」的文本'
+        ),
 	array(
 		'name' => '导航栏第二页面链接',
 		'id' => 'king_nav_pu',

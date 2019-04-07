@@ -21,10 +21,10 @@
     <div id="load">
         <header class="article-header">
             <span class="badge badge-pill badge-danger single-badge"><a href="<?php echo site_url() ?>"
-                    style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>博客文章</a></span>
+                    style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>站点文章</a></span>
             <span class="badge badge-pill badge-danger single-badge" style="margin-left: 10px;"><a :href="cate_url"
                     style="text-decoration: none;color: #888;letter-spacing: .5px;"
-                    v-html="cate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                    v-html="cate">分类目录</a></span>
 
             <h2 class="single-h2"
                 style="height: 50px;width: 100%;background: rgba(238, 238, 238, 0.81);color:rgba(238, 238, 238, 0.81)">
