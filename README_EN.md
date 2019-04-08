@@ -40,6 +40,7 @@ git clone git@github.com:HelipengTony/tony.git
 ### 主题简介
 + 手机端自适应
 + 全站采用 Vue.js 构建
++ UI框架采用 Bootstrap v4 配合 UIKit
 + 后台设置强大而实用
 + 优化样式的评论系统
 + 支持高于 4.4 的最新 WordPress 版本
@@ -49,11 +50,12 @@ git clone git@github.com:HelipengTony/tony.git
 + 后台可在文章中插入其他文章
 + 多样式文章列表
 + 单栏页面模板
-+ 略缩图列表
++ 略缩图文章列表
 + 返回顶部按钮
 + 博客文章搜索
 + 多标题级别文章目录
 + 夜间主题模式
++ 支持 instantclick.js
 
 
 <br/>
