@@ -1876,4 +1876,22 @@ table{
     opacity: 0;
     z-index: -1;
 }
+
+
+.article-list-tags a{
+    border-radius: 100px;
+    color: #999 !important;
+    background: rgb(246, 247, 248);
+    padding: 5px 15px 7px 15px;
+    text-decoration: none !important;
+}
+
+.article-list-tags a:nth-child(1){
+    color: #8590a6 !important;
+    padding: 5px 15px 7px 15px;
+    font-weight: 500;
+    margin-right: 3px;
+    letter-spacing: .1px;
+}
+
 /* End of The Tony Vershion */
