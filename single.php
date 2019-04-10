@@ -50,6 +50,16 @@
         <?php }else{ ?>
         <?php the_content(); ?>
         <?php } ?>
+
+        <div style="text-align: left;margin: 70px 0px 40px 8px;border-radius: 6px;">
+            <ul class="post_tags" style="margin: 0;padding: 0px;width: 100%;">
+                <li class="cat-real" style="display: inline-block;color: rgb(102, 102, 102);font-size: 1.1rem;font-weight: 600;margin: 0px;letter-spacing: 1px;"><a style="background-color: #e7f3ff;color: #2f94fe;padding: 3px 12px 4px 12px;border-radius: 4px;font-size: .9rem;">相关标签</a></li>
+                <li class="cat-real" style="display: inline-block;" v-for="tag in post_tags">
+                    <a :href="tag.url" target="_blank" v-html="tag.name" style="font-size: .9rem;border-radius: 4px;padding: 3px 10px 4px 10px;"></a>
+                </li>
+            </ul>
+        </div>
+
         <div class="article-comments" id="article-comments">
             <?php if ( comments_open() || get_comments_number() ) :
                                     comments_template();
@@ -93,7 +103,8 @@ $(document).ready(function() { //避免爆代码
                 loading: true, //v-if判断显示占位符
                 errored: true,
                 cate: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-                cate_url: ''
+                cate_url: '',
+                post_tags: null
             }
         },
         mounted() {
@@ -110,6 +121,7 @@ $(document).ready(function() { //避免爆代码
                     this.loading = false;
                     this.cate = this.posts.post_categories[0].name;
                     this.cate_url = this.posts.post_categories[0].link;
+                    this.post_tags = this.posts.post_tags;
 
                     $('.real').css('display', 'block');
 

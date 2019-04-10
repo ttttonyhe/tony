@@ -239,6 +239,14 @@ function wp_rest_insert_tag_links(){
             'schema' => null,
         )
     );
+    register_rest_field( 'post', 
+        'post_tags', 
+        array(
+            'get_callback' => 'get_post_tags_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
 }
 
 function wp_rest_get_categories_links($post){
@@ -339,5 +347,18 @@ function get_tony_ms(){
     }else{
         echo '未设置描述';
     }
+}
+
+//获取文章标签
+function get_post_tags_for_api($post){
+    $tag_term = array();
+    $tags = wp_get_post_tags($post['id']);
+    $i = 0;
+    foreach($tags as $tag){
+        $tag_term[$i]['url'] = get_tag_link($tag->term_id);
+        $tag_term[$i]['name'] = $tag->name;
+        $i++;
+    }
+    return $tag_term;
 }
 ?>
