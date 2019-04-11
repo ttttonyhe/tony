@@ -1894,4 +1894,8 @@ table{
     letter-spacing: .1px;
 }
 
+.article-list-content p{
+    text-overflow: ellipsis;overflow: hidden;
+}
+
 /* End of The Tony Vershion */
