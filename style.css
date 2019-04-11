@@ -1755,10 +1755,10 @@ table{
 
 .index-div{
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
-    width: 14%;
+    width: 195px;
     background: #fff;
     position: fixed;
-    transform: translate(-260px,80px);
+    transform: translate(-230px,80px);
     border-radius: 6px;
     padding: 20px 0px;
 }
