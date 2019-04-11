@@ -24,5 +24,7 @@ if ( post_password_required() )
             'prev_next' => false, 
         ) );?>
     <?php endif; ?>
-    <?php comment_form(); ?>
+    <?php comment_form(array(
+        'label_submit' => __( '发表评论', 'textdomain' )
+    )); ?>
 </div>
