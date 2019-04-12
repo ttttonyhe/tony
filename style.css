@@ -1601,6 +1601,9 @@ table{
     .index-div{
         display: none;
     }
+    .single-left{
+        display: none;
+    }
 }
 
 .link-list-img{
