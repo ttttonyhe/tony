@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php 
+    get_header();
+    if(!get_option('king_fre_cate')) $f = '99999'; else $f = get_option('king_fre_cate');
+    if(!get_option('king_wor_cate')) $w = '66666'; else $w = get_option('king_wor_cate');
+?>
+
+<div class="single-left" :style="exist_index ? '' : 'margin-top:-15px'">
 <?php if(get_option('king_single_index') && get_option('king_single_index')=='开启'){ ?>
 <div class="index-div">
     <div style="padding:0px 25px">
@@ -15,6 +21,25 @@
     </ul>
 </div>
 <?php } ?>
+
+<template v-if="!loading">
+    
+<div class="index-div-next" v-if="!!post_prenext.prev && post_prenext.prev[0] !== null && post_prenext.prev[2] !== (<?php echo $w; ?> || <?php echo $f; ?>)">
+    <h4><i class="czs-hande-vertical"></i> 上一篇</h4>
+    <p><a :href="post_prenext.prev[0]" v-html="post_prenext.prev[1]"></a></p>
+</div>
+<div class="index-div-next" v-if="!!post_prenext.next && post_prenext.next[0] !== null && post_prenext.next[2] !== (<?php echo $w; ?> || <?php echo $f; ?>)">
+    <h4><i class="czs-hand-horizontal"></i> 下一篇</h4>
+    <p><a :href="post_prenext.next[0]" v-html="post_prenext.next[1]"></a></p>
+</div>
+
+</template>
+
+</div>
+
+
+
+
 <?php setPostViews($post->ID); ?>
 
 <article class="article reveal" id="lightgallery">
@@ -96,15 +121,17 @@ $(document).ready(function() { //避免爆代码
 
 
     var post_info = new Vue({ //axios获取顶部信息
-        el: '#load',
+        el: 'main',
         data() {
             return {
                 posts: null,
                 loading: true, //v-if判断显示占位符
                 errored: true,
-                cate: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+                cate: '分类目录',
                 cate_url: '',
-                post_tags: []
+                post_tags: [],
+                post_prenext: [],
+                exist_index : true
             }
         },
         mounted() {
@@ -122,6 +149,7 @@ $(document).ready(function() { //避免爆代码
                     this.cate = this.posts.post_categories[0].name;
                     this.cate_url = this.posts.post_categories[0].link;
                     this.post_tags = this.posts.post_tags;
+                    this.post_prenext = this.posts.post_prenext;
 
                     $('.real').css('display', 'block');
 
@@ -216,7 +244,8 @@ $(document).ready(function() { //避免爆代码
                         });
 
                     } else {
-                        $('.index-div').css('display', 'none')
+                        $('.index-div').css('display', 'none');
+                        this.exist_index = false;
                     }
                     /* 文章目录 */
 

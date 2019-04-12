@@ -1757,10 +1757,40 @@ table{
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
     width: 195px;
     background: #fff;
-    position: fixed;
     transform: translate(-230px,80px);
     border-radius: 6px;
     padding: 20px 0px;
+}
+
+.index-div-next h4{
+    font-weight: 600;
+    margin: 0px;
+}
+
+.index-div-next{
+    margin-top: 15px;
+    padding: 20px 25px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
+    width: 195px;
+    background: #fff;
+    transform: translate(-230px,80px);
+    border-radius: 6px;
+}
+
+.index-div-next p{
+    margin: 0px;
+    color: #777;
+    margin-top: 8px;
+    letter-spacing: .5px;
+}
+
+.index-div-next p a{
+    text-decoration: none;
+    color: #777;
+}
+
+.single-left{
+    position: fixed;
 }
 
 .post-password-form{

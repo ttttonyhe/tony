@@ -247,6 +247,14 @@ function wp_rest_insert_tag_links(){
             'schema' => null,
         )
     );
+    register_rest_field( 'post', 
+        'post_prenext', 
+        array(
+            'get_callback' => 'get_post_prenext_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
 }
 
 function wp_rest_get_categories_links($post){
@@ -360,5 +368,19 @@ function get_post_tags_for_api($post){
         $i++;
     }
     return $tag_term;
+}
+
+//获取上下篇文章
+function get_post_prenext_for_api($post){
+    $array = array();
+    $prev_post = get_previous_post(false,'');
+	$next_post = get_next_post(false,'');
+	$array['prev'][0] = $prev_post->guid;
+	$array['prev'][1] = $prev_post->post_title;
+	$array['prev'][2] = wp_get_post_categories($prev_post->ID)[0];
+	$array['next'][0] = $next_post->guid;
+	$array['next'][1] = $next_post->post_title;
+	$array['next'][2] = wp_get_post_categories($next_post->ID)[0];
+	return $array;
 }
 ?>
