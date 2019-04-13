@@ -76,8 +76,8 @@
         <?php the_content(); ?>
         <?php } ?>
 
-        <div style="text-align: left;margin: 70px 0px 40px 8px;border-radius: 6px;" v-if="!!post_tags.length">
-            <ul class="post_tags" style="margin: 0;padding: 0px;width: 100%;">
+        <div style="text-align: left;margin: 60px 0px 40px 8px;border-radius: 6px;" v-if="!!post_tags.length">
+            <ul class="post_tags" style="margin: 0;padding: 0px;width: 100%;padding-bottom: 15px;">
                 <li class="cat-real" style="display: inline-block;color: rgb(102, 102, 102);font-size: 1.1rem;font-weight: 600;margin: 0px;letter-spacing: 1px;"><a style="background-color: #e7f3ff;color: #2f94fe;padding: 3px 12px 4px 12px;border-radius: 4px;font-size: .9rem;">相关标签</a></li>
                 <li class="cat-real" style="display: inline-block;" v-for="tag in post_tags">
                     <a :href="tag.url" target="_blank" v-html="tag.name" style="font-size: .9rem;border-radius: 4px;padding: 3px 10px 4px 10px;"></a>
