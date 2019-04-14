@@ -25,11 +25,11 @@
 <template v-if="!loading">
     
 <div class="index-div-next" v-if="!!post_prenext.prev && post_prenext.prev[0] !== null && post_prenext.prev[2] !== <?php echo $w; ?> && post_prenext.prev[2] !== <?php echo $f; ?>">
-    <h4><i class="czs-hande-vertical"></i> 上一篇</h4>
+    <h4><i class="czs-hande-vertical"></i> 前一篇</h4>
     <p><a :href="post_prenext.prev[0]" v-html="post_prenext.prev[1]"></a></p>
 </div>
 <div class="index-div-next" v-if="!!post_prenext.next && post_prenext.next[0] !== null && post_prenext.next[2] !== <?php echo $w; ?> && post_prenext.next[2] !== <?php echo $f; ?>">
-    <h4><i class="czs-hand-horizontal"></i> 下一篇</h4>
+    <h4><i class="czs-hand-horizontal"></i> 后一篇</h4>
     <p><a :href="post_prenext.next[0]" v-html="post_prenext.next[1]"></a></p>
 </div>
 
