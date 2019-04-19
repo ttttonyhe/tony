@@ -86,7 +86,7 @@ $("#jv-loadingbar").fadeOut(1000,function(){$("#jv-loadingbar").css("width","0")
     <div class="search-div1">
         <h3>搜索内容<button type="button" class="btn btn-primary" style="font-weight: 600;padding: 4px 14px;font-size: .9rem;margin-top: 6px;margin-left: 10px;float: right;" onclick="close_search();">关闭</button></h3>
         <p>从本站全部内容中搜索所需</p>
-        <input class="uk-input" type="text" placeholder="请输入搜索内容并回车Enter..." v-on:keyup.enter="search_query" v-model.trim="search_key">
+        <input class="uk-input" type="text" placeholder="请输入搜索内容后回车Enter..." v-on:keyup.enter="search_query" v-model.trim="search_key">
     </div>
     <div class="search-div2">
         <ul v-if="search_loading">
