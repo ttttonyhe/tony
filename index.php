@@ -37,7 +37,12 @@
             <em v-if="post.post_categories[0].term_id === <?php if(get_option('king_cate_cate')){ echo get_option('king_cate_cate'); }else{ echo '0'; }?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if(get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph'); else echo 'XX' ?>')  }}</em>
             <div v-else class="article-list-tags">
                 <a>文章标签</a>
-                <a v-for="tag in post.post_tags.slice(0,2)" :href="tag.url" v-html="tag.name"></a>
+                <template v-if="!!post.post_tags.length">
+                    <a v-for="tag in post.post_tags.slice(0,2)" :href="tag.url" v-html="tag.name"></a>
+                </template>
+                <template v-else>
+                    <a>空标签</a>
+                </template>
             </div>
             <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id" v-if="post.excerpt.rendered !== ''">全文速览</button>
         </div>

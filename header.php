@@ -72,7 +72,7 @@
     <div class="header-div1-1">
         <a href="<?php echo site_url() ?>" class="mob-header-text"><?php echo get_bloginfo('name'); ?></a>
     </div>
-    <div class="header-div2" style="padding-top: <?php if(is_single()) echo '18'; else echo '12'; ?>px;">
+    <div class="header-div2" style="padding-top: 12px;">
         <a style="font-size: 1.6rem;color:#333;text-decoration:none" href="<?php echo get_option('king_abt_url'); ?>"><i class="czs-label-info-l"></i></a>
     </div>
 </header>

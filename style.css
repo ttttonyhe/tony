@@ -872,8 +872,8 @@ article-content img{
         display:none
     }
     .article-list-tags {
-        display:block;
-        margin-top:-7px
+        display: inline-block;
+        margin-top: 0px;
     }
 }
 .embed-responsive {
