@@ -2000,4 +2000,40 @@ body{
     background: rgba(238, 238, 238, 0.6901960784313725) !important;
 }
 
+.article-list-tags a{
+    border-radius: 100px;
+    color: #999 !important;
+    background: rgb(246, 247, 248);
+    padding: 5px 15px 7px 15px;
+    text-decoration: none !important;
+}
+
+.article-list-tags a:nth-child(1){
+    color: #8590a6 !important;
+    padding: 5px 15px 7px 15px;
+    font-weight: 500;
+    margin-right: 3px;
+    letter-spacing: .1px;
+}
+
+.article-list-content p{
+    text-overflow: ellipsis;overflow: hidden;
+}
+
+.mob-header-text{
+    font-size: 1.4rem;
+    color: #333 !important;
+    font-weight: 600;
+    padding-top: 12px;
+    text-decoration: none !important;
+}
+
+.reading-bar{
+    height: 2px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
 /* End of The Tony Vershion */
