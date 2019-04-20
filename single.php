@@ -2,6 +2,13 @@
     get_header();
     if(!get_option('king_fre_cate')) $f = '99999'; else $f = get_option('king_fre_cate');
     if(!get_option('king_wor_cate')) $w = '66666'; else $w = get_option('king_wor_cate');
+    if(!get_option('king_read')){
+        $color = 0; 
+    }elseif(get_option('king_read') == '关闭'){
+        $color = 0; 
+    }else{
+        $color = 'rgb(55, 151, 254)';
+    }
 ?>
 
 <div class="single-left" :style="exist_index ? '' : 'margin-top:-15px'">
@@ -42,6 +49,7 @@
 
 <?php setPostViews($post->ID); ?>
 
+<div class="reading-bar" style="background:<?php echo $color; ?>"></div>
 <article class="article reveal" id="lightgallery">
     <div id="load">
         <header class="article-header">
@@ -131,7 +139,8 @@ $(document).ready(function() { //避免爆代码
                 cate_url: '',
                 post_tags: [],
                 post_prenext: [],
-                exist_index : true
+                exist_index : true,
+                reading_p: 0
             }
         },
         mounted() {
@@ -150,7 +159,7 @@ $(document).ready(function() { //避免爆代码
                     this.cate_url = this.posts.post_categories[0].link;
                     this.post_tags = this.posts.post_tags;
                     this.post_prenext = this.posts.post_prenext;
-
+                    
                     $('.real').css('display', 'block');
 
                     <?php if(post_password_required()){ ?>
@@ -165,6 +174,25 @@ $(document).ready(function() { //避免爆代码
                         .post_date +
                         '</span><span class="article-list-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="article-list-minutes">' +
                         this.posts.post_metas.views + '&nbsp;Views</span>').attr('style', '');
+
+
+                    <?php if($color){ ?>
+                    //文章阅读进度条
+                    var content_offtop = $('.article-content').offset().top;
+                    var content_height = $('.article-content').innerHeight();
+                    $(window).scroll(function(){
+                        if (($(this).scrollTop() > content_offtop)) { //滑动到内容部分
+                            if(($(this).scrollTop() - content_offtop) <= content_height){ //在内容部分内滑动
+                                this.reading_p = Math.round(($(this).scrollTop() - content_offtop) / content_height * 100);
+                            }else{ //滑出内容部分
+                                this.reading_p = 100;
+                            }
+                        }else{ //未滑到内容部分
+                            this.reading_p = 0;
+                        }
+                        $('.reading-bar').css('width',this.reading_p+'%');
+                    });
+                    <?php } ?>
 
 
                     /* 文章目录 */

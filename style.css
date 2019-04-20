@@ -1935,4 +1935,11 @@ table{
     text-decoration: none !important;
 }
 
+.reading-bar{
+    height: 2px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
 /* End of The Tony Vershion */

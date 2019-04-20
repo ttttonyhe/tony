@@ -75,7 +75,15 @@ if(is_admin()){
 		'op_des' => '是否开启在文章左方展示的标题目录',
 		'options' => array('开启','关闭')
 		),
-         
+    
+    array(
+		'name' => '文章阅读进度',
+		'id' => 'king_read',
+		'type' => 'select',
+		'op_des' => '是否开启在文章内容页顶部展示的阅读进度条',
+		'options' => array('开启','关闭')
+		),
+
 	array(
 		'name' => '首页排除分类',
 		'id' => 'king_index_exclude',
