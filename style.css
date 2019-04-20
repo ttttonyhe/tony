@@ -1570,9 +1570,6 @@ table{
     .tony-header-fixed{
         display: none;
     }
-    .tony-header-scoll{
-        display: none;
-    }
     .link-list-img{
         display: none;
     }
@@ -1929,6 +1926,14 @@ table{
 
 .article-list-content p{
     text-overflow: ellipsis;overflow: hidden;
+}
+
+.mob-header-text{
+    font-size: 1.4rem;
+    color: #333 !important;
+    font-weight: 600;
+    padding-top: 12px;
+    text-decoration: none !important;
 }
 
 /* End of The Tony Vershion */

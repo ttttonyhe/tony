@@ -32,7 +32,8 @@
         <script src="https://cdn.bootcss.com/highlighter.js/1.0.0/highlighter.min.js"></script>
     </head>
         <body id="body">
-            
+
+        <?php if(!wp_is_mobile()){ ?>
             <header class="tony-header-fixed" id="header-div">
                 <?php if(is_single()){ ?>
                 <div class="header-div1">
@@ -66,6 +67,16 @@
             </div>
     </header>
     
+    <?php }else{ ?>
+<header class="tony-header-fixed" id="header-div">
+    <div class="header-div1-1">
+        <a href="<?php echo site_url() ?>" class="mob-header-text">TonyHe</a>
+    </div>
+    <div class="header-div2" style="padding-top: <?php if(is_single()) echo '18'; else echo '12'; ?>px;">
+        <a style="font-size: 1.6rem;color:#333;text-decoration:none" href="<?php echo get_option('king_abt_url'); ?>"><i class="czs-label-info-l"></i></a>
+    </div>
+</header>
+    <?php } ?>
     
     <div id="view-div" class="center-info" style="display:none"><p style="font-weight: 600;font-size: 1.2rem;color: #555;" id="view-text">-&nbsp;<?php if(!is_single() && !is_page()) echo '文章列表'; else echo '博客内容'; ?>&nbsp;-</p></div>
     
