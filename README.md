@@ -79,7 +79,7 @@ Your name will be on the list [Donation](https://www.snapaper.com/donate)
 
 <br/>
 
-Fire an issue if you encountered any problem
+File an issue if you encountered any problem
 <br/>
 I will reply you as soon as possible
 
