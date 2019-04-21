@@ -82,7 +82,15 @@ if(is_admin()){
 		'type' => 'select',
 		'op_des' => '是否开启在文章内容页顶部展示的阅读进度条',
 		'options' => array('开启','关闭')
-		),
+        ),
+    
+    array(
+        'name' => '文章Markdown解析',
+        'id' => 'markdown-it',
+        'type' => 'select',
+        'op_des' => '是否在文章页面自动解析md内容（必须使用「文本/代码编辑」模式书写内容）',
+        'options' => array('开启','关闭')
+        ), 
 
 	array(
 		'name' => '首页排除分类',

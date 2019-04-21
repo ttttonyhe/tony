@@ -2,6 +2,7 @@
     get_header();
     if(!get_option('king_fre_cate')) $f = '99999'; else $f = get_option('king_fre_cate');
     if(!get_option('king_wor_cate')) $w = '66666'; else $w = get_option('king_wor_cate');
+    if(!get_option('markdown-it')) $m = 0; elseif(get_option('markdown-it') == '关闭') $m = 0; else $m = 1;
     if(!get_option('king_read')){
         $color = 0; 
     }elseif(get_option('king_read') == '关闭'){
@@ -123,7 +124,7 @@
 
 
 
-
+<script src="https://cdn.bootcss.com/markdown-it/8.4.2/markdown-it.min.js"></script>
 <script>
 $(document).ready(function() { //避免爆代码
 
@@ -163,9 +164,17 @@ $(document).ready(function() { //避免爆代码
                     $('.real').css('display', 'block');
 
                     <?php if(post_password_required()){ ?>
-                    $('.article-content').attr('style', '');
+                        $('.article-content').attr('style', '');
+                    <?php }elseif($m){ ?> //渲染markdown格式
+                        var md = window.markdownit();
+                        var reg1 = new RegExp('<p>','g');
+                        var reg2 = new RegExp('</p>','g');
+                        var reg3 = new RegExp('<br />','g');
+                        this.posts.content.rendered = this.posts.content.rendered.replace(reg1,'').replace(reg2,'').replace(reg3,'');
+                        var md_result = md.render(this.posts.content.rendered);
+                        $('.article-content').html(md_result).attr('style', '');
                     <?php }else{ ?>
-                    $('.article-content').html(this.posts.content.rendered).attr('style', '');
+                        $('.article-content').html(this.posts.content.rendered).attr('style', '');
                     <?php } ?>
 
                     $('.single-h2').html(this.posts.post_metas.title.replace('密码保护：', '')).attr('style',
