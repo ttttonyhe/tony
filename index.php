@@ -86,8 +86,33 @@
     <!-- 加载按钮 -->
 </ul>
 
-
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
 <script>
+//发送评论
+        var send_comment = function(postId){
+            var _nonce = "<?php echo wp_create_nonce( 'wp_rest' ); ?>";
+            var na = $('#comment_form_name').val();
+            var em = $('#comment_form_email').val();
+            var ct = $('#comment_form_content').val();
+            if(na !== '' && ct !== '' && em !== ''){
+            axios.post('<?php echo site_url() ?>/wp-json/wp/v2/comments?post='+postId, {
+                    author_name   : na,
+                    author_email : em,
+                    content : ct,
+                    post : postId
+                },{
+                headers: {
+                    'X-WP-Nonce': _nonce
+                }})
+                .then(response => {
+                    $('#new_comments').html('<div class="quick-div"><div><img class="quick-img" src="https://gravatar.loli.net/avatar/'+md5(em)+'?d=mp&s=80"></div><div><p class="quick-name">'+na+'<em class="quick-date">刚刚</em></p><p>'+ct+'</p></div></div>'+$('#new_comments').html());
+                    $('#comment_form_content').val('');
+                })
+            }else{
+                alert('信息不全');
+            }
+        }
+        
 $(document).ready(function(){ //避免爆代码
         
         var now = 20;
@@ -112,7 +137,8 @@ $(document).ready(function(){ //避免爆代码
                     loading_cates: true,
                     loading_tages: true,
                     errored: true,
-                    loading_css : 'loading-line'
+                    loading_css : 'loading-line',
+                    comments_html: '<h4 style="margin-bottom: 10px;font-weight: 600;">评论列表</h4><div id="new_comments"></div>'
                 }
             },
             mounted () {
@@ -187,6 +213,7 @@ $(document).ready(function(){ //避免爆代码
                     previewingPostItemEl.find('.list-show-btn').html('全文速览');
                     previewingPostItemEl.find('.article-list-content').html(pre_post_con).removeClass('preview-p');
                     pre_post_con = '';
+                    this.comments_html = '<h4 style="margin-bottom: 10px;font-weight: 600;">评论列表</h4><div id="new_comments"></div>';
                     if (postId === pre_post_id) { // 若点击当前已打开文章的按钮
                       return;
                     }
@@ -196,13 +223,28 @@ $(document).ready(function(){ //避免爆代码
                   axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts/'+postId)
                     .then(response => {
                      if(response.data.length !== 0){ //判断是否最后一页
-                         $('#btn'+postId).html('收起速览'); //更改按钮
-                         $('#'+postId).addClass('preview-p').html(response.data.content.rendered); //更改内容
-                         pre_post_con = response.data.post_excerpt.nine; //保存摘录
-                         pre_post_id = postId;
-                         document.querySelectorAll('pre code').forEach((block) => {
-                            hljs.highlightBlock(block);
-                         });
+                         axios.get('<?php echo site_url() ?>/wp-json/wp/v2/comments?post='+postId)
+                         .then(comments => {
+                             
+                            //处理评论格式
+                            for(var c=0;c<comments.data.length;++c){
+                                this.comments_html += '<div class="quick-div"><div><img class="quick-img" src="'+comments.data[c].author_avatar_urls['48']+'"></div><div><p class="quick-name">'+comments.data[c].author_name+'<em class="quick-date">'+comments.data[c].date+'</em></p>'+comments.data[c].content.rendered+'</div></div>';
+                            }
+                            this.comments_html += '<div class="quick-div" style="margin-top: 10px;"><div style="flex:1;border-right: 1px solid #eee;"><input type="text" value="昵称" id="comment_form_name" class="quick-form"></div><div style="flex:1"><input type="email" value="邮箱" id="comment_form_email" class="quick-form"></div></div><div class="quick-div" style="padding: 4px;"><textarea placeholder="说点什么..." id="comment_form_content" class="quick-form-textarea"></textarea></div><button class="quick-btn" onclick="send_comment('+postId+')">发送评论</button>';
+
+               
+                            $('#btn'+postId).html('收起速览'); //更改按钮
+                            $('#'+postId).addClass('preview-p').html(
+                                response.data.content.rendered
+                                +
+                                this.comments_html
+                            ); //更改内容
+                            pre_post_con = response.data.post_excerpt.nine; //保存摘录
+                            pre_post_id = postId;
+                            document.querySelectorAll('pre code').forEach((block) => {
+                                hljs.highlightBlock(block);
+                            });
+                         })
                      }else{
                          $('#'+postId).html('Nothing Here');
                      }

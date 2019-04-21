@@ -2036,4 +2036,60 @@ body{
     z-index: 999;
 }
 
+.quick-date{
+    color: #999;
+    font-style: normal;
+    font-size: .8rem;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.quick-name{
+    margin-bottom: -7px !important;
+    font-weight: 600;
+    font-size: 1rem !important;
+}
+
+.quick-img{
+    width: 30px;
+    border-radius: 50%;
+    margin: 0px;
+    margin-top: 9px;
+    margin-right: 10px;
+    border: 1px solid #eee;
+}
+
+.quick-div{
+    display: flex;margin-top: 5px;box-shadow: inset rgba(0, 0, 0, 0.08) 0px 0px 4px 1px;padding: 2px 13px 4px 13px;border-radius: 6px;
+}
+
+.quick-form{
+    border: none;
+    color: #999;
+    padding: 6px;
+    width: 100%;
+    outline:none
+}
+
+.quick-form-textarea{
+    height: 93px; margin-top: 0px; margin-bottom: 0px;padding:10px 13px !important;
+    border: none;
+    color: #999;
+    width: 100%;
+    outline:none
+}
+
+.quick-btn{
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+    background: #2e94fe;
+    padding: 8px 0;
+    font-weight: 600;
+    letter-spacing: .5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
 /* End of The Tony Vershion */
