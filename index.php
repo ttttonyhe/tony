@@ -138,7 +138,7 @@ $(document).ready(function(){ //避免爆代码
                     loading_tages: true,
                     errored: true,
                     loading_css : 'loading-line',
-                    comments_html: '<h4 style="margin-bottom: 10px;font-weight: 600;">评论列表</h4><div id="new_comments"></div>'
+                    comments_html: '<div id="new_comments" style="margin-top:40px"></div>'
                 }
             },
             mounted () {
@@ -213,7 +213,7 @@ $(document).ready(function(){ //避免爆代码
                     previewingPostItemEl.find('.list-show-btn').html('全文速览');
                     previewingPostItemEl.find('.article-list-content').html(pre_post_con).removeClass('preview-p');
                     pre_post_con = '';
-                    this.comments_html = '<h4 style="margin-bottom: 10px;font-weight: 600;">评论列表</h4><div id="new_comments"></div>';
+                    this.comments_html = '<div id="new_comments" style="margin-top:40px"></div>';
                     if (postId === pre_post_id) { // 若点击当前已打开文章的按钮
                       return;
                     }
@@ -230,7 +230,7 @@ $(document).ready(function(){ //避免爆代码
                             for(var c=0;c<comments.data.length;++c){
                                 this.comments_html += '<div class="quick-div"><div><img class="quick-img" src="'+comments.data[c].author_avatar_urls['48']+'"></div><div><p class="quick-name">'+comments.data[c].author_name+'<em class="quick-date">'+comments.data[c].date+'</em></p>'+comments.data[c].content.rendered+'</div></div>';
                             }
-                            this.comments_html += '<div class="quick-div" style="margin-top: 10px;"><div style="flex:1;border-right: 1px solid #eee;"><input type="text" value="昵称" id="comment_form_name" class="quick-form"></div><div style="flex:1"><input type="email" value="邮箱" id="comment_form_email" class="quick-form"></div></div><div class="quick-div" style="padding: 4px;"><textarea placeholder="说点什么..." id="comment_form_content" class="quick-form-textarea"></textarea></div><button class="quick-btn" onclick="send_comment('+postId+')">发送评论</button>';
+                            this.comments_html += '<div class="quick-div" style="margin-top: 15px;"><div style="flex:1;border-right: 1px solid #eee;"><input type="text" value="昵称" id="comment_form_name" class="quick-form"></div><div style="flex:1"><input type="email" value="邮箱" id="comment_form_email" class="quick-form"></div></div><div class="quick-div" style="padding: 4px;"><textarea placeholder="说点什么..." id="comment_form_content" class="quick-form-textarea"></textarea></div><button class="quick-btn" onclick="send_comment('+postId+')">发送评论</button>';
 
                
                             $('#btn'+postId).html('收起速览'); //更改按钮

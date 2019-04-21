@@ -1967,7 +1967,7 @@ table{
 }
 
 .quick-div{
-    display: flex;margin-top: 5px;box-shadow: inset rgba(0, 0, 0, 0.08) 0px 0px 4px 1px;padding: 2px 13px 4px 13px;border-radius: 6px;
+    display: flex;margin-top: 5px;border: 1px solid #eee;padding: 2px 13px 4px 13px;border-radius: 6px;
 }
 
 .quick-form{
