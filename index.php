@@ -1,6 +1,7 @@
 <?php 
     get_header(); 
     if(!get_option('king_per_page')) $p = '6'; else $p = get_option('king_per_page');
+    if(!get_option('markdown-it')) $m = 0; elseif(get_option('markdown-it') == '关闭') $m = 0; else $m = 1;
 ?>
 
 <div id="header_info" class="index-top">
@@ -86,6 +87,7 @@
     <!-- 加载按钮 -->
 </ul>
 
+<script src="https://cdn.bootcss.com/markdown-it/8.4.2/markdown-it.min.js"></script>
 <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
 <script>
 //发送评论
@@ -234,8 +236,20 @@ $(document).ready(function(){ //避免爆代码
 
                
                             $('#btn'+postId).html('收起速览'); //更改按钮
+                            
+                            <?php if($m){ ?>
+                                var md = window.markdownit();
+                                var reg1 = new RegExp('<p>','g');
+                                var reg2 = new RegExp('</p>','g');
+                                var reg3 = new RegExp('<br />','g');
+                                var show_con = response.data.content.rendered.replace(reg1,'').replace(reg2,'').replace(reg3,'');
+                                show_con = md.render(show_con);
+                            <?php }else{ ?>
+                                var show_con = response.data.content.rendered;
+                            <?php } ?>
+                            
                             $('#'+postId).addClass('preview-p').html(
-                                response.data.content.rendered
+                                show_con
                                 +
                                 this.comments_html
                             ); //更改内容
