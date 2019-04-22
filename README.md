@@ -51,6 +51,8 @@ git clone git@github.com:HelipengTony/tony.git
 + Better posts searching feature
 + Automatic post index
 + Darkmode Theme
++ Reading progress bar
++ Markdown auto rendering
 + And more…
 
 <br/>

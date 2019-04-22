@@ -55,6 +55,8 @@ git clone git@github.com:HelipengTony/tony.git
 + 多标题级别文章目录
 + 夜间主题模式
 + 支持 instantclick.js
++ 支持阅读进度条功能
++ 支持自动 MarkDown 渲染
 
 
 <br/>
