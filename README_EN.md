@@ -56,6 +56,7 @@ git clone git@github.com:HelipengTony/tony.git
 + 夜间主题模式
 + 支持 instantclick.js
 + 支持阅读进度条功能
++ 支持文章列表无刷新发送/加载评论
 + 支持自动 MarkDown 渲染
 
 
