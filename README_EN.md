@@ -40,7 +40,7 @@ git clone git@github.com:HelipengTony/tony.git
 + 手机端自适应
 + 全站采用 Vue.js 构建
 + UI框架采用 Bootstrap v4 配合 UIKit
-+ 后台设置强大而实用
++ 后台设置强大且全面
 + 优化样式的评论系统
 + 支持高于 4.4 的最新 WordPress 版本
 + 单栏简约设计
