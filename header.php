@@ -28,8 +28,8 @@
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.goup.js"></script>
         <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/header.js"></script>
         <?php echo stripslashes(get_option('king_zztj')); ?>
-        <link href="https://static.ouorz.com/highlight.min.css" rel="stylesheet">
-        <script src="https://cdn.bootcss.com/highlighter.js/1.0.0/highlighter.min.js"></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
+        <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/a11y-dark.min.css" rel="stylesheet">
     </head>
         <body id="body">
 
