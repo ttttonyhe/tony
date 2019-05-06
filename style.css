@@ -1749,7 +1749,10 @@ table{
 .index-ul{
     margin: 0px;
     list-style: none;
-    padding: 10px 0 0 0;
+    padding: 10px 0px 0 0;
+    max-height: 40vh;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .index-div{
