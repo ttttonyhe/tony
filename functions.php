@@ -383,4 +383,3 @@ function get_post_prenext_for_api($post){
 	$array['next'][2] = wp_get_post_categories($next_post->ID)[0];
 	return $array;
 }
-?>

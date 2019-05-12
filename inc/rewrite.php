@@ -6,4 +6,3 @@ $wp_rewrite->page_structure = $wp_rewrite->page_structure . '.html';
 }
 }
 add_action('init', 'html_page_permalink', -1);
-?>

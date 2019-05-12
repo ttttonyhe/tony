@@ -1,4 +1,4 @@
-<?php get_header();?>
+<?php get_header(); ?>
 <div id="header_info">
     <nav class="header-nav reveal">
         <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="TonyHe">404 :)</a>

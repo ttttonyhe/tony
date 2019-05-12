@@ -47,7 +47,7 @@ else $m = 1;
                                                                 } else {
                                                                     echo '0';
                                                                 } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                            else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                    else echo 'XX' ?>')  }}</em>
                 <div v-else class="article-list-tags">
                     <a>文章标签</a>
                     <template v-if="!!post.post_tags.length">
@@ -84,7 +84,7 @@ else $m = 1;
                                                                     } else {
                                                                         echo '0';
                                                                     } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                        else echo 'XX' ?>')  }}</em>
                     <a :href="post.link" style="text-decoration: none;">
                         <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
                     </a>
