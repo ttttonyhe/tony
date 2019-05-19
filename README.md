@@ -8,7 +8,7 @@ An Elegant WordPress Theme Based on Vue.js
 
 <br/>
 
-### ScreenShots
+### ScreenShot
 <br/>
 
 ![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
