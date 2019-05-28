@@ -7,10 +7,10 @@ Description: An Elegant WordPress Theme Based on Vue.js
 Version: 4.36
 */
 
-@font-face{
-    　　font-family: "Product Sans";
-    　　src: url('css/product-sans.ttf');
-    }
+@font-face {
+    font-family: "Product Sans";
+    src: url('css/product-sans.ttf');
+}
 
 html {
     font-family:"Product Sans",sans-serif !important;
