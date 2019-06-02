@@ -17,7 +17,6 @@ An Elegant WordPress Theme Based on Vue.js
 
 ### Requirements
 - WordPress 4.4+
-- Vue.js 2.x
 - WP REST API
 - Custom Permalink Structure (e.g. /%post_id%)
 
