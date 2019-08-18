@@ -16,9 +16,11 @@
 
 <br/>
 
-
+<div align="center">
+  
 [中文简介](https://github.com/HelipengTony/tony/blob/master/README_EN.md) | [ENGLISH](https://github.com/HelipengTony/tony/blob/master/README.md)
 
+</div>
 
 <br/>
 
