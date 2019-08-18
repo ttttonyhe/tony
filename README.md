@@ -1,5 +1,19 @@
-# Tony
-An Elegant WordPress Theme Based on Vue.js
+<div align="center">
+  <h1>Tony</h1>
+  <p>An Elegant WordPress Theme Based on Vue.js</p>
+  <a href="https://github.com/HelipengTony/tony">
+    <img src="https://img.shields.io/github/forks/HelipengTony/tony.svg" alt="forks">
+  </a>
+
+  <a href="https://github.com/HelipengTony/tony">
+    <img src="https://img.shields.io/github/stars/HelipengTony/tony.svg" alt="stars">
+  </a>
+
+  <a href="https://github.com/HelipengTony/tony">
+    <img src="https://img.shields.io/github/license/HelipengTony/tony.svg" alt="license">
+  </a>
+</div>
+
 <br/>
 
 
@@ -11,7 +25,7 @@ An Elegant WordPress Theme Based on Vue.js
 ### ScreenShot
 <br/>
 
-![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
+![Thumbnail_index](https://i.loli.net/2019/08/18/BxlWFAusCM2PgU7.png)
 
 <br/>
 
