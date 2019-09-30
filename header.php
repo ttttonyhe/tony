@@ -22,9 +22,11 @@
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://cdn.bootcss.com/uikit/3.0.3/css/uikit.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/uikit/3.0.3/css/uikit-rtl.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/uikit/3.0.3/js/uikit.min.js"></script>
     <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
+    <script>
+        Vue.config.devtools = true
+    </script>
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/jquery.goup.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/header.js"></script>
@@ -49,11 +51,27 @@
                     <a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">全局搜索</button></a>
                 </div>
             <?php } ?>
+            <!-- 菜单部分 -->
             <div class="header-div2">
                 <a href="<?php echo site_url() ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">首页</button></a>
                 <?php if (get_option('king_nav_pu') !== '') { ?>
                     <a href="<?php echo get_option('king_nav_pu'); ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;"><?php echo get_option('king_nav_pn'); ?></button></a>
                 <?php } ?>
+
+                <!-- 系统菜单部分 -->
+                <?php
+                    if (get_option('king_nav_display')) {
+                        $array_menu = wp_get_nav_menu_items(get_option('king_nav_display'));
+                        $menu = array();
+                        foreach ($array_menu as $m) {
+                            if (empty($m->menu_item_parent)) {
+                                ?>
+                            <a href="<?php echo $m->url ?>"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;"><?php echo $m->title ?></button></a>
+                <?php }
+                        }
+                    } ?>
+                <!-- 系统菜单部分 -->
+
                 <div class="btn-group" role="group"><button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding-right: 5px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i><?php echo get_option('king_about_text') ? get_option('king_about_text') : '关于我'; ?></a></button>
                     <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="sr-only"></span>
@@ -67,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            <!-- 菜单部分 -->
         </header>
 
     <?php } else { ?>

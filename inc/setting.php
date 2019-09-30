@@ -8,6 +8,12 @@ if (is_admin()) {
             'type'  => 'panelstart' //顶部标签的类型
         ),
         array(
+            'name' => '顶部展示后台菜单',
+            'id' => 'king_nav_display',
+            'type' => 'text',
+            'op_des' => '博客顶部「关于我」左边需要展示的菜单名称，为空则不展示后台设置的菜单'
+        ),
+        array(
             'name' => '列表文章单页数量',
             'id' => 'king_per_page',
             'type' => 'number',
@@ -210,7 +216,7 @@ if (is_admin()) {
 
         <div class="wrap" style="width: 47%;margin: 10vh auto;">
             <h1 style="font-weight: 600;font-size: 2.5rem;">主题设置</h1>
-            <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必配置 <a href="https://www.wpdaxue.com/wordpress-rewriterule.html" target="_blank" style="color: #555;text-decoration: none;margin-left: 5px;">WordPress 伪静态</a> 并设置 非默认 固定链接<br />原体基于 King 主题，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/tony" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/tony</a><br />积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
+            <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必正确配置 <a href="https://www.wpdaxue.com/wordpress-rewriterule.html" target="_blank" style="color: #555;text-decoration: none;margin-left: 5px;">WordPress 伪静态</a> 并设置 非默认 固定链接<br />原体基于 主题之家 King 主题，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/tony" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/tony</a><br />积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
             <div style="background: #f7f8f9;padding: 5px 20px;box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;border-radius: 4px;margin: 20px 0;">
                 <?php admin_show_category(); ?>
             </div>
@@ -528,7 +534,7 @@ function git_pointer_print_scripts()
             jQuery(document).ready(function($) {
                 var $menuAppearance = $("#menu-appearance");
                 $menuAppearance.pointer({
-                    content: '<h3>最重要的一步</h3><p>感谢使用本主题，请先进行必要的设置以保证访客体验<br/>你必须使用非默认固定链接结构才可以正常使用本主题(推荐/%post_id%.html)</p>',
+                    content: '<h3>最重要的一步</h3><p>感谢使用本主题，请先进行必要的设置以保证访客体验<br/><ul><li>1. 你必须使用非默认固定链接结构才可以正常使用本主题(推荐/%post_id%.html)</li><li>2. 请参照此 <a target="_blank" href="https://www.wpdaxue.com/wordpress-rewriterule.html">链接指南</a> 在服务器正确配置伪静态以使 REST API 工作</li></ul></p>',
                     position: {
                         edge: "left",
                         align: "center"
@@ -593,7 +599,7 @@ function theme_update_notice()
                 var show = function(new_v, d_url) {
                     var $menuAppearance = $("#menu-appearance");
                     $menuAppearance.pointer({
-                        content: '<h3>更新提示</h3><p>Tony 主题现已更新至 V' + new_v + '，包含重要更新<br/>请前往 <a href="https://github.com/HelipengTony/tony">Github</a> / <a href="' + d_url + '">直接下载</a></p>',
+                        content: '<h3>更新提示</h3><p>Tony 主题现已更新至 V' + new_v + '，可能包含重要更新<br/>请前往 <a href="https://github.com/HelipengTony/tony">Github</a> / <a href="' + d_url + '">直接下载</a></p>',
                         position: {
                             edge: "left",
                             align: "center"

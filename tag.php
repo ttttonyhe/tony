@@ -45,7 +45,7 @@ else $p = get_option('king_per_page');
                                                             } else {
                                                                 echo '21213';
                                                             } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                            else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
             <div v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
             <div class="link-list-right">
                 <a v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank">
@@ -72,7 +72,7 @@ else $p = get_option('king_per_page');
                                                                     } else {
                                                                         echo '0';
                                                                     } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                        else echo 'XX' ?>')  }}</em>
                     <a :href="post.link" style="text-decoration: none;">
                         <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
                     </a>
@@ -111,122 +111,28 @@ else $p = get_option('king_per_page');
 
 
 
-
 <script>
-    window.onload = function() { //避免爆代码
+    window.cate_id = <?php echo $id; ?>;
+    window.site_url = '<?php echo site_url() ?>';
+    window.tag_name = '<?php echo $tag[0]->name; ?>';
+    window.post_count = <?php echo get_tag_post_count_by_id($tag[0]->term_id); ?>;
 
-        var click = 0; //初始化加载次数
-        var paged = 1; //获取当前页数
-        var incate = <?php echo $id; ?>;
+    window.cate_exclude_option = '<?php if (get_option('king_index_cate_exclude')) echo get_option('king_index_cate_exclude'); ?>';
+    <?php if (get_option('king_index_cate_exclude')) { ?>
+        window.cate_exclude = 'true';
+    <?php } else { ?>
+        window.cate_exclude = 'false';
+    <?php } ?>
 
-        /* 展现内容(避免爆代码) */
-        $('.article-list').css('opacity', '1');
-        $('.top1').html('<?php echo $tag[0]->name; ?>');
-        $('.top2').html('标签文章数 : <?php echo get_tag_post_count_by_id($tag[0]->term_id); ?>');
-        $('.cat-real').attr('style', 'display:inline-block');
-        /* 展现内容(避免爆代码) */
+    window.index_p = <?php echo $p; ?>;
 
-        new Vue({ //axios获取顶部信息
-            el: '#grid-cell',
-            data() {
-                return {
-                    posts: null,
-                    cates: null,
-                    des: null,
-                    loading: true, //v-if判断显示占位符
-                    loading_des: true,
-                    errored: true,
-                    loading_css: 'loading-line'
-                }
-            },
-            mounted() {
-                //获取分类
-                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/categories<?php if (get_option('king_index_cate_exclude')) echo '?exclude=' . get_option('king_index_cate_exclude'); ?>')
-                    .then(response => {
-                        this.des = response.data;
-                    }).then(() => {
-                        this.loading_des = false;
-                    });
-
-                //获取文章列表
-                axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=<?php echo $p; ?>&page=' + paged + '&tags=' + incate)
-                    .then(response => {
-                        this.posts = response.data
-                    })
-                    .catch(e => {
-                        this.errored = false
-                    })
-                    .then(() => {
-                        this.loading = false;
-                        paged++; //加载完1页后累加页数
-                        //加载完文章列表后监听滑动事件
-                        $(window).scroll(function() {
-                            var scrollTop = $(window).scrollTop();
-                            var scrollHeight = $('.bottom').offset().top - 500;
-                            if (scrollTop >= scrollHeight) {
-                                if (click == 0) { //接近底部加载一次新文章
-                                    $('#scoll_new_list').click();
-                                    click++; //加载次数计次
-                                }
-                            }
-                        });
-
-                    })
-            },
-            methods: { //定义方法
-                new_page: function() { //加载下一页文章列表
-                    axios.get('<?php echo site_url() ?>/wp-json/wp/v2/posts?per_page=<?php echo $p; ?>&page=' + paged + '&tags=' + incate)
-                        .then(response => {
-                            if (!!response.data.length && response.data.length !== 0) { //判断是否最后一页
-                                $('#view-text').html('-&nbsp;文章列表&nbsp;-');
-                                this.posts.push.apply(this.posts, response.data); //拼接在上一页之后
-                                click = 0;
-                                paged++;
-                            } else {
-                                this.loading_css = '';
-                                $('#view-text').html('-&nbsp;全部文章&nbsp;-');
-                                $('.bottom h5').html('暂无更多文章了 O__O "…').css({
-                                    'background': '#fff',
-                                    'color': '#999'
-                                });
-                            }
-                        }).catch(e => {
-                            this.loading_css = '';
-                            $('#view-text').html('-&nbsp;所有文章&nbsp;-');
-                            $('.bottom h5').html('暂无更多文章了 O__O "…').css({
-                                'background': '#fff',
-                                'color': '#999'
-                            });
-                        })
-                }
-            },
-            filters: {
-                link_page: function(cate_id) {
-                    if (cate_id == <?php if (get_option('king_fre_cate')) echo get_option('king_fre_cate');
-                                    else echo '0' ?>) {
-                        return '添加于 ';
-                    } else if (cate_id == <?php if (get_option('king_wor_cate')) echo get_option('king_wor_cate');
-                                            else echo '0' ?>) {
-                        return '创造于 ';
-                    } else {
-                        return '';
-                    }
-                },
-                link_style: function(cate_id) {
-                    if (cate_id == <?php if (get_option('king_fre_cate')) echo get_option('king_fre_cate');
-                                    else echo '0'; ?> || cate_id == <?php if (get_option('king_wor_cate')) echo get_option('king_wor_cate');
-                                                                                                                                            else echo '0' ?>) {
-                        return 'display: flex;';
-                    } else {
-                        return '';
-                    }
-                }
-            }
-        });
-
-
-    }
+    window.cate_fre = <?php if (get_option('king_fre_cate')) echo get_option('king_fre_cate');
+                        else echo '0' ?>;
+    window.cate_wor = <?php if (get_option('king_wor_cate')) echo get_option('king_wor_cate');
+                        else echo '0' ?>;
 </script>
+
+<script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/tag.js"></script>
 
 
 <?php get_footer(); ?>

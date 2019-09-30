@@ -4,7 +4,7 @@ Theme URI: https://www.ouorz.com/295
 Author: TonyHe
 Author URI: https://www.ouorz.com
 Description: An Elegant WordPress Theme Based on Vue.js
-Version: 4.36
+Version: 4.37
 */
 
 @font-face {
@@ -13,7 +13,7 @@ Version: 4.36
 }
 
 html {
-    font-family:"Product Sans",sans-serif !important;
+    font-family: "Product Sans", sans-serif !important;
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -23,8 +23,23 @@ html {
     overflow: -moz-scrollbars-none;
 }
 
-html::-webkit-scrollbar {
-    width: 0px
+::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    background: hsl(210, 6%, 93%);
+    -webkit-box-shadow: none;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border-radius: 10px;
+    background: #f6f7f8;
+    -webkit-box-shadow: none;
 }
 
 body {
@@ -444,7 +459,7 @@ h6 {
     margin: 0;
     line-height: 1.5;
     text-rendering: optimizeLegibility;
-    font-family:"Product Sans" !important;
+    font-family: "Product Sans" !important;
     letter-spacing: .5px;
     font-weight: 600;
 }
@@ -1010,7 +1025,7 @@ img {
 
 .article-content blockquote {
     display: block;
-    margin: 30px 0 30px 0;
+    margin: 20px 0 10px 0;
     width: 100%;
     height: auto;
     border-left: 3px solid rgb(238, 238, 238);
@@ -1018,7 +1033,7 @@ img {
     font-size: 16px;
     font-style: normal;
     background: rgba(246, 247, 248, 0.64);
-    padding: 25px 20px;
+    padding: 15px 20px;
 }
 
 .article-content ul,
@@ -1030,13 +1045,39 @@ img {
     overflow-x: auto;
 }
 
+.wp-block-gallery{
+    display: flex !important;
+    list-style: none;
+    padding: 0px;
+}
+
+.wp-block-gallery li{
+    border: 1px solid #eee;
+    margin-left: 5px;
+}
+
+.wp-block-gallery li:nth-child(1){
+    margin-left: 0px;
+}
+
+.wp-block-cover{
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wp-block-cover__inner-container p{
+    text-align: center;
+    transform: translateY(100px);
+    font-size: 30px;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
+}
+
 article-content img {
     display: block;
     margin-bottom: 1.1em;
-}
-
-.article-content img:hover {
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, .1);
 }
 
 .article-content h2 {
@@ -1283,7 +1324,7 @@ article-content img {
     color: rgba(0, 0, 0, 0.75);
     margin-right: 7px;
     font-size: 12px;
-    font-family:"Product Sans" !important;
+    font-family: "Product Sans" !important;
     padding: 2.3px 7px;
     border-radius: 20px;
     border-width: 1px;
@@ -1342,7 +1383,7 @@ article-content img {
 
 .comment-body .reply .comment-reply-link {
     color: #0084FF;
-    font-family:"Product Sans" !important;
+    font-family: "Product Sans" !important;
     display: inline-block;
     line-height: 1.3;
     border-radius: 15px;
@@ -1888,6 +1929,7 @@ table {
 }
 
 .header-div2 {
+    flex-basis: 50%;
     text-align: right;
     padding-top: 10px;
     letter-spacing: 10px;
@@ -2373,6 +2415,24 @@ table {
     letter-spacing: .5px;
     border-radius: 5px;
     margin-top: 5px;
+}
+
+.post-date {
+    color: #888;
+    font-size: 14px;
+    padding: 3px 5px 3px 7px;
+    background: #f1f2f3;
+    border-radius: 4px;
+    font-style: normal;
+    margin-right: 10px
+}
+
+.post-a {
+    text-decoration: none
+}
+
+.post-a:hover {
+    text-decoration: none
 }
 
 /* End of The Tony Version */
