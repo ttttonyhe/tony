@@ -1,4 +1,6 @@
-<?php /* Template Name: 归档页面 */ get_header(); ?>
+<?php 
+/* Template Name: 归档页面 */ 
+get_header(); ?>
 
 <div id="header_info" style="opacity:0">
     <nav class="header-nav reveal"> <a class="top1 header-logo" style="text-decoration:none;" href="<?php echo site_url() ?>">归档页面</a>

@@ -21,9 +21,22 @@ else $p = get_option('king_per_page');
         </div>
     </nav>
     <div class="index-cates">
+    <?php
+        if (get_option('king_nav_display_top')) {
+            $array_menu = wp_get_nav_menu_items(get_option('king_nav_display_top'));
+            $menu = array();
+            foreach ($array_menu as $m) {
+                if (empty($m->menu_item_parent)) {
+                    ?>
+                    <li class="cat-item cat-item-4 cat-real"> <a href="<?php echo $m->url ?>"><?php echo $m->title ?></a>
+                    </li>
+            <?php }
+                }
+            } else { ?>
         <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="de in des" v-if="de.count !== 0"> <a :href="de.link" :title="de.description" v-html="de.name"></a>
         </li>
         <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_des"></li>
+            <?php } ?>
     </div>
 </div>
 

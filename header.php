@@ -16,7 +16,7 @@
     <?php if (isset($_COOKIE['tony_view'])) { ?>
         <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/css/darkmode.css">
     <?php } else { ?>
-        <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/style.css">
+        <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/dist/css/style.css">
     <?php } ?>
     <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri());  ?>/css/caomei-cion.css">
     <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
@@ -41,13 +41,13 @@
         <header class="tony-header-fixed" id="header-div">
             <?php if (is_single()) { ?>
                 <div class="header-div1">
-                    <a href="<?php echo site_url() ?>" style="display: inline-block;"><img src="<?php echo get_option('king_logo') ?>"></a>
+                    <a href="<?php echo site_url() ?>" style="display: inline-block;"><img src="<?php if(get_option('king_logo')) echo get_option('king_logo'); else echo 'https://static.ouorz.com/t.jpg' ?>"></a>
                     <a href="<?php echo site_url() ?>/feed" style="display: inline-block;margin-top: 12px;margin-left: 15px;"><button type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">RSS订阅</button></a>
                     <a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">全局搜索</button></a>
                 </div>
             <?php } else { ?>
                 <div class="header-div1-1">
-                    <a href="<?php echo site_url() ?>"><img src="<?php echo get_option('king_logo'); ?>"></a>
+                    <a href="<?php echo site_url() ?>"><img src="<?php if(get_option('king_logo')) echo get_option('king_logo'); else echo 'https://static.ouorz.com/t.jpg' ?>"></a>
                     <a style="margin-top: 12px;margin-left: 12px;"><button onclick="open_search();" type="button" class="btn btn-light" style="letter-spacing: 1px;font-weight: 500;">全局搜索</button></a>
                 </div>
             <?php } ?>

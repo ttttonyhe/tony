@@ -24,9 +24,22 @@ else $p = get_option('king_per_page');
         </div>
     </nav>
     <div class="index-cates">
-        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="de in des" v-if="de.count !== 0"> <a :href="de.link" :title="de.description" v-html="de.name"></a>
-        </li>
-        <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_des"></li>
+        <?php
+        if (get_option('king_nav_display_top')) {
+            $array_menu = wp_get_nav_menu_items(get_option('king_nav_display_top'));
+            $menu = array();
+            foreach ($array_menu as $m) {
+                if (empty($m->menu_item_parent)) {
+                    ?>
+                    <li class="cat-item cat-item-4 cat-real"> <a href="<?php echo $m->url ?>"><?php echo $m->title ?></a>
+                    </li>
+            <?php }
+                }
+            } else { ?>
+            <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="de in des" v-if="de.count !== 0"> <a :href="de.link" :title="de.description" v-html="de.name"></a>
+            </li>
+            <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_des"></li>
+        <?php } ?>
     </div>
 </div>
 
@@ -61,7 +74,7 @@ else $p = get_option('king_per_page');
                                                             } else {
                                                                 echo '21213';
                                                             } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                            else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
             <div v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
             <div class="link-list-right">
                 <a v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank">
@@ -88,7 +101,7 @@ else $p = get_option('king_per_page');
                                                                     } else {
                                                                         echo '0';
                                                                     } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
+                                                                                                                                                                                                                        else echo 'XX' ?>')  }}</em>
                     <a :href="post.link" style="text-decoration: none;">
                         <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
                     </a>

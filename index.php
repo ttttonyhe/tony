@@ -9,13 +9,32 @@ else $m = 1;
 
 <div id="header_info" class="index-top">
     <nav class="header-nav reveal">
+        <?php if (get_option('king_logo_header') == '开启') { ?>
+            <img class="header-avatar-top" src="<?php if (get_option('king_logo')) echo get_option('king_logo');
+                                                    else echo 'https://static.ouorz.com/t.jpg' ?>">
+        <?php } ?>
         <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="<?php echo get_bloginfo('name'); ?>"><?php echo get_bloginfo('name'); ?></a>
         <p class="lead" style="margin-top: 0px;margin-left:5px"><?php get_tony_ms(); ?></p>
     </nav>
     <div class="index-cates">
-        <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description" v-html="cate.name"></a>
-        </li>
-        <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_cates"></li>
+        <!-- 系统菜单部分 -->
+        <?php
+        if (get_option('king_nav_display_top')) {
+            $array_menu = wp_get_nav_menu_items(get_option('king_nav_display_top'));
+            $menu = array();
+            foreach ($array_menu as $m) {
+                if (empty($m->menu_item_parent)) {
+                    ?>
+                    <li class="cat-item cat-item-4 cat-real"> <a href="<?php echo $m->url ?>"><?php echo $m->title ?></a>
+                    </li>
+            <?php }
+                }
+            } else { ?>
+            <!-- 系统菜单部分 -->
+            <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description" v-html="cate.name"></a>
+            </li>
+            <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_cates"></li>
+        <?php } ?>
     </div>
     <div>
         <ul class="post_tags">

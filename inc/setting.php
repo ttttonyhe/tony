@@ -8,10 +8,16 @@ if (is_admin()) {
             'type'  => 'panelstart' //顶部标签的类型
         ),
         array(
-            'name' => '顶部展示后台菜单',
+            'name' => '导航栏展示后台菜单',
             'id' => 'king_nav_display',
             'type' => 'text',
             'op_des' => '博客顶部「关于我」左边需要展示的菜单名称，为空则不展示后台设置的菜单'
+        ),
+        array(
+            'name' => '顶部展示后台菜单',
+            'id' => 'king_nav_display_top',
+            'type' => 'text',
+            'op_des' => '博客顶部名称下方需要展示的菜单名称，为空则展示存在文章的分类'
         ),
         array(
             'name' => '列表文章单页数量',
@@ -38,16 +44,29 @@ if (is_admin()) {
             'op_des' => '此博客的标题描述，将添加在博客首页顶部(替换站点描述)'
         ),
         array(
-            'name' => '站点ICO图标',
+            'name' => '站点 ICO 图标',
             'id' => 'king_ico',
             'type' => 'text',
-            'op_des' => '此博客的favicon图标链接地址'
+            'op_des' => '此博客的 favicon 图标链接地址'
         ),
         array(
-            'name' => '站点Logo图标',
+            'name' => '站点 Logo 图标',
             'id' => 'king_logo',
             'type' => 'text',
             'op_des' => '此博客的Logo图标链接地址'
+        ),
+        array(
+            'name' => '站点 Logo 图标首页顶部展示',
+            'id' => 'king_logo_header',
+            'type' => 'select',
+            'op_des' => '是否在站点首页顶部名称旁展示头像',
+            'options' => array('关闭','开启')
+        ),
+        array(
+            'name' => '站点ICP备案号',
+            'id' => 'king_icp_display',
+            'type' => 'text',
+            'op_des' => '本站 ICP 备案号，将展示在站点左下角，为空不填则不展示'
         ),
         array(
             'name' => '站长统计代码',
@@ -65,6 +84,7 @@ if (is_admin()) {
             'id'    => 'two', //标签的ID
             'type'  => 'panelstart' //顶部标签的类型
         ),
+
 
         array(
             'name' => '文章列表时间格式',
@@ -215,8 +235,8 @@ if (is_admin()) {
         ?>
 
         <div class="wrap" style="width: 47%;margin: 10vh auto;">
-            <h1 style="font-weight: 600;font-size: 2.5rem;">主题设置</h1>
-            <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必正确配置 <a href="https://www.wpdaxue.com/wordpress-rewriterule.html" target="_blank" style="color: #555;text-decoration: none;margin-left: 5px;">WordPress 伪静态</a> 并设置 非默认 固定链接<br />原体基于 主题之家 King 主题，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/tony" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/tony</a><br />积极收集反馈与建议, 任何问题请发 ISSUE 以便统一调整</p>
+            <h1 style="font-weight: 600;font-size: 2.5rem;">Tony 主题设置</h1>
+            <p style="margin: 4px 0;color: #777;letter-spacing: .4px;">请务必正确配置 <b><a href="https://www.wpdaxue.com/wordpress-rewriterule.html" target="_blank" style="color: #555;text-decoration: none;margin-left: 5px;">WordPress 伪静态</a></b> 并设置 <b>非默认</b> 固定链接格式<br />原体基于 <a href="http://www.zhutihome.net/6542.html" target="_blank">主题之家 King 主题</a>，本主题已开源以尊重作者版权:<a target="_blank" href="https://github.com/HelipengTony/tony" style="color: #555;text-decoration: none;margin-left: 5px;">https://github.com/HelipengTony/tony</a><br />请在使用前仔细审阅以下每一项设置选项。积极收集反馈与建议, 任何问题请前往 <a href="https://github.com/HelipengTony/tony/issues" target="_blank">Github</a> 提交 Issues 以便 在后续版本统一调整</p>
             <div style="background: #f7f8f9;padding: 5px 20px;box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;border-radius: 4px;margin: 20px 0;">
                 <?php admin_show_category(); ?>
             </div>
