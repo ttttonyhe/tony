@@ -58,6 +58,9 @@ git clone git@github.com:HelipengTony/tony.git
 + 支持阅读进度条功能
 + 支持文章列表无刷新发送/加载评论
 + 支持自动 MarkDown 渲染
++ 采用 Webpack 与 Scss 框架构建
++ 支持文章归档页面
++ 支持古腾堡编辑器样式
 
 
 <br/>

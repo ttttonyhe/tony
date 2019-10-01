@@ -68,6 +68,9 @@ git clone git@github.com:HelipengTony/tony.git
 + Darkmode Theme
 + Reading progress bar
 + Markdown auto rendering
++ Built using Webpack & Scss
++ Posts archive page
++ Support Gutenberg editor
 + And more…
 
 <br/>
