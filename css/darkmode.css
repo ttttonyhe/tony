@@ -4,8 +4,9 @@ Theme URI: https://www.ouorz.com
 Author: TonyHe
 Author URI: https://www.ouorz.com
 Description: An Elegant WordPress Theme Based on Vue.js
-Version: 4.0
+Version: 4.37
 */
+
 html {
     font-family: "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     line-height: 1.15;
@@ -2041,7 +2042,7 @@ table {
     position: fixed !important;
     width: 45px !important;
     height: 45px !important;
-    background: rgb(255, 255, 255) !important;
+    background: rgb(46, 62, 96) !important;
     cursor: pointer !important;
     z-index: 1 !important;
     bottom: 30px !important;
@@ -2262,7 +2263,7 @@ body {
 
 .index-post-list {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;
-    background: rgb(131, 143, 166) !important;
+    background: rgb(45, 62, 96) !important;
 }
 
 .article-list-type1 {
@@ -2271,8 +2272,8 @@ body {
 }
 
 .list-show-btn {
-    color: #555 !important;
-    background: rgba(246, 247, 248, 0.74) !important;
+    color: rgb(46, 62, 96) !important;
+    background: #f6f7f8 !important;
 }
 
 .article-list-item h5 {
@@ -2280,7 +2281,7 @@ body {
 }
 
 .article-list-item p {
-    color: #f1f2f3 !important;
+    color: rgb(203, 201, 201) !important;
 }
 
 .article-list-footer span,
@@ -2357,14 +2358,15 @@ body {
 
 .article-list-tags a {
     border-radius: 100px;
-    color: #999 !important;
+    color: rgb(81, 111, 175) !important;
     background: rgb(246, 247, 248);
     padding: 5px 15px 7px 15px;
+    margin-right: 3px;
     text-decoration: none !important;
 }
 
 .article-list-tags a:nth-child(1) {
-    color: #8590a6 !important;
+    color: rgb(46, 62, 96) !important;
     padding: 5px 15px 7px 15px;
     font-weight: 500;
     margin-right: 3px;
@@ -2453,6 +2455,87 @@ body {
     letter-spacing: .5px;
     border-radius: 5px;
     margin-top: 5px;
+}
+
+.index-div-next h4 {
+    font-weight: 600;
+    margin: 0px;
+}
+
+.index-div-next {
+    margin-top: 15px;
+    padding: 20px 25px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
+    width: 195px;
+    background: #fff;
+    transform: translate(-230px, 80px);
+    border-radius: 6px;
+}
+
+.index-div-next p {
+    margin: 0px;
+    color: #777;
+    margin-top: 8px;
+    letter-spacing: .5px;
+}
+
+.index-div-next p a {
+    text-decoration: none;
+    color: #777;
+}
+
+.post-date {
+    color: #888;
+    font-size: 14px;
+    padding: 3px 5px 3px 7px;
+    background: #f1f2f3;
+    border-radius: 4px;
+    font-style: normal;
+    margin-right: 10px
+}
+
+.post-a {
+    text-decoration: none
+}
+
+.post-a:hover {
+    text-decoration: none
+}
+
+.icp-div{
+    left: 30px;
+    text-align: center;
+    padding: 9px 11px 9px 11px;
+    position: fixed !important;
+    background: rgb(46, 62, 96) !important;
+    cursor: pointer !important;
+    width: 180px;
+    z-index: 1 !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    border-radius: 6px;
+    box-shadow: rgba(26, 26, 26, 0.1) 0px 1px 3px !important;
+}
+
+.icp-div a{
+    text-decoration: none;
+    color: #848fa6;
+}
+
+.icp-div a:hover{
+    text-decoration: none;
+    color: #848fa6;
+}
+
+.header-avatar-top{
+    width: 45px;
+    display: inline-block;
+    margin: 0px;
+    transform: translateY(-10px);
+    border: 2px solid #e9e9e9;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: -3px;
 }
 
 /* End of The Tony Vershion */

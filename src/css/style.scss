@@ -2197,6 +2197,7 @@ table {
     color: #777;
     margin-top: 8px;
     letter-spacing: .5px;
+    overflow: hidden;
 }
 
 .index-div-next p a {
@@ -2365,6 +2366,7 @@ table {
     top: 0px;
     left: 0px;
     z-index: 999;
+    transition: all .1s;
 }
 
 .quick-date {
@@ -2451,7 +2453,7 @@ table {
 .icp-div{
     left: 30px;
     text-align: center;
-    padding: 10px 0 7px 0;
+    padding: 9px 11px 9px 11px;
     position: fixed !important;
     background: rgb(255, 255, 255) !important;
     cursor: pointer !important;
