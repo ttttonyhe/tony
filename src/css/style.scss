@@ -496,9 +496,10 @@ h6 {
 }
 
 @media all and (max-width: 767px) {
-    .header-avatar-top{
+    .header-avatar-top {
         display: none !important;
     }
+
     h1 {
         font-size: 24px
     }
@@ -1162,6 +1163,10 @@ article-content img {
     .article-list-tags {
         display: inline-block;
         margin-top: 0px;
+        overflow: auto;
+        max-width: 60%;
+        padding: 8px 0px 8px 0px;
+        margin-top: -8px;
     }
 }
 
@@ -1848,6 +1853,8 @@ table {
     .article-list-item h5 {
         padding: 0px;
         font-size: 21px !important;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
     }
 
     .article-list-item p {
@@ -2450,7 +2457,7 @@ table {
     text-decoration: none
 }
 
-.icp-div{
+.icp-div {
     left: 30px;
     text-align: center;
     padding: 9px 11px 9px 11px;
@@ -2465,17 +2472,17 @@ table {
     box-shadow: rgba(26, 26, 26, 0.1) 0px 1px 3px !important;
 }
 
-.icp-div a{
+.icp-div a {
     text-decoration: none;
     color: #848fa6;
 }
 
-.icp-div a:hover{
+.icp-div a:hover {
     text-decoration: none;
     color: #848fa6;
 }
 
-.header-avatar-top{
+.header-avatar-top {
     width: 45px;
     display: inline-block;
     margin: 0px;

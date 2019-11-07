@@ -1358,7 +1358,7 @@ article-content img {
 .comment-reply-title,
 .comments-title {
     font-size: 1.8rem;
-    color: #333;
+    color: #fff;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -1407,8 +1407,8 @@ article-content img {
 #comment,
 .comment-form input[type=text] {
     border-radius: 3px;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, .15);
+    background-color: rgb(123, 133, 152);
+    border: 1px solid #eee;
     font-size: 14px
 }
 
@@ -1420,12 +1420,12 @@ article-content img {
 }
 
 #submit {
-    background-color: #fff;
+    background-color: #7b8597;
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, .15);
     padding: 6px 20px;
     font-size: 14px;
-    color: #999;
+    color: #fff;
     cursor: pointer;
     border-radius: 4px;
     transition: all .2s;
@@ -2100,6 +2100,7 @@ table {
     padding: 20px 0px;
 }
 
+
 .post-password-form {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 7px 0px;
     padding: 37px 30px 20px 30px;
@@ -2263,7 +2264,7 @@ body {
 
 .index-post-list {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px !important;
-    background: rgb(45, 62, 96) !important;
+    background: rgb(57, 68, 89) !important;
 }
 
 .article-list-type1 {
@@ -2320,7 +2321,7 @@ body {
 }
 
 .article {
-    background: rgb(131, 143, 166) !important;
+    background: rgb(57, 68, 89) !important;
 }
 
 .article-content {
@@ -2358,7 +2359,7 @@ body {
 
 .article-list-tags a {
     border-radius: 100px;
-    color: rgb(81, 111, 175) !important;
+    color: rgb(135, 133, 133) !important;
     background: rgb(246, 247, 248);
     padding: 5px 15px 7px 15px;
     margin-right: 3px;
@@ -2536,6 +2537,11 @@ body {
     border-radius: 50%;
     margin-right: 5px;
     margin-left: -3px;
+    opacity: 0.9;
+}
+
+.logged-in-as{
+    color: #fff !important;
 }
 
 /* End of The Tony Vershion */
