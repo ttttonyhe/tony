@@ -31,15 +31,15 @@ html {
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: none;
+    box-shadow: none;
     background: hsl(210, 6%, 93%);
-    -webkit-box-shadow: none;
 }
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: none;
+    box-shadow: none;
     border-radius: 10px;
     background: #f6f7f8;
-    -webkit-box-shadow: none;
 }
 
 body {
