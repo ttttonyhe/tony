@@ -1664,6 +1664,28 @@ article-content img {
         margin: 0px !important;
         padding: 40px 20px;
     }
+
+    .comment-form input[type=text] {
+        line-height: 32px;
+        width: 260px;
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .comment-form-author{
+        float: none;
+        width: 100%;
+    }
+
+    .comment-form-email{
+        float: none;
+        width: 100%;
+    }
+
+    .comment-form label{
+        display: inline-block;
+        margin-left: 10px;
+    }
 }
 
 .post_tags {
