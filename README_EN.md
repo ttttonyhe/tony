@@ -37,30 +37,30 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### 主题简介
-+ 手机端自适应
-+ 全站采用 Vue.js 构建
-+ UI框架采用 Bootstrap v4 配合 UIKit
++ 手机端自适应展示
++ 全站采用 Vue.js + REST API 构建
++ UI 框架采用 Bootstrap v4
 + 后台设置强大且全面
 + 优化样式的评论系统
-+ 支持高于 4.4 的最新 WordPress 版本
-+ 单栏简约设计
++ 支持高于 4.4 的 WordPress 版本
++ 全站单栏简约设计
 + 文章列表无限加载
-+ 列表文章支持快速预览
-+ 后台可在文章中插入其他文章
-+ 多样式文章列表
-+ 单栏页面模板
++ 列表文章支持快速文章内容预览
++ 支持文章中插入其他文章
++ 多样式文章列表展示风格
++ 独立单栏页面模板
 + 略缩图文章列表
 + 返回顶部按钮
-+ 博客文章搜索
-+ 多标题级别文章目录
-+ 夜间主题模式
++ 博客文章搜索功能
++ 按照标题级别生成的文章目录
++ 支持夜间主题模式
 + 支持 instantclick.js
 + 支持阅读进度条功能
 + 支持文章列表无刷新发送/加载评论
-+ 支持自动 MarkDown 渲染
-+ 采用 Webpack 与 Scss 框架构建
-+ 支持文章归档页面
-+ 支持古腾堡编辑器样式
++ 支持文章内容/列表自动 MarkDown 渲染
++ 采用 Webpack 与 Scss 构建
++ 支持文章归档页面模板（需自行选择页面模板并添加）
++ 支持古腾堡编辑器样式（部分）
 
 
 <br/>
@@ -69,6 +69,7 @@ git clone git@github.com:HelipengTony/tony.git
 设置项下方已批注使用方法
 <br/>
 包含了自动检测更新功能(v2.0+)
+目前更新需要手动覆盖(正在解决...)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
@@ -84,6 +85,6 @@ git clone git@github.com:HelipengTony/tony.git
 
 <br/>
 
-有问题请发 issue
+有问题请发 Issues 方便后期统一处理
 <br/>
-但更新修复不会很及时，抱歉！
+工作日在校，更新修复不会很及时，抱歉！
