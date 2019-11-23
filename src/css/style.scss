@@ -1023,7 +1023,6 @@ img {
 }
 
 .article-content {
-    display: block;
     font-weight: 300;
 }
 
@@ -1162,11 +1161,11 @@ article-content img {
 
     .article-list-tags {
         display: inline-block;
-        margin-top: 0px;
-        overflow: auto;
-        max-width: 60%;
-        padding: 8px 0px 8px 0px;
-        margin-top: -8px;
+        margin-top: -10px;
+        width: 60%;
+        white-space: nowrap;
+        overflow-y: hidden;
+        padding: 8px 0px;
     }
 }
 
@@ -1673,18 +1672,18 @@ article-content img {
     }
 
     .comment-form-author{
-        float: none;
-        width: 100%;
+        float: none !important;
+        width: 100% !important;
     }
 
     .comment-form-email{
-        float: none;
-        width: 100%;
+        float: none !important;
+        width: 100% !important;
     }
 
     .comment-form label{
         display: inline-block;
-        margin-left: 10px;
+        margin-left: 0px;
     }
 }
 
@@ -2060,12 +2059,12 @@ table {
 
 .list-show-btn {
     color: #999;
-    background: rgb(246, 247, 248);
+    background: #f6f7f8;
     border: none;
     font-weight: 500;
     font-style: normal;
     padding: 3.5px 16px 4px 16px;
-    margin-top: -3px;
+    margin-top: -4.999px;
     font-size: 1rem;
     float: right;
     vertical-align: top;

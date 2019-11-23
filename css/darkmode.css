@@ -793,6 +793,7 @@ img {
 .article {
     display: block;
     margin: 80px 0;
+    margin-top: -19px !important;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
     background: rgb(255, 255, 255);
@@ -2461,6 +2462,7 @@ body {
 .index-div-next h4 {
     font-weight: 600;
     margin: 0px;
+    color: #fff;
 }
 
 .index-div-next {
@@ -2468,7 +2470,7 @@ body {
     padding: 20px 25px;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 2px;
     width: 195px;
-    background: #fff;
+    background: #394458;
     transform: translate(-230px, 80px);
     border-radius: 6px;
 }
@@ -2482,7 +2484,7 @@ body {
 
 .index-div-next p a {
     text-decoration: none;
-    color: #777;
+    color: #eee;
 }
 
 .post-date {

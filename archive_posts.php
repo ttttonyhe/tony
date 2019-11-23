@@ -29,6 +29,7 @@ get_header(); ?>
 </ul>
 
 <script>
+    window.theme_url = '<?php echo esc_url(get_template_directory_uri()); ?>';
     window.site_url = '<?php echo site_url() ?>';
     window.post_count = <?php $count_posts = wp_count_posts(); echo $published_posts =$count_posts->publish; ?>
 </script>

@@ -25,7 +25,7 @@ window.onload = function(){ //避免爆代码
             //获取文章列表
             axios.get(this.site_url + '/wp-json/wp/v2/posts?per_page='+ window.post_count) //默认以发布时间排序
              .then(response => {
-                 this.posts = response.data
+                 this.posts = response.data;
              })
              .then(() => {
                  var k = -1;
