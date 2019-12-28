@@ -68,15 +68,7 @@ if (!get_option('king_read')) {
 
         <div class="article-content">
             <?php if (!post_password_required()) { ?>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 95%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 95%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
+                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; " v-for="i in i"></p>
         </div>
     <?php } else { ?>
         <?php the_content(); ?>
@@ -110,8 +102,7 @@ if (!get_option('king_read')) {
 
 <script src="https://cdn.bootcss.com/markdown-it/8.4.2/markdown-it.min.js"></script>
 <script>
-    window.index_m = '<?php if ($m) echo 'true';
-                        else echo 'false'; ?>';
+    window.index_m = '<?php if ($m) echo 'true'; else echo 'false'; ?>';
     window.site_url = '<?php echo site_url() ?>';
     window.post_id = <?php echo $post->ID; ?>;
     window.pwd = '<?php if (post_password_required()) echo 'true'; ?>';

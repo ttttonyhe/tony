@@ -38,6 +38,7 @@ $(document).ready(function () { //避免爆代码
 
                 pages: window.index_p,
 
+                preview_comment_open: window.preview_comment_open,
 
                 posts: null,
                 cates: null,
@@ -85,7 +86,8 @@ $(document).ready(function () { //避免爆代码
                     this.posts = response.data
                 })
                 .catch(e => {
-                    this.errored = false
+                    this.errored = false;
+                    alert('文章加载失败，可能是伪静态未配置正确，请参考: https://www.wpdaxue.com/wordpress-rewriterule.html 来配置。加入 QQ 群：454846972 以获得更多支持。');
                 })
                 .then(() => {
                     this.loading = false;
@@ -171,7 +173,7 @@ $(document).ready(function () { //避免爆代码
                         if (response.data.length !== 0) { //判断是否最后一页
                             axios.get(this.site_url + '/wp-json/wp/v2/comments?post=' + postId)
                                 .then(comments => {
-                                    if (response.data.comment_status == 'open') {
+                                    if (response.data.comment_status == 'open' && this.preview_comment_open) {
                                         //处理评论格式
                                         for (var c = 0; c < comments.data.length; ++c) {
                                             this.comments_html += '<div class="quick-div"><div><img class="quick-img" src="' + comments.data[c].author_avatar_urls['48'] + '"></div><div><p class="quick-name">' + comments.data[c].author_name + '<em class="quick-date">' + comments.data[c].date + '</em></p>' + comments.data[c].content.rendered + '</div></div>';

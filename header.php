@@ -69,18 +69,7 @@
                     } ?>
                 <!-- 系统菜单部分 -->
 
-                <div class="btn-group" role="group"><button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding-right: 5px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i><?php echo get_option('king_about_text') ? get_option('king_about_text') : '关于我'; ?></a></button>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="sr-only"></span>
-                    </button>
-                    <div class="dropdown-menu" style="letter-spacing:0px !important">
-                        <?php if (!isset($_COOKIE['tony_view'])) { ?>
-                            <a class="dropdown-item" onclick="setCookie('tony_view','1')">夜间主题</a>
-                        <?php } else { ?>
-                            <a class="dropdown-item" onclick="delCookie('tony_view')">日间主题</a>
-                        <?php } ?>
-                    </div>
-                </div>
+                <button type="button" class="btn btn-primary" style="letter-spacing: 1px;font-weight: 600;padding-right: 15px;"><a href="<?php echo get_option('king_abt_url'); ?>" style="text-decoration:none;color:white"><i class="czs-user-l" style="margin-right:5px"></i><?php echo get_option('king_about_text') ? get_option('king_about_text') : '关于我'; ?></a></button>
             </div>
             <!-- 菜单部分 -->
         </header>
@@ -97,8 +86,7 @@
     <?php } ?>
 
     <div id="view-div" class="center-info" style="display:none">
-        <p style="font-weight: 600;font-size: 1.2rem;color: #555;" id="view-text">-&nbsp;<?php if (!is_single() && !is_page()) echo '文章列表';
-                                                                                            else echo '博客内容'; ?>&nbsp;-</p>
+        <p id="view-text">-&nbsp;<?php if (!is_single() && !is_page()) echo '文章列表';else echo '博客内容'; ?>&nbsp;-</p>
     </div>
 
 

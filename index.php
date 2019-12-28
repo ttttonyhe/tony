@@ -155,19 +155,26 @@ else $m = 1;
     window.wp_rest = '<?php echo wp_create_nonce('wp_rest'); ?>';
     window.site_url = '<?php echo site_url() ?>';
 
-    window.cate_exclude_option = '<?php if (get_option('king_index_cate_exclude')) echo get_option('king_index_cate_exclude'); ?>'
+    window.cate_exclude_option = '<?php if (get_option('king_index_cate_exclude')) echo get_option('king_index_cate_exclude'); ?>';
     <?php if (get_option('king_index_cate_exclude')) { ?>
         window.cate_exclude = 'true';
     <?php } else { ?>
         window.cate_exclude = 'false';
     <?php } ?>
 
-    window.cates_exclude_option = '<?php if (get_option('king_index_exclude')) echo get_option('king_index_exclude'); ?>'
+    window.cates_exclude_option = '<?php if (get_option('king_index_exclude')) echo get_option('king_index_exclude'); ?>';
     <?php if (get_option('king_index_exclude')) { ?>
         window.cates_exclude = 'true';
     <?php } else { ?>
         window.cates_exclude = 'false';
     <?php } ?>
+
+    <?php if (get_option('king_preview_comment') == '开启') { ?>
+        window.preview_comment_open = true;
+    <?php } else { ?>
+        window.preview_comment_open = false;
+    <?php } ?>
+
 
     var send_comment = function(postId) {
         var _nonce = wp_rest;

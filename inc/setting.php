@@ -8,40 +8,40 @@ if (is_admin()) {
             'type'  => 'panelstart' //顶部标签的类型
         ),
         array(
-            'name' => '导航栏展示后台菜单',
+            'name' => '导航栏展示菜单',
             'id' => 'king_nav_display',
             'type' => 'text',
-            'op_des' => '博客顶部「关于我」左边需要展示的菜单名称，为空则不展示后台设置的菜单'
+            'op_des' => '博客顶部「关于我」左边需要展示的菜单名称(自定义 => 添加菜单时所设置的菜单名称)，为空则不展示后台设置的菜单'
         ),
         array(
-            'name' => '顶部展示后台菜单',
+            'name' => '顶部展示菜单',
             'id' => 'king_nav_display_top',
             'type' => 'text',
-            'op_des' => '博客顶部名称下方需要展示的菜单名称，为空则展示存在文章的分类'
+            'op_des' => '博客顶部「博客名称」下方需要展示的菜单名称，为空则展示所有存在文章的分类'
         ),
         array(
-            'name' => '列表文章单页数量',
+            'name' => '列表单页文章数量',
             'id' => 'king_per_page',
             'type' => 'number',
-            'op_des' => '文章列表无限加载前展示多少篇文章'
+            'op_des' => '博客每个存在文章列表的页面无限加载前展示多少篇文章'
         ),
         array(
             'name' => '站点Head关键词',
             'id' => 'king_gjc',
             'type' => 'text',
-            'op_des' => '此博客的关键词，以英文半角逗号分隔，将添加在博客head部分'
+            'op_des' => '此博客的关键词，以英文半角逗号「,」分隔，将添加在博客head部分'
         ),
         array(
             'name' => '站点描述',
             'id' => 'king_ms',
             'type' => 'textarea',
-            'op_des' => '此博客的描述，将添加在博客head部分与首页顶部'
+            'op_des' => '此博客的描述，将添加在博客 head 部分与首页顶部名称下方'
         ),
         array(
             'name' => '站点标题描述',
             'id' => 'king_title_ms',
             'type' => 'textarea',
-            'op_des' => '此博客的标题描述，将添加在博客首页顶部(替换站点描述)'
+            'op_des' => '此博客的标题描述，将添加在博客首页顶部(若填写此项则在顶部替换站点描述展示并保留 head 描述为站点描述)'
         ),
         array(
             'name' => '站点 ICO 图标',
@@ -53,7 +53,7 @@ if (is_admin()) {
             'name' => '站点 Logo 图标',
             'id' => 'king_logo',
             'type' => 'text',
-            'op_des' => '此博客的Logo图标链接地址'
+            'op_des' => '此博客的 Logo 图标链接地址'
         ),
         array(
             'name' => '站点 Logo 图标首页顶部展示',
@@ -87,6 +87,14 @@ if (is_admin()) {
 
 
         array(
+            'name' => '首页快速预览评论区',
+            'id' => 'king_preview_comment',
+            'type' => 'select',
+            'op_des' => '是否开启在首页快速预览文章中展示评论区的功能',
+            'options' => array('开启', '关闭')
+        ),
+
+        array(
             'name' => '文章列表时间格式',
             'id' => 'king_date_format',
             'type' => 'select',
@@ -111,7 +119,7 @@ if (is_admin()) {
         ),
 
         array(
-            'name' => '文章Markdown解析',
+            'name' => '文章 Markdown 解析',
             'id' => 'markdown-it',
             'type' => 'select',
             'op_des' => '是否在文章页面自动解析md内容（必须使用「文本/代码编辑」模式书写内容）',
@@ -122,38 +130,38 @@ if (is_admin()) {
             'name' => '首页排除分类',
             'id' => 'king_index_exclude',
             'type' => 'text',
-            'op_des' => '在站点首页不显示的分类ID，以英文半角逗号分隔'
+            'op_des' => '在站点首页不显示的分类 ID，以英文半角逗号分隔'
         ),
 
         array(
             'name' => '顶栏排除分类',
             'id' => 'king_index_cate_exclude',
             'type' => 'text',
-            'op_des' => '在站点顶栏不显示的分类ID，以英文半角逗号分隔'
+            'op_des' => '(若未填写顶部展示菜单)在站点顶栏不显示的分类 ID，以英文半角逗号分隔'
         ),
         array(
-            'name' => '展示分类标签的分类',
+            'name' => '展示特殊文章列表样式的分类',
             'id' => 'king_cate_cate',
             'type' => 'number',
-            'op_des' => '该分类将在文章列表展示分类名与第一个标签'
+            'op_des' => '填写分类 ID，该分类将在文章列表展示为高亮样式的分类名与第一个标签'
         ),
         array(
             'name' => '无标签时占位内容',
             'id' => 'king_cate_cate_ph',
             'type' => 'text',
-            'op_des' => '展示分类标签的分类不存在第一个标签时的占位内容'
+            'op_des' => '(若填写了上一项)展示分类标签的分类不存在第一个标签时的占位内容'
         ),
         array(
             'name' => '友情链接分类',
             'id' => 'king_fre_cate',
             'type' => 'number',
-            'op_des' => '友情链接分类将展示不同样式的文章列表'
+            'op_des' => '填写分类 ID，友情链接分类将展示不同样式的文章列表，添加友情链接形式为发布文章，格式为：标题=>标题,描述=>文章内容,图像=>特色图像,链接=>自定义字段 link(使用经典编辑器则可以在编辑文章时使用友情链接填写框)'
         ),
         array(
             'name' => '作品集分类',
             'id' => 'king_wor_cate',
             'type' => 'number',
-            'op_des' => '作品集分类将展示与友情链接相同样式的文章列表与不同的描述'
+            'op_des' => '填写分类 ID，作品集分类将展示与友情链接相同样式的文章列表与不同的描述'
         ),
         array(
             'type'  => 'panelend' //标签段的结束
@@ -183,13 +191,13 @@ if (is_admin()) {
             'name' => '导航栏第二页面链接',
             'id' => 'king_nav_pu',
             'type' => 'text',
-            'op_des' => '展示在导航栏上的第二页面链接'
+            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二页面链接'
         ),
         array(
             'name' => '导航栏第二页面名称',
             'id' => 'king_nav_pn',
             'type' => 'text',
-            'op_des' => '展示在导航栏上的第二页面名称'
+            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二页面名称'
         ),
 
         array(
@@ -554,7 +562,7 @@ function git_pointer_print_scripts()
             jQuery(document).ready(function($) {
                 var $menuAppearance = $("#menu-appearance");
                 $menuAppearance.pointer({
-                    content: '<h3>最重要的一步</h3><p>感谢使用本主题，请先进行必要的设置以保证访客体验<br/><ul><li>1. 你必须使用非默认固定链接结构才可以正常使用本主题(推荐/%post_id%.html)</li><li>2. 请参照此 <a target="_blank" href="https://www.wpdaxue.com/wordpress-rewriterule.html">链接指南</a> 在服务器正确配置伪静态以使 REST API 工作</li></ul></p>',
+                    content: '<h3>最重要的一步</h3><p>感谢使用本主题，请先进行必要的设置以保证访客体验<br/><ul><li>1. 你必须使用非默认固定链接结构才可以正常使用本主题(推荐/%post_id%.html)</li><li>2. 请务必参照此 <a target="_blank" href="https://www.wpdaxue.com/wordpress-rewriterule.html">链接指南</a> 在服务器正确配置伪静态以使主题正常加载文章</li></ul></p>',
                     position: {
                         edge: "left",
                         align: "center"
