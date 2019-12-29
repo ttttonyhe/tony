@@ -1048,6 +1048,12 @@ img {
 
 .article-content {
     font-weight: 300;
+    .wp-video{
+        width: 100% !important;
+        video{
+            border-radius: 5px !important;
+        }
+    }
 }
 
 .article-content blockquote {
