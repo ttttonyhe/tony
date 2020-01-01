@@ -61,6 +61,8 @@ git clone git@github.com:HelipengTony/tony.git
 + 采用 Webpack 与 Scss 构建
 + 支持文章归档页面模板（需自行选择页面模板并添加）
 + 支持古腾堡编辑器样式（部分）
++ 支持跟随系统颜色主题切换的夜间模式
++ 支持全站/分类目录文章置顶
 
 
 <br/>

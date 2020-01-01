@@ -50,27 +50,27 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### Features
-+ Ready for Mobile
-+ Based on Vue.js
-+ Dashboard Options
-+ Custom Comment System
-+ Ready for version of WordPress that's higher than 4.4
-+ Elegant Design
++ Optimized for mobile website
++ Based on Vue.js 2.6
++ Comprehensive custom settings
++ Optimized comment system
++ Support WordPress 4.4+
++ Beautiful and elegant design
 + Infinite Loading
-+ Quick View of Posts
-+ Insert Posts in Posts
-+ Multistyle Post Lists
-+ Custom Page Template
-+ Post Thumbnail
-+ Back to top button
-+ Better posts searching feature
++ Post quick-view
++ Embed posts
++ Multiple post list styles
++ Multiple page template
++ Back-to-top button
++ Better searching system
 + Automatic post index
-+ Darkmode Theme
++ Automatic Darkmode
 + Reading progress bar
 + Markdown auto rendering
 + Built using Webpack & Scss
 + Posts archive page
 + Support Gutenberg editor
++ Support sticky post
 + And more…
 
 <br/>
@@ -83,7 +83,7 @@ git clone git@github.com:HelipengTony/tony.git
 ### Dashboard Options
 Descriptions are below the options
 <br/>
-Includes Auto Updates Checking Feature (v2.0+)
+Includes Automatic Update Checking Feature (v2.0+)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
