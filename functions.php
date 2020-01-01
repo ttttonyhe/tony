@@ -1,13 +1,18 @@
 <?php
-require get_template_directory() . '/inc/setting.php';   //setting
-require get_template_directory() . '/inc/views.php';   //views
-require get_template_directory() . '/inc/rewrite.php';   //页面伪静态
-require get_template_directory() . '/inc/metabox.php'; //文章meta
+require get_template_directory() . '/inc/setting.php';
+//setting
+require get_template_directory() . '/inc/views.php';
+//views
+require get_template_directory() . '/inc/rewrite.php';
+//页面伪静态
+require get_template_directory() . '/inc/metabox.php';
+//文章meta
 
 //获取评论人数 by wpdaxue
 function get_comments_users($postid = 0, $which = 0)
 {
-    $comments = get_comments('status=approve&type=comment&post_id=' . $postid); //获取文章的所有评论
+    $comments = get_comments('status=approve&type=comment&post_id=' . $postid);
+    //获取文章的所有评论
     if ($comments) {
         $i = 0;
         $j = 0;
@@ -25,15 +30,18 @@ function get_comments_users($postid = 0, $which = 0)
         }
         $output = array($j, $i);
         $which = ($which == 0) ? 0 : 1;
-        return $output[$which]; //返回评论人数
+        return $output[$which];
+        //返回评论人数
     }
-    return 0; //没有评论返回0
+    return 0;
+    //没有评论返回0
 }
 
 //自动获取关键字 by suxing
 function deel_keywords()
 {
-    global $s, $post; //声明$post全局变量
+    global $s, $post;
+    //声明$post全局变量
     $keywords = '';
     if (is_single()) {
         //if ( get_the_tags( $post->ID ) ) {
@@ -64,11 +72,11 @@ function lb_time_since($older_date, $comment_date = false)
         array(1, ' 秒前')
     );
     $newer_date = time();
-    $since      = abs($newer_date - $older_date);
+    $since = abs($newer_date - $older_date);
     if ($since < 30 * 24 * 60 * 60) {
         for ($i = 0, $j = count($chunks); $i < $j; $i++) {
             $seconds = $chunks[$i][0];
-            $name    = $chunks[$i][1];
+            $name = $chunks[$i][1];
             if (($count = floor($since / $seconds)) != 0) {
                 break;
             }
@@ -117,11 +125,11 @@ function fa_insert_posts($atts, $content = null)
     ));
     global $post;
     $content = '';
-    $postids =  explode(',', $ids);
+    $postids = explode(',', $ids);
     $inset_posts = get_posts(array('post__in' => $postids));
     foreach ($inset_posts as $key => $post) {
         setup_postdata($post);
-        $content .=  '<div class="warp-post-embed"><a style="text-decoration: none;" href="' . get_permalink() . '" target="_blank" ><div class="embed-content"><h2>' . get_the_title() . '</h2><p>' . wp_trim_words(get_the_excerpt(), 30) . '</p></div></a></div>';
+        $content .= '<div class="warp-post-embed"><a style="text-decoration: none;" href="' . get_permalink() . '" target="_blank" ><div class="embed-content"><h2>' . get_the_title() . '</h2><p>' . wp_trim_words(get_the_excerpt(), 30) . '</p></div></a></div>';
     }
     wp_reset_postdata();
     return $content;
@@ -181,7 +189,8 @@ function custom_upload_filter($file)
 {
     $info = pathinfo($file['name']);
     $ext = $info['extension'];
-    $filedate = date('YmdHis') . rand(10, 99); //为了避免时间重复，再加一段2位的随机数
+    $filedate = date('YmdHis') . rand(10, 99);
+    //为了避免时间重复，再加一段2位的随机数
     $file['name'] = $filedate . '.' . $ext;
     return $file;
 }
@@ -207,36 +216,36 @@ function wp_rest_insert_tag_links()
         'post',
         'post_categories',
         array(
-            'get_callback'    => 'wp_rest_get_categories_links',
+            'get_callback' => 'wp_rest_get_categories_links',
             'update_callback' => null,
-            'schema'          => null,
+            'schema' => null,
         )
     );
     register_rest_field(
         'post',
         'post_excerpt',
         array(
-            'get_callback'    => 'wp_rest_get_plain_excerpt',
+            'get_callback' => 'wp_rest_get_plain_excerpt',
             'update_callback' => null,
-            'schema'          => null,
+            'schema' => null,
         )
     );
     register_rest_field(
         'post',
         'post_date',
         array(
-            'get_callback'    => 'wp_rest_get_normal_date',
+            'get_callback' => 'wp_rest_get_normal_date',
             'update_callback' => null,
-            'schema'          => null,
+            'schema' => null,
         )
     );
     register_rest_field(
         'page',
         'post_date',
         array(
-            'get_callback'    => 'wp_rest_get_normal_date',
+            'get_callback' => 'wp_rest_get_normal_date',
             'update_callback' => null,
-            'schema'          => null,
+            'schema' => null,
         )
     );
     register_rest_field(
@@ -321,6 +330,7 @@ function get_post_meta_for_api($post)
 {
     $post_meta = array();
     $post_meta['views'] = get_post_meta($post['id'], 'post_views_count', true);
+    $post_meta['author'] = get_user_by('ID', $post['author'])->display_name;
     $post_meta['link'] = get_post_meta($post['id'], 'link', true);
     $post_meta['img'] = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
     $post_meta['title'] = get_the_title($post['id']);
@@ -435,4 +445,38 @@ function get_post_prenext_for_api($post)
     $array['next'][1] = $next_post->post_title;
     $array['next'][2] = wp_get_post_categories($next_post->ID)[0];
     return $array;
+}
+
+//Tony 主题内置判断
+function tony_func($key)
+{
+    switch ($key) {
+        case 'echo_s_cate':
+            if (get_option('king_cate_cate')) {
+                echo get_option('king_cate_cate');
+            } else {
+                echo '0';
+            }
+            break;
+
+        case 'echo_ph_cate':
+            if (get_option('king_cate_cate_ph')) {
+                echo get_option('king_cate_cate_ph');
+            } else {
+                echo 'XX';
+            }
+            break;
+
+        case 'echo_logo':
+            if (get_option('king_logo')) {
+                echo get_option('king_logo');
+            } else {
+                echo 'https://static.ouorz.com/t.jpg';
+            }
+            break;
+
+
+        default:
+            break;
+    }
 }

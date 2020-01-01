@@ -4,7 +4,7 @@ Theme URI: https://www.ouorz.com
 Author: TonyHe
 Author URI: https://www.ouorz.com
 Description: An Elegant WordPress Theme Based on Vue.js
-Version: 4.37
+Version: 4.38
 Mode: Dark
 */
 
@@ -183,4 +183,8 @@ Mode: Dark
 
 .archive-h2{
     color: #fff;
+}
+
+.article-list-type1{
+    background: rgba(0, 132, 255, 0.32) !important;
 }

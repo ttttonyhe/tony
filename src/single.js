@@ -10,6 +10,8 @@ $(document).ready(function() { //避免爆代码
                 m: window.index_m,
                 pwd: window.pwd,
                 color: window.color,
+                display_author: window.display_author,
+                author_div: '',
 
                 posts: null,
                 loading: true, //v-if判断显示占位符
@@ -62,11 +64,17 @@ $(document).ready(function() { //避免爆代码
 
                     $('.single-h2').html(this.posts.post_metas.title.replace('密码保护：', '')).attr('style',
                         '');
-                    $('.article-list-footer').html('<span class="article-list-date">' + this.posts
+
+                    //展示文章作者名称
+                    if(this.display_author){
+                        this.author_div = '<span class="article-list-date">' + this.posts.post_metas.author +
+                        '</span><span class="article-list-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span>';
+                    }
+
+                    $('.article-list-footer').html(this.author_div + '<span class="article-list-date">' + this.posts
                         .post_date +
                         '</span><span class="article-list-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="article-list-minutes">' +
                         this.posts.post_metas.views + '&nbsp;Views</span>').attr('style', '');
-
 
                     if (!!this.color) {
                         //文章阅读进度条

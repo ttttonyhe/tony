@@ -29,6 +29,7 @@ $(document).ready(function() { //避免爆代码
                 cate_wor: window.cate_fre,
 
                 posts: null,
+                posts_id_sticky: '0',
                 cates: null,
                 des: null,
                 loading: true, //v-if判断显示占位符
@@ -51,10 +52,27 @@ $(document).ready(function() { //避免爆代码
                     this.loading_des = false;
                 });
 
-            //获取文章列表
-            axios.get(this.site_url + '/wp-json/wp/v2/posts?per_page='+ this.pages +'&page=' + paged + '&categories=' + incate)
-                .then(response => {
-                    this.posts = response.data
+
+            /*
+            * 获取文章列表
+            * 得到顶置文章后拼接其余文章
+            */
+
+            //获取顶置文章
+            axios.get(this.site_url + '/wp-json/wp/v2/posts?sticky=1&categories=' + incate)
+                .then(res_sticky => {
+                    this.posts = res_sticky.data;
+
+                    //获取顶置文章 IDs 以在获取其余文章时排除
+                    for(var s = 0;s< this.posts.length; ++s){
+                        this.posts_id_sticky += (',' + this.posts[s].id); 
+                    }
+
+                    axios.get(this.site_url + '/wp-json/wp/v2/posts?sticky=0&categories=' + incate + '&exclude='+ this.posts_id_sticky + '&per_page=' + this.pages + '&page=' + paged)
+                    .then(res_normal => {
+                        //拼接其余文章
+                        this.posts = this.posts.concat(res_normal.data);
+                    })
                 })
                 .catch(e => {
                     this.errored = false
@@ -79,7 +97,7 @@ $(document).ready(function() { //避免爆代码
         methods: { //定义方法
             new_page: function() { //加载下一页文章列表
                 $('#view-text').html('-&nbsp;加载中&nbsp;-');
-                axios.get(this.site_url + '/wp-json/wp/v2/posts?per_page=' + this.pages + '&page=' + paged + '&categories=' + incate)
+                axios.get(this.site_url + '/wp-json/wp/v2/posts?sticky=0&exclude='+ this.posts_id_sticky + '&per_page=' + this.pages + '&page=' + paged + '&categories=' + incate)
                     .then(response => {
                         if (!!response.data.length && response.data.length !== 0) { //判断是否最后一页
                             $('#view-text').html('-&nbsp;文章列表&nbsp;-');

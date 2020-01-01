@@ -3,7 +3,7 @@
     </div>
 <?php } ?>
 <footer class="footer reveal" style="<?php if (wp_is_mobile()) echo 'display:none;' ?>">
-    <p>Copyright © <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?> · Theme Tony | Designed By <a href="https://www.ouorz.com" target="_blank">TonyHe</a></p>
+    <p>Copyright © <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?> · Theme Tony | Made with <i class="czs-heart" style="color: rgb(228, 16, 0);font-size: 12px;"></i> by <a href="https://www.ouorz.com" target="_blank">TonyHe</a></p>
 </footer>
 <script type="text/javascript">
     $(document).ready(function() {

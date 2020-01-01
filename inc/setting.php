@@ -95,6 +95,14 @@ if (is_admin()) {
         ),
 
         array(
+            'name' => '文章列表作者信息显示',
+            'id' => 'king_display_author',
+            'type' => 'select',
+            'op_des' => '是否在文章与文章列表中展示作者名称',
+            'options' => array('关闭', '开启')
+        ),
+
+        array(
             'name' => '文章列表时间格式',
             'id' => 'king_date_format',
             'type' => 'select',

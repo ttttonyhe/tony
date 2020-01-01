@@ -14,6 +14,8 @@ if (!get_option('king_read')) {
 } else {
     $color = 'rgb(55, 151, 254)';
 }
+if (get_option('king_display_author') == '关闭') $a = 'false';
+else $a = 'true';
 ?>
 
 <div class="single-left" :style="exist_index ? '' : 'margin-top:-15px'">
@@ -116,6 +118,7 @@ if (!get_option('king_read')) {
     window.post_id = <?php echo $post->ID; ?>;
     window.pwd = '<?php if (post_password_required()) echo 'true'; ?>';
     window.color = '<?php if ($color) echo 'true' ?>';
+    window.display_author = <?php echo $a; ?>;
 </script>
 
 <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/single.js"></script>

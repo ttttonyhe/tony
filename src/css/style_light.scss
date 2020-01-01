@@ -4,7 +4,7 @@ Theme URI: https://www.ouorz.com/295
 Author: TonyHe
 Author URI: https://www.ouorz.com
 Description: An Elegant WordPress Theme Based on Vue.js
-Version: 4.37
+Version: 4.38
 Mode: Light
 */
 
@@ -942,7 +942,16 @@ img {
     padding: 5.5px 16px 5.5px 16px;
     font-size: 1rem;
     margin-left: -1px;
-    color: rgb(0, 132, 255) !important;
+    // html 单独判断夜间模式，设定旧系统默认样式
+    @media (prefers-color-scheme: dark) {
+        color: rgb(97, 179, 255) !important;
+    }
+    @media (prefers-color-scheme: light){
+        color: rgb(0, 132, 255) !important;
+    }
+    @media (prefers-color-scheme: no-preference) {
+        color: rgb(0, 132, 255) !important;
+    }
     vertical-align: top;
     border-radius: 100px;
     background: rgba(0, 132, 255, 0.1);
@@ -1902,6 +1911,23 @@ table {
     transition: all .2s ease-out 0s;
 }
 
+.sticky-one{
+    border: 2px solid rgba(0, 132, 255, 0.61) !important;
+}
+
+.sticky-one-tag{
+    color: rgb(255, 152, 0) !important;
+    background: rgba(255, 193, 7, 0.35) !important;
+    margin-right: 6px;
+}
+
+.display-author{
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media screen and (max-width:767px) {
     .index-post-list {
         border-radius: 0px;
@@ -2571,6 +2597,17 @@ table {
     border-radius: 50%;
     margin-right: 5px;
     margin-left: -3px;
+}
+
+.img-cate{
+    color: #8590a6 !important;
+    padding: 5px 15px 7px 15px;
+    font-weight: 500;
+    margin-right: 3px;
+    letter-spacing: .1px;
+    border-radius: 100px;
+    background: #f6f7f8;
+    text-decoration: none !important;
 }
 
 /* End of The Tony Version */

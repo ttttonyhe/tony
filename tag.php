@@ -8,6 +8,8 @@ if (!get_option('king_wor_cate')) $w = '66666';
 else $w = get_option('king_wor_cate');
 if (!get_option('king_per_page')) $p = '6';
 else $p = get_option('king_per_page');
+if (get_option('king_display_author') == '关闭') $a = false;
+else $a = true;
 ?>
 
 <div id="header_info">
@@ -51,16 +53,11 @@ else $p = get_option('king_per_page');
     </li>
     <!-- 占位DIV -->
 
-    <li class="article-list-item reveal index-post-list" uk-scrollspy="cls:uk-animation-slide-left-small" v-for="post in posts" :style="post.post_categories[0].term_id | link_style">
+    <li :class="'article-list-item reveal index-post-list ' + (post.sticky ? 'sticky-one' : '')" v-for="post in posts" :style="post.post_categories[0].term_id | link_style">
         <template v-if="post.post_img.url == false || post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>">
-            <em v-if="post.post_categories[0].term_id == <?php if (get_option('king_cate_cate')) {
-                                                                echo get_option('king_cate_cate');
-                                                            } else {
-                                                                echo '21213';
-                                                            } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                else echo 'XX' ?>')  }}</em>
+            <em v-if="post.post_categories[0].term_id == <?php tony_func('echo_s_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php tony_func('echo_ph_cate'); ?>')  }}</em>
             <div v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" class="link-list-left"><img :src="post.post_metas.img[0]" class="link-list-img"></div>
-            <div class="link-list-right">
+            <div class="link-list-right" :style="(post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?> || post.post_categories[0].term_id == <?php tony_func('echo_s_cate'); ?>) ? '' : 'margin-top: -10px;'">
                 <a v-if="post.post_categories[0].term_id == <?php echo $f; ?> || post.post_categories[0].term_id == <?php echo $w; ?>" :href="post.post_metas.link" style="text-decoration: none;" target="_blank">
                     <h5 style="margin-top: 10px;" v-html="post.title.rendered"></h5>
                 </a>
@@ -69,7 +66,11 @@ else $p = get_option('king_per_page');
                 </a>
                 <p v-html="post.post_excerpt.nine"></p>
                 <div class="article-list-footer">
-                    <span class="article-list-date" style="color: #ada8a8;">{{ post.post_categories[0].term_id | link_page }}{{ post.post_date }}</span>
+                <?php if($a){ ?>
+                 <span class="article-list-date display-author" v-html="post.post_metas.author"></span>
+                 <span class="article-list-divider">-</span>
+                 <?php } ?>
+                    <span class="article-list-date">{{ post.post_categories[0].term_id | link_page }}{{ post.post_date }}</span>
                     <span class="article-list-divider" v-if="post.post_categories[0].term_id !== <?php echo $f; ?> && post.post_categories[0].term_id !== <?php echo $w; ?>">-</span>
                     <span class="article-list-minutes" v-if="post.post_categories[0].term_id !== <?php echo $f; ?> && post.post_categories[0].term_id !== <?php echo $w; ?>">{{ post.post_metas.views }}&nbsp;Views</span>
                 </div>
@@ -80,17 +81,19 @@ else $p = get_option('king_per_page');
             <div class="article-list-img-else">
                 <div class="article-list-img" :style="'background-image:url(' + post.post_img.url +')'"></div>
                 <div class="article-list-img-right">
-                    <em v-if="post.post_categories[0].term_id == <?php if (get_option('king_cate_cate')) {
-                                                                        echo get_option('king_cate_cate');
-                                                                    } else {
-                                                                        echo '0';
-                                                                    } ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php if (get_option('king_cate_cate_ph')) echo get_option('king_cate_cate_ph');
-                                                                                                                                                                                                                        else echo 'XX' ?>')  }}</em>
+                    <!-- 置顶文章提示 -->
+                    <em class="article-list-type1 sticky-one-tag" v-if="post.sticky"><i class="czs-arrow-up-l" style="font-size: 14px;font-weight: 600;"></i> 置顶</em>
+                    <!-- 置顶文章提示 -->
+                    <em v-if="post.post_categories[0].term_id == <?php tony_func('echo_s_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php tony_func('echo_ph_cate'); ?>')  }}</em>
                     <a :href="post.link" style="text-decoration: none;">
                         <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
                     </a>
                     <p v-html="post.post_excerpt.four" :id="post.id"></p>
                     <div class="article-list-footer">
+                    <?php if($a){ ?>
+                 <span class="article-list-date display-author" v-html="post.post_metas.author"></span>
+                 <span class="article-list-divider">-</span>
+                 <?php } ?>
                         <span class="article-list-date">{{ post.post_date }}</span>
                         <span class="article-list-divider">-</span>
                         <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
