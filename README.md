@@ -27,7 +27,7 @@
 ### ScreenShot
 <br/>
 
-![Thumbnail_index](https://i.loli.net/2019/08/18/BxlWFAusCM2PgU7.png)
+![Thumbnail_index](https://i.loli.net/2020/01/01/YgNlo9Ts1bjiWR3.jpg)
 
 <br/>
 

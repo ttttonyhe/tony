@@ -9,7 +9,7 @@ An Elegant WordPress Theme Based on Vue.js
 ### 首页截图
 <br/>
 
-![Thumbnail_index](https://i.loli.net/2019/02/18/5c6a81958b193.png)
+![Thumbnail_index](https://i.loli.net/2020/01/01/YgNlo9Ts1bjiWR3.jpg)
 
 <br/>
 
