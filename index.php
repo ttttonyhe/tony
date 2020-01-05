@@ -153,7 +153,7 @@ else $m = 1;
                 <em class="article-list-type1 sticky-one-tag" v-if="post.sticky"><i class="czs-arrow-up-l" style="font-size: 14px;font-weight: 600;"></i> 置顶</em>
                 <!-- 置顶文章提示 -->
                     <em v-if="post.post_categories[0].term_id === <?php tony_func('echo_s_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php tony_func('echo_ph_cate'); ?>')  }}</em>
-                    <a v-else :href="post.post_categories[0].name" v-html="post.post_categories[0].name" class="img-cate"></a>
+                    <a v-else :href="post.post_categories[0].link" v-html="post.post_categories[0].name" class="img-cate"></a>
                     <a :href="post.link" style="text-decoration: none;">
                         <h5 v-html="post.title.rendered" style="margin: 0px;padding: 0px;margin-top:15px"></h5>
                     </a>
