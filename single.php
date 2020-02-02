@@ -110,7 +110,7 @@ else $a = 'true';
 
 
 
-<script src="https://cdn.bootcss.com/markdown-it/8.4.2/markdown-it.min.js"></script>
+<script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
 <script>
     window.index_m = '<?php if ($m) echo 'true';
                         else echo 'false'; ?>';

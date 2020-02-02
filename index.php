@@ -193,8 +193,8 @@ else $m = 1;
 </ul>
 <!-- 文章列表 -->
 
-<script src="https://cdn.bootcss.com/markdown-it/8.4.2/markdown-it.min.js"></script>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+<script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
 <script>
     // Markdown 实例化
     var md = window.markdownit({

@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title><?php site_page_title(); ?></title>
     <meta http-equiv="x-dns-prefetch-control" content="on" />
-    <link rel="dns-prefetch" href="https://cdn.bootcss.com" />
+    <link rel="dns-prefetch" href="https://cdn.staticfile.org" />
     <meta name="keywords" content="<?php echo get_option('king_gjc'); ?>" />
     <meta name="description" content="<?php echo get_option('king_ms'); ?>">
     <link rel="Shortcut Icon" href="<?php echo get_option('king_ico') ?>" type="image/x-icon" />
@@ -19,17 +19,17 @@
         <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri()); ?>/dist/css/style.css">
     <?php } ?>
     <link type="text/css" rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri());  ?>/css/caomei-cion.css">
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/uikit/3.0.3/css/uikit.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/uikit/3.0.3/js/uikit.min.js"></script>
-    <script src="https://cdn.bootcss.com/vue/2.6.4/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/uikit/3.3.0/css/uikit.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/uikit/3.3.0/js/uikit.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.19.2/axios.min.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/jquery.goup.js"></script>
     <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/header.js"></script>
     <?php echo stripslashes(get_option('king_zztj')); ?>
-    <script src="https://cdn.bootcss.com/highlight.js/9.15.6/highlight.min.js"></script>
-    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/a11y-dark.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/highlight.js/9.18.1/highlight.min.js"></script>
+    <link href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
 </head>
 
 <body id="body">
