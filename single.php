@@ -52,7 +52,7 @@ else $a = 'true';
 
 
 
-<?php setPostViews($post->ID); ?>
+<?php setPostViews(get_the_ID()); ?>
 
 <div class="reading-bar" style="background:<?php echo $color; ?>"></div>
 <article class="article reveal" id="lightgallery">
@@ -115,7 +115,7 @@ else $a = 'true';
     window.index_m = '<?php if ($m) echo 'true';
                         else echo 'false'; ?>';
     window.site_url = '<?php echo site_url() ?>';
-    window.post_id = <?php echo $post->ID; ?>;
+    window.post_id = <?php echo get_the_ID(); ?>;
     window.pwd = '<?php if (post_password_required()) echo 'true'; ?>';
     window.color = '<?php if ($color) echo 'true' ?>';
     window.display_author = <?php echo $a; ?>;
