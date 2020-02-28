@@ -619,7 +619,7 @@ function theme_update_notice()
             jQuery(document).ready(function($) {
                 var v = <?php echo $tony->get('Version'); ?>;
                 $.ajax({
-                    url: 'https://www.ouorz.com/check_update.html?v=' + v,
+                    url: 'https://blog.ouorz.com/check_update.html?v=' + v,
                     type: "POST",
                     cache: false,
                     dataType: 'json',

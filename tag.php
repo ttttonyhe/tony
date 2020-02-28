@@ -1,7 +1,6 @@
-<?php get_header(); ?>
 <?php
-$tag = get_the_tags();
-$id = $tag[0]->term_id;
+get_header();
+$tag = get_queried_object();
 if (!get_option('king_fre_cate')) $f = '99999';
 else $f = get_option('king_fre_cate');
 if (!get_option('king_wor_cate')) $w = '66666';
@@ -117,37 +116,23 @@ else $a = true;
     <!-- 加载按钮 -->
 </ul>
 
-
-
-
-
-
-
-
-
-
-
 <script>
-    window.cate_id = <?php echo $id; ?>;
+    window.cate_id = <?php echo $tag->term_id; ?>;
     window.site_url = '<?php echo site_url() ?>';
-    window.tag_name = '<?php echo $tag[0]->name; ?>';
-    window.post_count = <?php echo get_tag_post_count_by_id($tag[0]->term_id); ?>;
-
+    window.tag_name = '<?php echo urldecode($tag->name); ?>';
+    window.post_count = <?php echo $tag->count; ?>;
     window.cate_exclude_option = '<?php if (get_option('king_index_cate_exclude')) echo get_option('king_index_cate_exclude'); ?>';
     <?php if (get_option('king_index_cate_exclude')) { ?>
         window.cate_exclude = 'true';
     <?php } else { ?>
         window.cate_exclude = 'false';
     <?php } ?>
-
     window.index_p = <?php echo $p; ?>;
-
     window.cate_fre = <?php if (get_option('king_fre_cate')) echo get_option('king_fre_cate');
                         else echo '0' ?>;
     window.cate_wor = <?php if (get_option('king_wor_cate')) echo get_option('king_wor_cate');
                         else echo '0' ?>;
 </script>
-
 <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/tag.js"></script>
 
 

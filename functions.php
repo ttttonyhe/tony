@@ -171,13 +171,6 @@ add_filter('comment_class', 'lxtx_comment_body_class');
 add_filter('body_class', 'lxtx_comment_body_class');
 
 
-function get_tag_post_count_by_id($tag_id)
-{
-    $tag = get_term_by('id', $tag_id, 'post_tag');
-    _make_cat_compat($tag);
-    return $tag->count;
-}
-
 //add post thumbnails
 if (function_exists('add_theme_support')) {
     add_theme_support('post-thumbnails');
