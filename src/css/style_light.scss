@@ -26,10 +26,12 @@ html {
         background: #1c1f2b !important;
         color: #bdcadb !important;
     }
-    @media (prefers-color-scheme: light){
+
+    @media (prefers-color-scheme: light) {
         background-color: rgb(246, 247, 248) !important;
         background: rgb(246, 247, 248) !important;
     }
+
     @media (prefers-color-scheme: no-preference) {
         background-color: rgb(246, 247, 248) !important;
         background: rgb(246, 247, 248) !important;
@@ -57,15 +59,18 @@ html {
 
 body {
     margin: 0;
+
     // body 单独判断夜间模式，设定旧系统默认样式
     @media (prefers-color-scheme: dark) {
         background: #1c1f2b !important;
         background-color: #1c1f2b !important;
         color: #bdcadb !important;
     }
-    @media (prefers-color-scheme: light){
+
+    @media (prefers-color-scheme: light) {
         background-color: rgb(246, 247, 248) !important;
     }
+
     @media (prefers-color-scheme: no-preference) {
         background-color: rgb(246, 247, 248) !important;
     }
@@ -137,6 +142,14 @@ kbd,
 samp {
     font-family: monospace, monospace;
     font-size: 1em
+}
+
+code {
+    padding: 20px !important;
+}
+
+pre {
+    padding: 0px !important;
 }
 
 dfn {
@@ -942,16 +955,20 @@ img {
     padding: 5.5px 16px 5.5px 16px;
     font-size: 1rem;
     margin-left: -1px;
+
     // html 单独判断夜间模式，设定旧系统默认样式
     @media (prefers-color-scheme: dark) {
         color: rgb(97, 179, 255) !important;
     }
-    @media (prefers-color-scheme: light){
+
+    @media (prefers-color-scheme: light) {
         color: rgb(0, 132, 255) !important;
     }
+
     @media (prefers-color-scheme: no-preference) {
         color: rgb(0, 132, 255) !important;
     }
+
     vertical-align: top;
     border-radius: 100px;
     background: rgba(0, 132, 255, 0.1);
@@ -1057,9 +1074,11 @@ img {
 
 .article-content {
     font-weight: 300;
-    .wp-video{
+
+    .wp-video {
         width: 100% !important;
-        video{
+
+        video {
             border-radius: 5px !important;
         }
     }
@@ -1247,7 +1266,8 @@ article-content img {
     font-weight: 600;
     color: #000;
     text-decoration: none;
-    &:hover{
+
+    &:hover {
         color: #000;
     }
 }
@@ -1281,6 +1301,54 @@ article-content img {
 @media all and (max-width: 415px) {
     .header-nav {
         text-align: left;
+        padding-top: 30px;
+    }
+
+    #header-info {
+        width: 90%;
+        margin: 10px auto 30px auto;
+    }
+
+    .header-logo {
+        font-size: 25px;
+    }
+
+    .lead {
+        font-size: 15px;
+    }
+
+    .index-cates {
+        padding-bottom: 5px !important;
+        margin-bottom: 10px !important;
+
+        li {
+            padding: 4px 13px !important;
+
+            a {
+                font-size: 15px !important;
+            }
+        }
+    }
+
+    .post_tags li a {
+        font-size: 11px;
+    }
+
+    .list-show-btn {
+        margin-top: -1.7px !important;
+        font-size: 13px !important;
+    }
+
+    .article-list-type1 {
+        font-size: 13px !important;
+    }
+
+    .article-list-tags a {
+        font-size: 13px !important;
+    }
+
+    .img-cate {
+        font-size: 13px !important;
     }
 
     .header-links {
@@ -1713,23 +1781,23 @@ article-content img {
         width: 100%;
     }
 
-    .comment-form-author{
+    .comment-form-author {
         float: none !important;
         width: 100% !important;
     }
 
-    .comment-form-email{
+    .comment-form-email {
         float: none !important;
         width: 100% !important;
     }
 
-    .comment-form label{
+    .comment-form label {
         display: inline-block;
         margin-left: 0px;
     }
 }
 
-@mixin ScrollBar_Multibrowser{
+@mixin ScrollBar_Multibrowser {
     -webkit-overflow-scrolling: touch;
     -webkit-scrollbar-width: none;
     -moz-scrollbar-width: none;
@@ -1737,7 +1805,7 @@ article-content img {
     scrollbar-width: none;
 }
 
-@mixin Scroll-X{
+@mixin Scroll-X {
     overflow: hidden;
     overflow-x: auto;
     white-space: nowrap;
@@ -1911,17 +1979,17 @@ table {
     transition: all .2s ease-out 0s;
 }
 
-.sticky-one{
+.sticky-one {
     border: 2px solid rgba(0, 132, 255, 0.61) !important;
 }
 
-.sticky-one-tag{
+.sticky-one-tag {
     color: rgb(255, 152, 0) !important;
     background: rgba(255, 193, 7, 0.35) !important;
     margin-right: 6px;
 }
 
-.display-author{
+.display-author {
     max-width: 150px;
     white-space: nowrap;
     overflow: hidden;
@@ -1929,6 +1997,10 @@ table {
 }
 
 @media screen and (max-width:767px) {
+    .sticky-one-tag {
+        display: none;
+    }
+
     .index-post-list {
         border-radius: 0px;
         box-shadow: none !important;
@@ -1956,6 +2028,7 @@ table {
 
     .article-list {
         padding: 0px;
+        margin-top: 0px;
     }
 
     .article-list li {
@@ -2181,8 +2254,11 @@ table {
     position: fixed;
     top: 16px;
     letter-spacing: 2px;
-    p{
-        font-weight: 600;font-size: 1.2rem;color: #555;
+
+    p {
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #555;
     }
 }
 
@@ -2208,15 +2284,19 @@ table {
     position: fixed !important;
     width: 45px !important;
     height: 45px !important;
+
     @media (prefers-color-scheme: dark) {
         background: rgb(46, 62, 96) !important;
     }
-    @media (prefers-color-scheme: light){
+
+    @media (prefers-color-scheme: light) {
         background: rgb(255, 255, 255) !important;
     }
+
     @media (prefers-color-scheme: no-preference) {
         background: rgb(255, 255, 255) !important;
     }
+
     cursor: pointer !important;
     z-index: 1 !important;
     bottom: 30px !important;
@@ -2447,9 +2527,11 @@ table {
     @media (prefers-color-scheme: dark) {
         color: rgb(46, 62, 96) !important;
     }
+
     @media (prefers-color-scheme: light) {
         color: #8590a6 !important;
     }
+
     @media (prefers-color-scheme: no-preference) {
         color: #8590a6 !important;
     }
@@ -2599,7 +2681,7 @@ table {
     margin-left: -3px;
 }
 
-.img-cate{
+.img-cate {
     color: #8590a6 !important;
     padding: 5px 15px 7px 15px;
     font-weight: 500;
@@ -2608,6 +2690,43 @@ table {
     border-radius: 100px;
     background: #f6f7f8;
     text-decoration: none !important;
+}
+
+.content-loading-line {
+    display: block;
+    background: rgb(246, 247, 248);
+    width: 100%;
+    height: 20px;
+}
+
+.content-loading-line-2 {
+    margin: 0 25px;
+    margin-bottom: 10px;
+    height: 25px;
+    width: 50%;
+    background: #f1f2f3;
+}
+
+.content-loading-line-3 {
+    margin: 0 25px;
+    margin-bottom: 10px;
+    height: 25px;
+    background: #f1f2f3;
+}
+
+.content-loading-line-4 {
+    margin: 0 25px;
+    margin-bottom: 10px;
+    height: 25px;
+    background: #f1f2f3;
+    width: 70%;
+}
+
+.content-loading-line-5 {
+    margin: 0 25px;
+    margin-bottom: 10px;
+    height: 25px;
+    background: #f1f2f3;
 }
 
 /* End of The Tony Version */

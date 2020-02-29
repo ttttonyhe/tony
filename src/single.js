@@ -46,17 +46,15 @@ $(document).ready(function() { //避免爆代码
                     if (!!this.pwd) {
                         $('.article-content').attr('style', '');
                     } else if (!!this.m) {
+                        // 初始化 markdown 插件
+                        tm = texmath.use(katex);
                         var md = window.markdownit({
                             html: true,
                             xhtmlOut: false,
                             breaks: true,
                             linkify: true
-                        });
-                        var reg1 = new RegExp('<p>', 'g');
-                        var reg2 = new RegExp('</p>', 'g');
-                        var reg3 = new RegExp('<br />', 'g');
-                        this.posts.content.rendered = this.posts.content.rendered.replace(reg1, '').replace(reg2, '').replace(reg3, '');
-                        var md_result = md.render(this.posts.content.rendered);
+                        }).use(tm,{delimiters:'dollars',macros:{"\\RR": "\\mathbb{R}"}});
+                        var md_result = md.render(this.posts.md_content);
                         $('.article-content').html(md_result).attr('style', '');
                     } else {
                         $('.article-content').html(this.posts.content.rendered).attr('style', '');

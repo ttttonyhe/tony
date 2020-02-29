@@ -130,7 +130,15 @@ if (is_admin()) {
             'name' => '文章 Markdown 解析',
             'id' => 'markdown-it',
             'type' => 'select',
-            'op_des' => '是否在文章页面自动解析md内容（必须使用「文本/代码编辑」模式书写内容）',
+            'op_des' => '是否在文章页面自动解析 MarkDown 内容（必须使用「文本/代码编辑」模式书写内容）',
+            'options' => array('开启', '关闭')
+        ),
+
+        array(
+            'name' => 'MarkDown 文章 KaTex 解析',
+            'id' => 'king_markdown_tex',
+            'type' => 'select',
+            'op_des' => '是否开启 MarkDown 文章内容 KaTex 内容解析',
             'options' => array('开启', '关闭')
         ),
 
@@ -196,16 +204,16 @@ if (is_admin()) {
             'op_des' => '展示在导航栏上的替换「关于我」的文本'
         ),
         array(
-            'name' => '导航栏第二页面链接',
+            'name' => '导航栏第二按钮链接',
             'id' => 'king_nav_pu',
             'type' => 'text',
-            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二页面链接'
+            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二按钮链接'
         ),
         array(
-            'name' => '导航栏第二页面名称',
+            'name' => '导航栏第二按钮内容',
             'id' => 'king_nav_pn',
             'type' => 'text',
-            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二页面名称'
+            'op_des' => '(若未填写导航栏菜单)展示在导航栏上的第二按钮内容'
         ),
 
         array(

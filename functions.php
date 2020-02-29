@@ -286,6 +286,19 @@ function wp_rest_insert_tag_links()
             'schema' => null,
         )
     );
+    register_rest_field('post',
+        'md_content',
+        array(
+            'get_callback' => 'get_post_content_for_api',
+            'update_callback' => null,
+            'schema' => null,
+        )
+    );
+}
+
+function get_post_content_for_api($post) {
+    $content = get_post($post['id'])->post_content;
+    return $content;
 }
 
 function wp_rest_get_categories_links($post)

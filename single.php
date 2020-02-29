@@ -16,6 +16,8 @@ if (!get_option('king_read')) {
 }
 if (get_option('king_display_author') == '关闭') $a = 'false';
 else $a = 'true';
+if (get_option('king_markdown_tex') == '开启') $tex = true;
+else $tex = false;
 ?>
 
 <div class="single-left" :style="exist_index ? '' : 'margin-top:-15px'">
@@ -26,16 +28,14 @@ else $a = 'true';
             </div>
             <ul id="article-index" class="index-ul">
                 <li></li>
-                <li style="margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3; ">
-                <li style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3;     width: 70%; ">
-                <li style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     background: #f1f2f3; ">
-                <li style="     margin: 0 25px;     margin-bottom: 10px;     height: 25px;     width: 50%;     background: #f1f2f3; ">
+                <li class="content-loading-line-5">
+                <li class="content-loading-line-4">
+                <li class="content-loading-line-3">
+                <li class="content-loading-line-2">
             </ul>
         </div>
     <?php } ?>
-
     <template v-if="!loading">
-
         <div class="index-div-next" v-if="!!post_prenext.prev && post_prenext.prev[0] !== null && post_prenext.prev[2] !== <?php echo $w; ?> && post_prenext.prev[2] !== <?php echo $f; ?>">
             <h4><i class="czs-hande-vertical"></i> 前一篇</h4>
             <p><a :href="post_prenext.prev[0]" v-html="post_prenext.prev[1]"></a></p>
@@ -44,9 +44,7 @@ else $a = 'true';
             <h4><i class="czs-hand-horizontal"></i> 后一篇</h4>
             <p><a :href="post_prenext.next[0]" v-html="post_prenext.next[1]"></a></p>
         </div>
-
     </template>
-
 </div>
 
 
@@ -55,9 +53,10 @@ else $a = 'true';
 <?php setPostViews(get_the_ID()); ?>
 
 <div class="reading-bar" style="background:<?php echo $color; ?>"></div>
-<article class="article reveal" id="lightgallery">
+<article class="article reveal">
     <div id="load">
-        <header class="article-header">
+        <!-- 文章顶部信息 -->
+        <div class="article-header">
             <span class="badge badge-pill badge-danger single-badge"><a href="<?php echo site_url() ?>" style="text-decoration:none"><i class="czs-read-l" style="margin-right:5px;"></i>站点文章</a></span>
             <span class="badge badge-pill badge-danger single-badge" style="margin-left: 10px;"><a :href="cate_url" style="text-decoration: none;color: #888;letter-spacing: .5px;" v-html="cate">分类目录</a></span>
 
@@ -66,81 +65,83 @@ else $a = 'true';
             <div class="article-list-footer" style="height: 25px;background: rgb(246, 247, 248);width: 80%;margin-top: 15px;color:rgb(246, 247, 248)">
             </div>
             <div class="single-line"></div>
-        </header>
-
-        <div class="article-content">
-            <?php if (!post_password_required()) { ?>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 95%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 95%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 90%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
-                <p style="     display: block;     background: rgb(246, 247, 248);     width: 100%;     height: 20px; "></p>
         </div>
-    <?php } else { ?>
-        <?php the_content(); ?>
-    <?php } ?>
+        <!-- 文章顶部信息 -->
 
-    <div style="text-align: left;margin: 60px 0px 40px 8px;border-radius: 6px;" v-if="!!post_tags.length">
-        <ul class="post_tags" style="margin: 0;padding: 0px;width: 100%;padding-bottom: 15px;">
-            <li class="cat-real" style="display: inline-block;color: rgb(102, 102, 102);font-size: 1.1rem;font-weight: 600;margin: 0px;letter-spacing: 1px;"><a style="background-color: #e7f3ff;color: #2f94fe;padding: 3px 12px 4px 12px;border-radius: 4px;font-size: .9rem;">相关标签</a></li>
-            <li class="cat-real" style="display: inline-block;" v-for="tag in post_tags">
-                <a :href="tag.url" target="_blank" v-html="tag.name" style="font-size: .9rem;border-radius: 4px;padding: 3px 10px 4px 10px;"></a>
-            </li>
-        </ul>
-    </div>
+        <!-- 文章内容 -->
+        <div class="article-content">
+        <?php if (!post_password_required()) { ?>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+            <p class="content-loading-line"></p>
+        </div>
+        <?php } else {
+            the_content();
+        } ?>
+        <!-- 文章内容 -->
 
-    <div class="article-comments" id="article-comments">
-        <?php if (comments_open() || get_comments_number()) :
-            comments_template();
-        endif;
-        ?>
-    </div>
+        <!-- 文章标签 -->
+        <div style="text-align: left;margin: 60px 0px 40px 8px;border-radius: 6px;" v-if="!!post_tags.length">
+            <ul class="post_tags" style="margin: 0;padding: 0px;width: 100%;padding-bottom: 15px;">
+                <li class="cat-real" style="display: inline-block;color: rgb(102, 102, 102);font-size: 1.1rem;font-weight: 600;margin: 0px;letter-spacing: 1px;"><a style="background-color: #e7f3ff;color: #2f94fe;padding: 3px 12px 4px 12px;border-radius: 4px;font-size: .9rem;">相关标签</a></li>
+                <li class="cat-real" style="display: inline-block;" v-for="tag in post_tags">
+                    <a :href="tag.url" target="_blank" v-html="tag.name" style="font-size: .9rem;border-radius: 4px;padding: 3px 10px 4px 10px;"></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 文章标签 -->
+
+        <!-- 文章评论区 -->
+        <div class="article-comments" id="article-comments">
+            <?php 
+                if (comments_open() || get_comments_number()){
+                    comments_template();
+                }
+            ?>
+        </div>
+        <!-- 文章评论区 -->
+
     </div>
 </article>
 
+<!-- MarkDown 及插件引入 -->
+<!-- KaTex 插件引入 -->
+<?php if ($tex) { ?>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css" />
+    <link rel="stylesheet" href="https://static.ouorz.com/texmath.css" />
+<?php } ?>
 
+<!-- MarkDown 依赖引入 -->
+<script type="text/javascript" src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+<!-- MarkDown 依赖引入 -->
 
+<!-- KaTex 插件引入 -->
+<?php if ($tex) { ?>
+    <script type="text/javascript" src="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.js"></script>
+    <script type="text/javascript" src="https://static.ouorz.com/texmath.js"></script>
+<?php } ?>
+<!-- KaTex 插件引入 -->
+<!-- MarkDown 及插件引入 -->
 
-
-
-
-
-
-<script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+<!-- 全局配置 -->
 <script>
-    window.index_m = '<?php if ($m) echo 'true';
-                        else echo 'false'; ?>';
+    window.index_m = '<?php if ($m) echo 'true'; else echo 'false'; ?>';
     window.site_url = '<?php echo site_url() ?>';
     window.post_id = <?php echo get_the_ID(); ?>;
     window.pwd = '<?php if (post_password_required()) echo 'true'; ?>';
     window.color = '<?php if ($color) echo 'true' ?>';
     window.display_author = <?php echo $a; ?>;
 </script>
+<!-- 全局配置 -->
 
+<!-- 主要文件 -->
 <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/single.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- 主要文件 -->
 
 <?php get_footer(); ?>

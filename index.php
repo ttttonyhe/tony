@@ -115,11 +115,7 @@ else $m = 1;
             </a>
             
             <!-- 文章描述 -->
-            <?php if ($m) { ?>
-                <p class="article-list-content" v-html="md.render(post.post_excerpt.nine)" :id="post.id"></p>
-            <?php } else { ?>
-                <p class="article-list-content" v-html="post.post_excerpt.nine" :id="post.id"></p>
-            <?php } ?>
+            <p class="article-list-content" v-html="post.post_excerpt.nine" :id="post.id"></p>
             <!-- 文章描述 -->
             
             <!-- 底部信息 -->
