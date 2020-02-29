@@ -39,8 +39,9 @@
 <br/>
 
 ### Installation
-```
-git clone git@github.com:HelipengTony/tony.git
+```bash
+// Download theme files from build branch
+git clone -b build git@github.com:HelipengTony/tony.git
 ```
 + WordPress Dashboard「Themes」 -> Upload -> Active
 + WordPress Themes folder -> New Folder -> Upload All Files
@@ -54,23 +55,22 @@ git clone git@github.com:HelipengTony/tony.git
 + Based on Vue.js 2.6
 + Comprehensive custom settings
 + Optimized comment system
-+ Support WordPress 4.4+
 + Beautiful and elegant design
 + Infinite Loading
 + Post quick-view
-+ Embed posts
++ Post embeding
 + Multiple post list styles
-+ Multiple page template
++ Multiple page templates
 + Back-to-top button
-+ Better searching system
++ Better searching experience
 + Automatic post index
 + Automatic Darkmode
 + Reading progress bar
 + Markdown auto rendering
 + Built using Webpack & Scss
-+ Posts archive page
++ Archive page
 + Support Gutenberg editor
-+ Support sticky post
++ Sticky posts
 + And more…
 
 <br/>
@@ -81,9 +81,9 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### Dashboard Options
-Descriptions are below the options
+Read the descriptions before using an option
 <br/>
-Includes Automatic Update Checking Feature (v2.0+)
+Automatic Update Checking Feature (v2.0+)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
@@ -92,7 +92,7 @@ Includes Automatic Update Checking Feature (v2.0+)
 <br/>
 
 ### Donate to me
-Your name will be on the list [Donation](https://www.snapaper.com/donate)
+Your name will be on the list [Donation](https://www.ouorz.com/donation)
 <br/>
 
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)

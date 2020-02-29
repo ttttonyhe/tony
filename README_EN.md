@@ -22,8 +22,9 @@ An Elegant WordPress Theme Based on Vue.js
 <br/>
 
 ### 安装指南
-```
-git clone git@github.com:HelipengTony/tony.git
+```bash
+// 从 build 分支下载主题文件
+git clone -b build git@github.com:HelipengTony/tony.git
 ```
 + WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题
 + WordPress Themes 文件夹新建文件夹，并上传所有文件
@@ -80,7 +81,7 @@ git clone git@github.com:HelipengTony/tony.git
 <br/>
 
 ### 向我投食
-贡献者名字将会列于 [贡献者列表](https://www.snapaper.com/donate)
+贡献者名字将会列于 [贡献者列表](https://www.ouorz.com/donation)
 <br/>
 
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
