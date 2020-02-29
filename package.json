@@ -1,0 +1,22 @@
+{
+  "name": "tony",
+  "version": "1.0.0",
+  "description": "An Elegant WordPress Theme Based on Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development && sass ./src/css/style.scss ./dist/css/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelipengTony/tony.git"
+  },
+  "author": "TonyHe",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/HelipengTony/tony/issues"
+  },
+  "homepage": "https://github.com/HelipengTony/tony#readme",
+  "dependencies": {
+    "markdown-it-texmath": "^0.6.0"
+  }
+}
