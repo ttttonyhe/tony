@@ -203,7 +203,7 @@ $(document).ready(function () { //避免爆代码
                                     $('#btn' + postId).html('收起速览'); //更改按钮
 
                                     if (!!this.m) {
-                                        var show_con = response.data.content.rendered.replace(reg1, '').replace(reg2, '').replace(reg3, '');
+                                        var show_con = response.data.md_content;
                                         show_con = md.render(show_con);
                                         pre_post_con = md.render(response.data.post_excerpt.nine); //保存摘录
                                     } else {

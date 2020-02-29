@@ -189,21 +189,26 @@ else $m = 1;
 </ul>
 <!-- 文章列表 -->
 
-<script src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+<!-- MarkDown 及插件引入 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css" />
+<link rel="stylesheet" href="https://static.ouorz.com/texmath.css" />
+<script type="text/javascript" src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.js"></script>
+<script type="text/javascript" src="https://static.ouorz.com/texmath.js"></script>
+<!-- MarkDown 及插件引入 -->
+
+<!-- REST API 请求加密引入 -->
 <script src="https://cdn.staticfile.org/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<!-- REST API 请求加密引入 -->
 <script>
+    let tm = texmath.use(katex);
     // Markdown 实例化
     var md = window.markdownit({
         html: true,
         xhtmlOut: false,
         breaks: true,
         linkify: true
-    });
-
-    //去除标签混淆
-    var reg1 = new RegExp('<p>', 'g');
-    var reg2 = new RegExp('</p>', 'g');
-    var reg3 = new RegExp('<br />', 'g');
+    }).use(tm,{delimiters:'dollars',macros:{"\\RR": "\\mathbb{R}"}});
 
     window.index_p = <?php echo $p; ?>;
     window.index_m = '<?php if ($m) echo 'true';
