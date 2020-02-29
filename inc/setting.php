@@ -135,14 +135,6 @@ if (is_admin()) {
         ),
 
         array(
-            'name' => 'MarkDown 文章 KaTex 解析',
-            'id' => 'king_markdown_tex',
-            'type' => 'select',
-            'op_des' => '是否开启 MarkDown 文章内容 KaTex 内容解析',
-            'options' => array('开启', '关闭')
-        ),
-
-        array(
             'name' => '首页排除分类',
             'id' => 'king_index_exclude',
             'type' => 'text',

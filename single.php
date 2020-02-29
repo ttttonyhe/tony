@@ -111,22 +111,11 @@ else $tex = false;
 </article>
 
 <!-- MarkDown 及插件引入 -->
-<!-- KaTex 插件引入 -->
-<?php if ($tex) { ?>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css" />
-    <link rel="stylesheet" href="https://static.ouorz.com/texmath.css" />
-<?php } ?>
-
-<!-- MarkDown 依赖引入 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.css" />
+<link rel="stylesheet" href="https://static.ouorz.com/texmath.css" />
 <script type="text/javascript" src="https://cdn.staticfile.org/markdown-it/10.0.0/markdown-it.min.js"></script>
-<!-- MarkDown 依赖引入 -->
-
-<!-- KaTex 插件引入 -->
-<?php if ($tex) { ?>
-    <script type="text/javascript" src="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.js"></script>
-    <script type="text/javascript" src="https://static.ouorz.com/texmath.js"></script>
-<?php } ?>
-<!-- KaTex 插件引入 -->
+<script type="text/javascript" src="https://cdn.staticfile.org/KaTeX/0.11.1/katex.min.js"></script>
+<script type="text/javascript" src="https://static.ouorz.com/texmath.js"></script>
 <!-- MarkDown 及插件引入 -->
 
 <!-- 全局配置 -->
