@@ -45,19 +45,6 @@ else $a = true;
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <ul class="article-list" style="opacity:0">
 
     <li v-if="loading" class="article-list-item reveal index-post-list uk-scrollspy-inview loading-line"><em class="article-list-type1" style="padding: 5.5px 45px;">&nbsp;</em> <a style="text-decoration: none;">
@@ -135,25 +122,18 @@ else $a = true;
     <!-- 加载按钮 -->
 </ul>
 
-
-
-
-
 <script>
     window.cate_id = <?php echo $id; ?>;
     window.site_url = '<?php echo site_url() ?>';
     window.cate_name = '<?php echo $name; ?>';
     window.cate_des = '<?php echo $des; ?>';
-
     window.cate_exclude_option = '<?php if (get_option('king_index_cate_exclude')) echo get_option('king_index_cate_exclude'); ?>';
     <?php if (get_option('king_index_cate_exclude')) { ?>
         window.cate_exclude = 'true';
     <?php } else { ?>
         window.cate_exclude = 'false';
     <?php } ?>
-
     window.index_p = <?php echo $p; ?>;
-
     window.cate_fre = <?php if (get_option('king_fre_cate')) echo get_option('king_fre_cate');
                         else echo '0' ?>;
     window.cate_wor = <?php if (get_option('king_wor_cate')) echo get_option('king_wor_cate');
@@ -161,29 +141,5 @@ else $a = true;
 </script>
 
 <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/archive.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php get_footer(); ?>

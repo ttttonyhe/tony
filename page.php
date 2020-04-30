@@ -36,30 +36,6 @@ get_header(); ?>
     </div>
 </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 window.site_url = '<?php echo site_url() ?>';
 window.post_id = <?php echo $post->ID; ?>;
