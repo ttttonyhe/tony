@@ -30,6 +30,11 @@
     <?php echo stripslashes(get_option('king_zztj')); ?>
     <script src="https://cdn.staticfile.org/highlight.js/9.18.1/highlight.min.js"></script>
     <link href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/a11y-dark.min.css" rel="stylesheet">
+    <!-- 额外的 css 获取 -->
+    <style>
+        <?php echo wp_get_custom_css(); ?>
+    </style>
+    
 </head>
 
 <body id="body">
