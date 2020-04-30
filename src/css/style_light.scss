@@ -622,6 +622,8 @@ img {
     font-size: 15px;
     margin: 0px;
     color: #ada8a8;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .footer a {
@@ -850,6 +852,11 @@ img {
     .grid-cell.with-11off {
         margin-left: 0
     }
+
+    .footer p {
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 
 .about {
@@ -1006,7 +1013,7 @@ img {
     display: block;
     margin: 12px 0 10px;
     font-size: 15px;
-    color: #615b5b;
+    color: #777;
 }
 
 .article-list-footer {
@@ -2206,6 +2213,7 @@ table {
     float: right;
     vertical-align: top;
     border-radius: 100px;
+    outline:none;
 }
 
 .list-show-div {
@@ -2727,6 +2735,11 @@ table {
     margin-bottom: 10px;
     height: 25px;
     background: #f1f2f3;
+}
+
+.tonys-love {
+    color: rgb(228, 16, 0);
+    font-size: 12px;
 }
 
 /* End of The Tony Version */
