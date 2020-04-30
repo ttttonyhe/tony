@@ -69,6 +69,13 @@ if (is_admin()) {
             'op_des' => '本站 ICP 备案号，将展示在站点左下角，为空不填则不展示'
         ),
         array(
+            'name' => '在底部展示备案号',
+            'id' => 'king_icp_display_bottom',
+            'type' => 'select',
+            'op_des' => '是否将备案号添加在站点底部区域展示，侧边展示将被关闭',
+            'options' => array('关闭', '开启')
+        ),
+        array(
             'name' => '站长统计代码',
             'id' => 'king_zztj',
             'type' => 'textarea',
