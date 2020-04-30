@@ -184,7 +184,7 @@ $(document).ready(function () { //避免爆代码
                         return;
                     }
                 }
-
+                pre_post_con = $('#' + postId).html(); //保存摘录
                 $('#' + postId).html('<div uk-spinner></div><h7 class="loading-text">加载中...</h7>');
                 axios.get(this.site_url + '/wp-json/wp/v2/posts/' + postId)
                     .then(response => {
@@ -205,10 +205,8 @@ $(document).ready(function () { //避免爆代码
                                     if (!!this.m) {
                                         var show_con = response.data.md_content;
                                         show_con = md.render(show_con);
-                                        pre_post_con = md.render(response.data.post_excerpt.nine); //保存摘录
                                     } else {
                                         var show_con = response.data.content.rendered;
-                                        pre_post_con = response.data.post_excerpt.nine; //保存摘录
                                     }
 
                                     $('#' + postId).addClass('preview-p').html(
