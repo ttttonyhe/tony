@@ -30,19 +30,19 @@
             $('#view-div').css('display','none');
             
             $('#header-div').hover(function(){
-            $('#header-div').attr('class','tony-header-scoll');
+            $('#header-div').attr('class','tony-header-scroll');
             },function(){
             $('#header-div').attr('class','tony-header-fixed');
             })
             
         }else{
-            $('#header-div').attr('class','tony-header-scoll');
+            $('#header-div').attr('class','tony-header-scroll');
             $('#view-div').css('display','block');
             
             $('#header-div').hover(function(){
-            $('#header-div').attr('class','tony-header-scoll');
+            $('#header-div').attr('class','tony-header-scroll');
             },function(){
-            $('#header-div').attr('class','tony-header-scoll');
+            $('#header-div').attr('class','tony-header-scroll');
             })
         }
       });
