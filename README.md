@@ -40,7 +40,6 @@
 
 ### Installation
 ```bash
-// Download theme files from build branch
 git clone -b build git@github.com:HelipengTony/tony.git
 ```
 + WordPress Dashboard「Themes」 -> Upload -> Active
@@ -51,20 +50,20 @@ git clone -b build git@github.com:HelipengTony/tony.git
 <br/>
 
 ### Features
-+ Optimized for mobile website
++ Optimized for mobile
 + Based on Vue.js 2.6
 + Comprehensive custom settings
-+ Optimized comment system
++ Optimized commenting system
 + Beautiful and elegant design
 + Infinite Loading
 + Post quick-view
-+ Post embeding
++ Post embedding
 + Multiple post list styles
 + Multiple page templates
 + Back-to-top button
 + Better searching experience
 + Automatic post index
-+ Automatic Darkmode
++ Automatic Dark Mode
 + Reading progress bar
 + Markdown auto rendering
 + Built using Webpack & Scss
@@ -81,9 +80,9 @@ git clone -b build git@github.com:HelipengTony/tony.git
 <br/>
 
 ### Dashboard Options
-Read the descriptions before using an option
+Descriptions are attached below each option
 <br/>
-Automatic Update Checking Feature (v2.0+)
+Feature: Automatic Update Checking (v2.0+)
 <br/>
 
 ![Thumbnail](https://i.loli.net/2019/02/18/5c6a80530c1b8.png)
@@ -91,15 +90,36 @@ Automatic Update Checking Feature (v2.0+)
 
 <br/>
 
-### Donate to me
-Your name will be on the list [Donation](https://www.ouorz.com/donation)
+### Sponsor me
+Your name will be on the list [Sponsors](https://www.ouorz.com/sponsor)
 <br/>
 
 ![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
 
-File an issue if you encountered any problem
-<br/>
+File an issue whenever you encountered any problem
+
 I will reply you as soon as possible
+
+<br/>
+
+### Contribution
+Source codes can be found in src/ directory.
+
+Rebuild JS files using webpack after modification:
+```bash
+// if webpack is not installed
+npm install -g webpack webpack-cli
+webpack
+```
+
+Rebuild SCSS files using sass after modification:
+```bash
+// if sass is not installed
+gem install sass
+sass src/css/style.scss:dist/css/style.css
+```
+
+<br/>
 

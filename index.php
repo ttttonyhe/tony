@@ -1,54 +1,49 @@
 <?php
 get_header();
-
-//初始判断
-if (!get_option('king_per_page')) $p = '6';
-else $p = get_option('king_per_page');
-if (get_option('king_display_author') == '关闭') $a = false;
-else $a = true;
-if (!get_option('markdown-it')) $m = 0;
-elseif (get_option('markdown-it') == '关闭') $m = 0;
-else $m = 1;
-
+$p = !get_option('king_per_page') ? '6' : get_option('king_per_page');
+$a = get_option('king_display_author') == '关闭' ? true : false;
+$m = !get_option('markdown-it') || get_option('markdown-it') == '关闭' ? 0 : 1;
 ?>
 
 <!-- 首页顶部 -->
 <div id="header_info" class="index-top">
     <nav class="header-nav reveal">
-        
+
         <!-- 顶部 logo 展示 -->
         <?php if (get_option('king_logo_header') == '开启') { ?>
             <img class="header-avatar-top" src="<?php tony_func('echo_logo'); ?>">
         <?php } ?>
         <!-- 顶部 logo 展示 -->
-        
+
         <!-- 顶部标题与描述 -->
         <a style="text-decoration:none;" href="<?php echo site_url() ?>" class="header-logo" title="<?php echo get_bloginfo('name'); ?>"><?php echo get_bloginfo('name'); ?></a>
         <p class="lead" style="margin-top: 0px;margin-left:5px"><?php get_tony_ms(); ?></p>
         <!-- 顶部标题与描述 -->
-        
+
     </nav>
-    
+
     <!-- 分类或后台菜单 -->
     <div class="index-cates">
         <?php
-            if (get_option('king_nav_display_top')) {
+        if (get_option('king_nav_display_top')) {
             $array_menu = wp_get_nav_menu_items(get_option('king_nav_display_top'));
             $menu = array();
             foreach ($array_menu as $m) {
                 if (empty($m->menu_item_parent)) {
-                    ?>
+        ?>
                     <li class="cat-item cat-item-4 cat-real">
                         <a href="<?php echo $m->url ?>"><?php echo $m->title ?></a>
                     </li>
-            <?php }}} else { ?>
+            <?php }
+            }
+        } else { ?>
             <li class="cat-item cat-item-4 cat-real" style="display:none" v-for="cate in cates" v-if="cate.count !== 0"> <a :href="cate.link" :title="cate.description" v-html="cate.name"></a>
             </li>
             <li class="cat-item cat-item-4 loading-line" style="display: inline-block;width: 98%;height: 35px;box-shadow: none;border-radius: 0px;background: rgb(236, 237, 239);" v-if="loading_cates"></li>
         <?php } ?>
     </div>
     <!-- 分类或后台菜单 -->
-    
+
     <!-- 顶部标签 -->
     <div>
         <ul class="post_tags">
@@ -59,7 +54,7 @@ else $m = 1;
         </ul>
     </div>
     <!-- 顶部标签 -->
-    
+
 </div>
 <!-- 首页顶部 -->
 
@@ -77,21 +72,21 @@ else $m = 1;
 
     <!-- 文章卡片 -->
     <li :class="'article-list-item reveal index-post-list ' + (post.sticky ? 'sticky-one' : '')" v-for="post in posts">
-        
+
         <!-- 无特色图像文章 -->
         <template v-if="post.post_img.url == false">
-            
+
             <!-- 标签与分类 -->
             <div class="list-show-div">
-                
+
                 <!-- 置顶文章提示 -->
                 <em class="article-list-type1 sticky-one-tag" v-if="post.sticky"><i class="czs-arrow-up-l" style="font-size: 14px;font-weight: 600;"></i> 置顶</em>
                 <!-- 置顶文章提示 -->
-                
+
                 <!-- 特别分类标签 -->
                 <em v-if="post.post_categories[0].term_id === <?php tony_func('echo_s_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php tony_func('echo_ph_cate'); ?>')  }}</em>
                 <!-- 特别分类标签 -->
-                
+
                 <!-- 一般分类标签 -->
                 <div v-else class="article-list-tags">
                     <a :href="post.post_categories[0].link" v-html="post.post_categories[0].name"></a>
@@ -103,34 +98,34 @@ else $m = 1;
                     </template>
                 </div>
                 <!-- 一般分类标签 -->
-                
+
                 <button type="button" class="list-show-btn" @click="preview(post.id)" :id="'btn'+post.id" v-if="post.excerpt.rendered !== ''">全文速览</button>
-                
+
             </div>
             <!-- 标签与分类 -->
-            
+
             <!-- 文章信息 -->
             <a :href="post.link" style="text-decoration: none;">
                 <h5 v-html="post.title.rendered"></h5>
             </a>
-            
+
             <!-- 文章描述 -->
             <p class="article-list-content" v-html="post.post_excerpt.nine" :id="post.id"></p>
             <!-- 文章描述 -->
-            
+
             <!-- 底部信息 -->
             <div class="article-list-footer">
-                <?php if($a){ ?>
-                 <span class="article-list-date display-author" v-html="post.post_metas.author"></span>
-                 <span class="article-list-divider">-</span>
-                 <?php } ?>
+                <?php if ($a) { ?>
+                    <span class="article-list-date display-author" v-html="post.post_metas.author"></span>
+                    <span class="article-list-divider">-</span>
+                <?php } ?>
                 <span class="article-list-date">{{ post.post_date }}</span>
                 <span class="article-list-divider">-</span>
                 <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
                 <span v-else class="article-list-minutes">0&nbsp;Views</span>
             </div>
             <!-- 底部信息 -->
-            
+
             <!-- 文章信息 -->
         </template>
         <!-- 无特色图像文章 -->
@@ -138,16 +133,16 @@ else $m = 1;
         <!-- 存在特色图像的文章 -->
         <template v-else>
             <div class="article-list-img-else">
-                
+
                 <!-- 文章特色图像 -->
                 <div class="article-list-img" :style="'background-image:url(' + post.post_img.url +')'"></div>
                 <!-- 文章特色图像 -->
-                
+
                 <!-- 文章信息 -->
                 <div class="article-list-img-right">
-                <!-- 置顶文章提示 -->
-                <em class="article-list-type1 sticky-one-tag" v-if="post.sticky"><i class="czs-arrow-up-l" style="font-size: 14px;font-weight: 600;"></i> 置顶</em>
-                <!-- 置顶文章提示 -->
+                    <!-- 置顶文章提示 -->
+                    <em class="article-list-type1 sticky-one-tag" v-if="post.sticky"><i class="czs-arrow-up-l" style="font-size: 14px;font-weight: 600;"></i> 置顶</em>
+                    <!-- 置顶文章提示 -->
                     <em v-if="post.post_categories[0].term_id === <?php tony_func('echo_s_cate'); ?>" class="article-list-type1">{{ post.post_categories[0].name + ' | ' + (post.post_metas.tag_name ? post.post_metas.tag_name.toUpperCase() : '<?php tony_func('echo_ph_cate'); ?>')  }}</em>
                     <a v-else :href="post.post_categories[0].link" v-html="post.post_categories[0].name" class="img-cate"></a>
                     <a :href="post.link" style="text-decoration: none;">
@@ -155,10 +150,10 @@ else $m = 1;
                     </a>
                     <p v-html="post.post_excerpt.four" :id="post.id"></p>
                     <div class="article-list-footer">
-                        <?php if($a){ ?>
-                 <span class="article-list-date" v-html="post.post_metas.author"></span>
-                 <span class="article-list-divider">-</span>
-                 <?php } ?>
+                        <?php if ($a) { ?>
+                            <span class="article-list-date" v-html="post.post_metas.author"></span>
+                            <span class="article-list-divider">-</span>
+                        <?php } ?>
                         <span class="article-list-date">{{ post.post_date }}</span>
                         <span class="article-list-divider">-</span>
                         <span v-if="post.post_metas.views !== ''" class="article-list-minutes">{{ post.post_metas.views }}&nbsp;Views</span>
@@ -166,11 +161,11 @@ else $m = 1;
                     </div>
                 </div>
                 <!-- 文章信息 -->
-                
+
             </div>
         </template>
         <!-- 存在特色图像的文章 -->
-        
+
     </li>
     <!-- 文章卡片 -->
 
@@ -208,7 +203,12 @@ else $m = 1;
         xhtmlOut: false,
         breaks: true,
         linkify: true
-    }).use(tm,{delimiters:'dollars',macros:{"\\RR": "\\mathbb{R}"}});
+    }).use(tm, {
+        delimiters: 'dollars',
+        macros: {
+            "\\RR": "\\mathbb{R}"
+        }
+    });
 
     window.index_p = <?php echo $p; ?>;
     window.index_m = '<?php if ($m) echo 'true';
@@ -264,4 +264,5 @@ else $m = 1;
 </script>
 
 <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/dist/js/index.js"></script>
+
 <?php get_footer(); ?>
