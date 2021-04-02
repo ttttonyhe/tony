@@ -5,7 +5,7 @@ if (get_option('king_icp_display') && !!is_home() && get_option('king_icp_displa
     $icpDisplay = true;
     echo '
         <div class="icp-div">
-            <a href="http://www.beian.miit.gov.cn/" target="_blank">' . get_option('king_icp_display') . '</a>
+            <a href="http://beian.miit.gov.cn/" target="_blank">' . get_option('king_icp_display') . '</a>
         </div>
     ';
 }
