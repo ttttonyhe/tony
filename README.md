@@ -24,6 +24,10 @@
 
 <br/>
 
+> This project is not actively maintained
+
+<br/>
+
 ### ScreenShot
 <br/>
 
@@ -40,12 +44,11 @@
 
 ### Installation
 ```bash
-git clone -b build git@github.com:HelipengTony/tony.git
+git clone git@github.com:HelipengTony/tony.git
 ```
 + WordPress Dashboard「Themes」 -> Upload -> Active
 + WordPress Themes folder -> New Folder -> Upload All Files
-+ You may join our QQ group : 454846972
-
++ Community QQ group : 454846972
 
 <br/>
 
@@ -74,7 +77,7 @@ git clone -b build git@github.com:HelipengTony/tony.git
 
 <br/>
 
-### Change Logs and Release
+### Changelogs and Releases
 [https://github.com/HelipengTony/tony/releases](https://github.com/HelipengTony/tony/releases)
 
 <br/>
@@ -92,31 +95,24 @@ Feature: Automatic Update Checking (v2.0+)
 
 ### Sponsor me
 Your name will be on the list [Sponsors](https://www.ouorz.com/sponsor)
-<br/>
-
-![Donate](https://i.loli.net/2019/02/18/5c6a80afd1e26.png)
 
 <br/>
 
-File an issue whenever you encountered any problem
-
-I will reply you as soon as possible
+Create an issue whenever you encountered any problem, pull requests are always welcomed.
 
 <br/>
 
 ### Contribution
-Source codes can be found in src/ directory.
+Source codes can be found in `src` directory.
 
-Rebuild JS files using webpack after modification:
+Rebuild JavaScript files using webpack after modification:
 ```bash
-// if webpack is not installed
 npm install -g webpack webpack-cli
 webpack
 ```
 
 Rebuild SCSS files using sass after modification:
 ```bash
-// if sass is not installed
 gem install sass
 sass src/css/style.scss:dist/css/style.css
 ```
