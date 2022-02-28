@@ -24,7 +24,7 @@
 
 <br/>
 
-> This project is not actively maintained
+> This project is not actively maintained, legacy code alert!
 
 <br/>
 
