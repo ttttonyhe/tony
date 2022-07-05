@@ -6,6 +6,10 @@ An Elegant WordPress Theme Based on Vue.js
 
 <br/>
 
+> 此项目已不再积极维护，代码属历史存留，寻求并欢迎新的维护者
+
+<br/>
+
 ### 首页截图
 <br/>
 
